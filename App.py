@@ -30,7 +30,15 @@ class User(UserMixin):
     def __repr__(self):
         return '<User {}>'.format(self.email)
 
-@app.route('/login')
+class Material:
+    def __init__(self, name, cant, unit, type, proveedor, contacto):
+        self.name = name
+        self.unit = unit
+        self.contacto = contacto
+        self.cant = cant
+        self.type = type
+        self.proveedor = proveedor
+
 def login ():
     data = []
     return render_template('login.html', contacts=data)
@@ -41,9 +49,24 @@ def index ():
     data = []
     return render_template('index.html', contacts=data)
 
+@app.route('/materiales')
+def mats ():
+    data = []
+    return render_template('materiales.html', contacts=data)
 current_user = User("asd110","brian","a@a.com","1221321")
 
 
+def queryObject(self):
+    with store.open_session() as session:
+        matList = list(  # Materialize query
+            session
+            .query(object_type=Material)  # Query for Products
+            # .where_greater_than("UnitsInStock", 5)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select("name", "year", "rating")  # Project
+        )
+    store.close()
+    return pelisList
 
 if __name__=="__main__":
         app.run(port=3000,debug=True)

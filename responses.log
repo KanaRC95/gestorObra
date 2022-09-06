@@ -553,3 +553,137 @@ INFO:werkzeug:127.0.0.1 - - [01/Sep/2022 20:02:42] "[33mGET /static/js/main.js 
 INFO:werkzeug:127.0.0.1 - - [01/Sep/2022 20:02:42] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [01/Sep/2022 20:02:42] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [01/Sep/2022 20:02:42] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:27:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:27:10] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:27:10] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:27:10] "GET /static/img/logo%20cat.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:27:10] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:27:10] "GET /static/img/arq.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:27:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:23] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:23] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:23] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:23] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:23] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:23] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:24] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:24] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:24] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:36:24] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:54] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:54] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:54] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:55] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:55] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:55] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:37:55] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:03] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:03] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:03] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:03] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:47] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:47] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:38:47] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:00] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:00] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:00] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:00] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:47] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:47] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:39:47] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:40:14] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:40:14] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:40:14] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:40:14] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:41:05] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:41:05] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:41:05] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:41:05] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:16] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:16] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:16] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:37] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:37] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:37] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:42:37] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:43:55] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:43:55] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:43:55] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:44:30] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:44:30] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:44:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:44:41] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:44:41] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:44:41] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:45:59] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:45:59] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:45:59] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:46:56] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:46:56] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:46:56] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:48:32] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:48:32] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:48:32] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:49:25] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:49:25] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:49:25] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:49:37] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:49:37] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:49:37] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:50:44] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:50:44] "[33mGET /static/js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:50:44] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:51:50] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:52:54] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:52:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:52:54] "GET /static/js/bootstrap.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:52:57] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:52:57] "GET /static/js/bootstrap.js.map HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:24] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:24] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:24] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:30] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:30] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:37] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:37] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:46] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:46] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 18:54:46] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 19:00:57] "GET /materiales HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 19:00:57] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [06/Sep/2022 19:00:57] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
