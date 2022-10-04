@@ -1,0 +1,21 @@
+Time, Thread, Level, Source, Logger, Message, Exception
+2022-09-29T22:43:46.5910409Z, 1, Operations, Server, Raven.Server.Program,  Build 54001, Version 5.4, SemVer 5.4.1, Commit 218b6be
+ PID 47820, 64 bits, 4 Cores, Arch: X64
+ 7.47 GBytes Physical Memory, 838.32 MBytes Available Memory, 2.901 GBytes Calculated Available Memory, 0 Bytes Scratch Dirty Memory
+ Using GC in server concurrent mode.
+librvnpal Expected Version: 42013, librvnpal Current Version: 42013
+2022-09-29T22:43:47.6615212Z, 1, Operations, Server, Sparrow.Platform.Posix.KernelVirtualFileSystemUtils, no swap defined on this system according to /proc/swaps
+2022-09-29T22:43:49.7764223Z, 12, Operations, A, Raven.Server.Rachis.RachisConsensus, Took way too much time (00:00:00.6476462) to change the state to LeaderElect in term 4. (Election timeout:00:00:00.3000000)
+2022-09-30T00:56:47.0546902Z, 14, Operations, Server, Sparrow.LowMemory.LowMemoryNotification, Running 28 low memory handlers with severity: Low. Commit charge: 11.996 GBytes / 7.47 GBytes, Memory: 7.328 GBytes / 7.47 GBytes, Available memory for processing: 744.66 MBytes, Dirty memory: 0 Bytes, Managed memory: 31.95 MBytes, Unmanaged allocations: 2.14 MBytes
+2022-09-30T00:56:52.2339939Z, 14, Operations, Server, Sparrow.LowMemory.LowMemoryNotification, Running 28 low memory handlers with severity: Low. Commit charge: 12.018 GBytes / 7.47 GBytes, Memory: 7.322 GBytes / 7.47 GBytes, Available memory for processing: 723.71 MBytes, Dirty memory: 0 Bytes, Managed memory: 32.88 MBytes, Unmanaged allocations: 1.71 MBytes
+2022-09-30T00:56:57.3972046Z, 14, Operations, Server, Sparrow.LowMemory.LowMemoryNotification, Running 28 low memory handlers with severity: Low. Commit charge: 12.218 GBytes / 7.47 GBytes, Memory: 7.249 GBytes / 7.47 GBytes, Available memory for processing: 562.78 MBytes, Dirty memory: 0 Bytes, Managed memory: 33.68 MBytes, Unmanaged allocations: 1.6 MBytes
+2022-09-30T01:18:02.8302741Z, 51, Operations, Server/TCP, Raven.Server.RavenServer, Failed to accept new tcp connection again, will wait 1 seconds before retrying, EXCEPTION: System.InvalidOperationException: Not listening. You must call the Start() method before calling this method.
+   at Raven.Server.RavenServer.AcceptTcpClientAsync(TcpListener listener) in C:\Builds\RavenDB-Stable-5.4\54001\src\Raven.Server\RavenServer.cs:line 2175
+2022-09-30T01:18:02.8302740Z, 33, Operations, Server/TCP, Raven.Server.RavenServer, Failed to accept new tcp connection again, will wait 1 seconds before retrying, EXCEPTION: System.InvalidOperationException: Not listening. You must call the Start() method before calling this method.
+   at Raven.Server.RavenServer.AcceptTcpClientAsync(TcpListener listener) in C:\Builds\RavenDB-Stable-5.4\54001\src\Raven.Server\RavenServer.cs:line 2175
+2022-09-30T01:18:02.8302740Z, 8, Operations, Server/TCP, Raven.Server.RavenServer, Failed to accept new tcp connection again, will wait 1 seconds before retrying, EXCEPTION: System.InvalidOperationException: Not listening. You must call the Start() method before calling this method.
+   at Raven.Server.RavenServer.AcceptTcpClientAsync(TcpListener listener) in C:\Builds\RavenDB-Stable-5.4\54001\src\Raven.Server\RavenServer.cs:line 2175
+2022-09-30T01:18:02.8303910Z, 3, Operations, Server/TCP, Raven.Server.RavenServer, Failed to accept new tcp connection again, will wait 1 seconds before retrying, EXCEPTION: System.InvalidOperationException: Not listening. You must call the Start() method before calling this method.
+   at Raven.Server.RavenServer.AcceptTcpClientAsync(TcpListener listener) in C:\Builds\RavenDB-Stable-5.4\54001\src\Raven.Server\RavenServer.cs:line 2175
+2022-09-30T01:18:02.9516337Z, 1, Operations, Server, Raven.Server.Program, Server has shut down
+2022-09-30T01:18:02.9564067Z, 2, Operations, Server, Raven.Server.Program, Server is about to shut down (interactive mode)
