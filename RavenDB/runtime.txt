@@ -1,2 +1,0 @@
-.NET Core SDK: 6.0.302
-.NET Core Runtime: 6.0.7
