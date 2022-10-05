@@ -1,6 +1,6 @@
 import flask
 from flask import Flask, render_template, request, url_for, flash, redirect
-from flask_login import LoginManager, UserMixin, login_user, login_required
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from pyravendb.store import document_store
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -19,24 +19,28 @@ current_user = ''
 data = []
 
 class User():
-    def __init__(self, id, name, email, password, auth, is_admin=False):
+    def __init__(self, id, name, email, password, auth= True, active= True, is_admin=False):
         self.id = id
         self.name = name
         self.email = email
-        self.password = generate_password_hash(password)
+        self.password = password
         self.auth = auth
+        self.active = active
         self.is_admin = is_admin
     def set_password(self, password):
         self.password = generate_password_hash(password)
     def check_password(self, password):
         return check_password_hash(self.password, password)
     def is_authenticated(self):
-        self.auth = True
-        return True
+        return self.auth
+    def is_active(self):
+        return self.active
     def get_id(self):
         return  self.id
     def __repr__(self):
         return '<User {}>'.format(self.email)
+
+
 
 class Material:
     def __init__(self, name, unit, type, price, proveedor, contacto):
@@ -67,20 +71,32 @@ class Material:
 
 user = User('Kana','Brian','a@a.com','12345',True)
 
-
+def addObject(obj):
+    with store.open_session() as session:
+        session.store(obj)
+        session.save_changes()
+        store.close()
 
 @app.route('/')
 def inicio():
+    return render_template('index.html', data=data)
+
+@app.route('/feats')
+def feats():
+    addObject(user)
     return render_template('login.html', data=data)
 
 @login_manager.user_loader
-def load_user():
-    return user.get_id()
+def load_user(user_id):
+    user = queryUser(user_id)
+    return user[0]
+
 @app.route('/index')
 @login_required
 def index ():
     return render_template('index.html', data=data)
 @app.route('/mats')
+@login_required
 def mats ():
     temp =[]
     data = []
@@ -97,6 +113,9 @@ def mats ():
     print(data)
     return render_template('materiales.html', mats=data)
 
+@login_manager.unauthorized_handler
+def unauthorized():
+    return render_template('error.html')
 
 @app.route('/add_mat', methods=['POST'])
 def add_mats():
@@ -109,14 +128,17 @@ def add_mats():
         contacto = request.form['pcont']
 
         material = Material(name,units,tipo,precio, proveedor,contacto)
-        with store.open_session() as session:
-            session.store(material)
-            session.save_changes()
-            store.close()
+        addObject(material)
         return redirect(url_for('mats'))
-@app.route('/user')
+@app.route('/login')
 def loginScreen():
     return flask.render_template('login.html', form=data)
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect('/')
 
 @app.route('/logear', methods=['GET', 'POST'])
 def login():
@@ -127,10 +149,11 @@ def login():
 
         if not users:
             print('No hay usuarios')
-            return flask.render_template('index.html', form=data)
+            return flask.render_template('error.html', form=data)
         else:
             login_user(users[0])
-            return flask.render_template('materiales.html', form=data)
+            current_user = users[0]
+            return flask.render_template('homescreen.html', form=data)
 
 
 
@@ -158,6 +181,19 @@ def queryUsers(name,password):
         )
     store.close()
     return userList
+
+def queryUser(id):
+    with store.open_session() as session:
+        userList = list(  # Materialize query
+            session
+            .query(object_type=User)  # Query for Products
+            .where_equals("id",id) # Filter
+            # .skip(0).take(10)                       # Page
+            .select("id","name")  # Project
+        )
+    store.close()
+    return userList
+
 
 if __name__=="__main__":
         app.run(port=3000,debug=True)

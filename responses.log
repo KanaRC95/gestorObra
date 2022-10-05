@@ -1501,3 +1501,604 @@ INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 19:47:36] "[36mGET /static/css/main.cs
 INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 19:47:36] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 19:47:36] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 19:47:36] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:15:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:15:54] "GET /static/css/main.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:15:54] "GET /static/js/bootstrap.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:15:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4648722908240886345 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:01] "GET /mats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:01] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:01] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:45] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:45] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:47] "GET /mats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:53] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:53] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:16:54] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:17:00] "GET /index HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:28:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:28:00] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:28:00] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /databases/gestorObra/hilo/next?tag=users&lastBatchSize=0&lastRangeAt=0001-01-01%2000:00:00&identityPartsSeparator=/&lastMax=0 HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=32&last=1 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:28:15] "GET /feats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:28:15] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:28:15] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /databases/gestorObra/hilo/next?tag=users&lastBatchSize=0&lastRangeAt=0001-01-01%2000:00:00&identityPartsSeparator=/&lastMax=0 HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:29:22] "GET /feats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:29:22] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:29:22] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1367517798582559884 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:30:07] "[35m[1mPOST /logear HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:30:07] "GET /logear?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:30:07] "GET /logear?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:30:07] "GET /logear?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:30:08] "[36mGET /logear?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:16] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8320088606814175980 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:25] "POST /logear HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:25] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:25] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:30] "[35m[1mGET /mats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:30] "GET /mats?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:30] "GET /mats?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:30] "GET /mats?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:34:30] "[36mGET /mats?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:07] "[35m[1mGET / HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:07] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:07] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:07] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:07] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:12] "[35m[1mGET /mats HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:12] "[36mGET /mats?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:12] "[36mGET /mats?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:12] "[36mGET /mats?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:36:12] "[36mGET /mats?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6146119118474352994 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8205382695113921912 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:39] "GET /mats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:39] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:39] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6146119118474352994 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:45] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:45] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6146119118474352994 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8205382695113921912 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:53] "GET /mats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:53] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:41:53] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8695916810865261619 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /fonts/font-awesome-4.7.0/css/font-awesome.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /fonts/Linearicons-Free-v1.0.0/icon-font.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/animate/animate.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/css-hamburgers/hamburgers.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/animsition/css/animsition.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/select2/select2.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/daterangepicker/daterangepicker.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /css/util.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /css/main.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/jquery/jquery-3.2.1.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/animsition/js/animsition.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/bootstrap/js/popper.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/select2/select2.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/daterangepicker/moment.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/daterangepicker/daterangepicker.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /vendor/countdowntime/countdowntime.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /images/bg-01.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:48:54] "[33mGET /images/icons/favicon.ico HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8695916810865261619 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /fonts/font-awesome-4.7.0/css/font-awesome.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /fonts/Linearicons-Free-v1.0.0/icon-font.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/animate/animate.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/css-hamburgers/hamburgers.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/animsition/css/animsition.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/select2/select2.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/daterangepicker/daterangepicker.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /css/util.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /css/main.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/jquery/jquery-3.2.1.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/animsition/js/animsition.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/bootstrap/js/popper.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/select2/select2.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/daterangepicker/moment.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/daterangepicker/daterangepicker.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /vendor/countdowntime/countdowntime.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:50:54] "[33mGET /images/bg-01.jpg HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8695916810865261619 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /fonts/font-awesome-4.7.0/css/font-awesome.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /fonts/Linearicons-Free-v1.0.0/icon-font.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/animate/animate.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/css-hamburgers/hamburgers.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/animsition/css/animsition.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/select2/select2.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/daterangepicker/daterangepicker.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /css/util.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /css/main.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/jquery/jquery-3.2.1.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/animsition/js/animsition.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/bootstrap/js/popper.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/select2/select2.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/daterangepicker/moment.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/daterangepicker/daterangepicker.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /vendor/countdowntime/countdowntime.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:21] "[33mGET /images/bg-01.jpg HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8695916810865261619 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:34] "[33mGET /fonts/font-awesome-4.7.0/css/font-awesome.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:34] "[33mGET /vendor/bootstrap/css/bootstrap.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:34] "[33mGET /fonts/Linearicons-Free-v1.0.0/icon-font.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:34] "[33mGET /vendor/css-hamburgers/hamburgers.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:34] "[33mGET /vendor/animate/animate.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/animsition/css/animsition.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/select2/select2.min.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/daterangepicker/daterangepicker.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /css/util.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /css/main.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/jquery/jquery-3.2.1.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/animsition/js/animsition.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/bootstrap/js/popper.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/bootstrap/js/bootstrap.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/select2/select2.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/daterangepicker/moment.min.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/daterangepicker/daterangepicker.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /vendor/countdowntime/countdowntime.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /js/main.js HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:52:35] "[33mGET /images/bg-01.jpg HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4994828993716856437 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:54:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:54:09] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:54:09] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:54:09] "GET /static/img/logo%20cat.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:54:09] "GET /static/img/arq.png HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:54:52] "[33mGET /login HTTP/1.1[0m" 404 -
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4994828993716856437 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:54:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:55:21] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:55:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:55:21] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:55:21] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:58:47] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:58:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 22:58:47] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:00:26] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:00:26] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:00:26] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:01:05] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:01:05] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:01:05] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:01:16] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:01:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:01:16] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:03:03] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:03:03] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:03:03] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:03:56] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:03:56] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:03:56] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:03:56] "[33mGET /bg-01.jpg HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:04:23] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:04:23] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:04:23] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:04:23] "[33mGET /bg-01.jpg HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:05:57] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:05:57] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:05:57] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:05:57] "[33mGET /bg-01.jpg HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:06:46] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:06:46] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:06:46] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:06:46] "GET /static/img/bg-01.jpg HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:07:36] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:07:36] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:07:36] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:07:36] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:08:04] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:08:04] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:08:04] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:08:04] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:09:50] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:09:50] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:09:50] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:09:50] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:10:43] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:10:43] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:10:43] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:10:43] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:13] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:13] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:13] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:13] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:52] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:52] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:52] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:11:52] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:09] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:09] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:09] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:09] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:25] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:25] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:25] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:12:25] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:05] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:05] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:05] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:05] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:21] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:21] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:21] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:13:21] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5208481760289806679 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:14:31] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:14:31] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:14:31] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:14:31] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3810779691786688393 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:06] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:06] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:06] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:06] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3810779691786688393 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:11] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:11] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:11] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:11] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3547488620017028801 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:24] "POST /logear HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:24] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:15:24] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3810779691786688393 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7979526607146554484 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:16:33] "GET /mats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:16:33] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:16:33] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1890721105465656453 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:16] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:17] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:17] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5912647432662159968 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:36] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:36] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:36] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:36] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:21:36] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5256414558586733516 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:02] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:02] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:02] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:02] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5546941305979322080 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5256414558586733516 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:09] "POST /logear HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:09] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:09] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:09] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:09] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7928260383723293761 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:28] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:28] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:28] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:28] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6772825229017357788 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:41] "POST /logear HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:41] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:22:41] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7928260383723293761 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:23:31] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:23:31] "[33mGET /index.html HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:23:58] "[33mGET /index.html HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:16] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:16] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:16] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:17] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:17] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:17] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:17] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5930417062666601932 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:26] "POST /logear HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:29] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:29] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:29] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:29] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:31] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:31] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:31] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:31] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2440183035898262397 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:38] "POST /logear HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:38] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:38] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-708533986153970969 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:42] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:42] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:42] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:42] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:42] "[36mGET /static/img/arq.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Oct/2022 23:24:42] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -

@@ -1,1 +1,1 @@
-{"Nodes": [{"Url": "http://localhost:8080", "ClusterTag": "A", "ServerRole": "Member", "Database": "gestorObra"}], "Etag": 4}
+{"Nodes": [{"Url": "http://localhost:8080", "ClusterTag": "A", "ServerRole": "Member", "Database": "gestorObra"}], "Etag": -1}
