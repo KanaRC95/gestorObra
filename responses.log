@@ -2999,3 +2999,207 @@ INFO:werkzeug:127.0.0.1 - - [13/Oct/2022 21:19:31] "[36mGET /static/img/pres.jp
 INFO:werkzeug:127.0.0.1 - - [13/Oct/2022 21:19:31] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [13/Oct/2022 21:19:31] "[36mGET /static/img/proy.jpg HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [13/Oct/2022 21:19:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3254544943659931587 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:08] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:08] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:08] "GET /static/img/arq.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:08] "[36mGET /static/img/logo%20cat.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3254544943659931587 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:16] "GET /login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:16] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:16] "GET /static/img/bg-01.jpg HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE name = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3231108789156314284 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:22] "POST /logear HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:22] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:22] "[36mGET /static/img/pres.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:22] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:22] "GET /static/img/mats.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:22] "[36mGET /static/img/proy.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3254544943659931587 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2764294459017216021 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:29] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:29] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:29] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3254544943659931587 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2764294459017216021 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:35] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:35] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:35] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3254544943659931587 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:37] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:37] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:37] "[36mGET /static/img/pres.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:37] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:37] "[36mGET /static/img/mats.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:37] "[36mGET /static/img/proy.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3254544943659931587 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Trabajoes SELECT name, price, desc' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4719627255208023699 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:39] "GET /pres HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:39] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:39] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3254544943659931587 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2764294459017216021 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:42] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:42] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:28:42] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5652656062463704401 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7504132356854117642 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:28] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:28] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:28] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /databases/gestorObra/hilo/next?tag=users&lastBatchSize=0&lastRangeAt=0001-01-01%2000:00:00&identityPartsSeparator=/&lastMax=0 HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5652656062463704401 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:33] "GET /feats HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:33] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:33] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:33] "[36mGET /static/img/bg-01.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5652656062463704401 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:38] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:38] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:38] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:38] "[36mGET /static/img/pres.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:38] "[36mGET /static/img/mats.jpg HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:38] "[36mGET /static/img/proy.jpg HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5652656062463704401 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Trabajoes SELECT name, price, desc' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6421059401197712182 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:39] "GET /pres HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:39] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:39] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Trabajoes WHERE name = $p0 SELECT name, price, desc' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6907140521351420867 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:40] "[35m[1mGET /add_pres/Demolicion HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:40] "[36mGET /add_pres/Demolicion?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:40] "[36mGET /add_pres/Demolicion?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:40] "[36mGET /add_pres/Demolicion?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:40] "[36mGET /add_pres/Demolicion?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5652656062463704401 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Materials SELECT name, unit, contacto, type, price, proveedor' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7504132356854117642 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=users&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:44] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:44] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:30:44] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4978189092951960731 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Trabajoes SELECT name, price, desc' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3695378068822945246 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:10] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:10] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:10] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /databases/gestorObra/hilo/next?tag=trabajoes&lastBatchSize=0&lastRangeAt=0001-01-01%2000:00:00&identityPartsSeparator=/&lastMax=0 HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=trabajoes&end=33&last=2 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:50] "[35m[1mPOST /add_job HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:50] "[36mGET /add_job?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:50] "[36mGET /add_job?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:50] "[36mGET /add_job?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:31:50] "[36mGET /add_job?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0 SELECT id, name' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3557749472566833588 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Trabajoes SELECT name, price, desc' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3651955192386090220 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:33:19] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:33:19] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [18/Oct/2022 19:33:19] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in '/home/madportable/PycharmProjects/gestorObra/App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 338-109-653

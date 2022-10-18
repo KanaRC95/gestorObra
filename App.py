@@ -2,6 +2,7 @@ import flask
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from pyravendb.store import document_store
+from classes import *
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
@@ -19,67 +20,7 @@ current_user = ''
 data = []
 budget = []
 
-class User():
-    def __init__(self, id, name, email, password, auth= True, active= True, is_admin=False):
-        self.id = id
-        self.name = name
-        self.email = email
-        self.password = password
-        self.auth = auth
-        self.active = active
-        self.is_admin = is_admin
-    def set_password(self, password):
-        self.password = generate_password_hash(password)
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
-    def is_authenticated(self):
-        return self.auth
-    def is_active(self):
-        return self.active
-    def get_id(self):
-        return  self.id
-    def __repr__(self):
-        return '<User {}>'.format(self.email)
 
-class Trabajo:
-    def __init__(self,name, price, desc):
-        self.name = name
-        self.price = price
-        self.desc = desc
-
-    def getName(self):
-        return self.name
-    def getPrice(self):
-        return self.price
-    def getDesc(self):
-        return self.desc
-
-class Material:
-    def __init__(self, name, unit, type, price, proveedor, contacto):
-        self.name = name
-        self.unit = unit
-        self.type = type
-        self.price = price
-        self.proveedor = proveedor
-        self.contacto = contacto
-
-
-    def getName(self):
-        return self.name
-
-    def getUnit(self):
-        return self.unit
-
-    def getCon(self):
-        return self.contacto
-
-    def getType(self):
-        return self.type
-
-    def getSource(self):
-        return self.proveedor
-    def getPrice(self):
-        return self.price
 
 user = User('Kana','Brian','a@a.com','12345',True)
 
@@ -121,8 +62,8 @@ def rmats():
 @app.route('/jobs')
 @login_required
 def rjobs():
-    data = mats()
-    return render_template('trabajos.html', mats=data)
+    data = jobs()
+    return render_template('trabajos.html', jobs=data)
 
 @app.route('/pres')
 @login_required
@@ -143,7 +84,7 @@ def add_mats():
         proveedor = request.form['source']
         contacto = request.form['pcont']
 
-        material = Material(name,units,tipo,precio, proveedor,contacto)
+        material = Material(name,units,tipo,precio, proveedor,contacto,current_user)
         addObject(material)
         return redirect(url_for('mats'))
 
@@ -154,9 +95,10 @@ def add_job():
         precio = request.form['tprice']
         desc = request.form['tdesc']
 
-        trabajo = Trabajo(name,precio, desc)
+        trabajo = Trabajo(name,precio, desc, current_user)
         addObject(trabajo)
-        return redirect(url_for('jobs'))
+        data = jobs()
+        return render_template('trabajos.html', jobs=data)
 
 @app.route('/add_pres/<name>', methods=['POST','GET'])
 def add_pres(name):
