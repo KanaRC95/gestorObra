@@ -3,14 +3,15 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from pyravendb.store import document_store
 from classes import *
+from methods import *
+
 from werkzeug.security import check_password_hash, generate_password_hash
 
 
 # sudo /opt/lampp/lampp start
 # sudo /opt/lampp/lampp stop
 
-store = document_store.DocumentStore(urls=["http://localhost:8080"], database="gestorObra")
-store.initialize()
+
 
 app = Flask(__name__, template_folder="templates")
 app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b23a5d1616bf319bc298105da20fe'
@@ -19,16 +20,15 @@ login_manager.init_app(app)
 current_user = ''
 data = []
 budget = []
+budgetO = []
+TOTAL = 0
+BINDEX = -1
 
 
 
 user = User('Kana','Brian','a@a.com','12345',True)
 
-def addObject(obj):
-    with store.open_session() as session:
-        session.store(obj)
-        session.save_changes()
-        store.close()
+
 
 @app.route('/')
 def inicio():
@@ -65,11 +65,17 @@ def rjobs():
     data = jobs()
     return render_template('trabajos.html', jobs=data)
 
+@app.route('/clients')
+@login_required
+def cl():
+    data = clients()
+    return render_template('clients.html', clients=data)
+
 @app.route('/pres')
 @login_required
 def bgt():
     data = jobs()
-    return render_template('pres.html', jobs=budget, mats=data)
+    return render_template('pres.html', jobs=budget, mats=data, total=TOTAL)
 @login_manager.unauthorized_handler
 def unauthorized():
     return render_template('error.html')
@@ -88,6 +94,15 @@ def add_mats():
         addObject(material)
         return redirect(url_for('mats'))
 
+@app.route('/add_client', methods=['POST'])
+def add_client():
+    if request.method == 'POST':
+        name = request.form['cname']
+        contacto = request.form['ccont']
+        client = Cliente(name,contacto)
+        addObject(client)
+        return redirect('/clients')
+
 @app.route('/add_job', methods=['POST'])
 def add_job():
     if request.method == 'POST':
@@ -98,20 +113,45 @@ def add_job():
         trabajo = Trabajo(name,precio, desc, current_user)
         addObject(trabajo)
         data = jobs()
-        return render_template('trabajos.html', jobs=data)
+        return render_template('trabajos.html', jobs=data, mats=data)
+
+@app.route('/details', methods=['GET','POST'])
+def deets():
+    invoice()
+    return render_template('invoice.html')
 
 @app.route('/add_pres/<name>', methods=['POST','GET'])
 def add_pres(name):
+    global TOTAL, BINDEX
     temp = []
-    jobs = queryJobsL(name)
-    for x in jobs:
+    js = queryJobsL(name)
+    BINDEX += 1
+    for x in js:
+        budgetO.append(x)
+        TOTAL += int(x.getPrice())
+        temp.append(BINDEX)
         temp.append(x.getName())
         temp.append(x.getPrice())
         temp.append(x.getDesc())
         budget.append(temp)
         temp = []
-    return redirect(url_for('pres'))
+    return redirect('/pres')
+    #return flask.render_template('pres.html', jobs=budget, mats=data, total=TOTAL)
 
+@app.route('/delete/<id>', methods=['POST','GET'])
+def del_pres(id):
+    global TOTAL, BINDEX
+    BINDEX -= 1
+    TOTAL -= int(budget[int(id)][2])
+    budget.pop(int(id))
+    budgetO.pop(int(id))
+    return redirect('/pres')
+
+@app.route('/save', methods=['GET','POST'])
+def save():
+    pres = Presupuesto('test',current_user,budget)
+    addObject(pres)
+    return redirect('/home')
 @app.route('/login')
 def loginScreen():
     return flask.render_template('login.html', form=data)
@@ -139,91 +179,6 @@ def login():
 
 
 
-
-def queryMats():
-    with store.open_session() as session:
-        matList = list(  # Materialize query
-            session
-            .query(object_type=Material)  # Query for Products
-            # .where_greater_than("UnitsInStock", 5)  # Filter
-            # .skip(0).take(10)                       # Page
-            .select("name", "unit", "contacto", "type","price", "proveedor")  # Project
-        )
-    store.close()
-    return matList
-
-def queryJobs():
-    with store.open_session() as session:
-        jobList = list(  # Materialize query
-            session
-            .query(object_type=Trabajo)  # Query for Products
-            # .where_greater_than("UnitsInStock", 5)  # Filter
-            # .skip(0).take(10)                       # Page
-            .select("name", "price", "desc")  # Project
-        )
-    store.close()
-    return jobList
-def queryJobsL(name):
-    with store.open_session() as session:
-        jobList = list(  # Materialize query
-            session
-            .query(object_type=Trabajo)  # Query for Products
-            .where_equals("name",name)  # Filter
-            # .skip(0).take(10)                       # Page
-            .select("name", "price", "desc")  # Project
-        )
-    store.close()
-    return jobList
-def mats ():
-    temp =[]
-    data = []
-    mats = queryMats()
-    for x in mats:
-        temp.append(x.getName())
-        temp.append(x.getUnit())
-        temp.append(x.getType())
-        temp.append(x.getPrice())
-        temp.append(x.getSource())
-        temp.append(x.getCon())
-        data.append(temp)
-        temp = []
-    return(data)
-
-def jobs ():
-    temp =[]
-    data = []
-    mats = queryJobs()
-    for x in mats:
-        temp.append(x.getName())
-        temp.append(x.getPrice())
-        temp.append(x.getDesc())
-        data.append(temp)
-        temp = []
-    return(data)
-
-def queryUsers(name,password):
-    with store.open_session() as session:
-        userList = list(  # Materialize query
-            session
-            .query(object_type=User)  # Query for Products
-            .where_equals("name",name) # Filter
-            # .skip(0).take(10)                       # Page
-            .select("id","name")  # Project
-        )
-    store.close()
-    return userList
-
-def queryUser(id):
-    with store.open_session() as session:
-        userList = list(  # Materialize query
-            session
-            .query(object_type=User)  # Query for Products
-            .where_equals("id",id) # Filter
-            # .skip(0).take(10)                       # Page
-            .select("id","name")  # Project
-        )
-    store.close()
-    return userList
 
 
 if __name__=="__main__":

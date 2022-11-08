@@ -65,14 +65,23 @@ class Material:
         return self.user
 
 class Cliente():
-    def __init__(self,name):
+    def __init__(self,name, contacto):
         self.name = name
+        self.contacto = contacto
+
+    def getName(self):
+        return self.name
+
+    def getCont(self):
+        return self.contacto
 
 class Obrero():
     def __init__(self,name):
         self.name = name
 
 class Presupuesto():
-    def __init__(self,name):
-        self.name = name
+    def __init__(self,cname, user, details):
+        self.cname = cname
+        self.user = user
+        self.details = details
 

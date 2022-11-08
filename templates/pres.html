@@ -9,6 +9,7 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addJobs">
   Anhadir Trabajo
 </button>
+<H1>Total: {{total}}</H1>
 <table class="table table-striped table-hover table-bordered">
             <thead>
                 <tr>
@@ -20,11 +21,11 @@
             <tbody>
                 {% for job in jobs %}
                 <tr>
-                    <td>{{job.0}}</td>
                     <td>{{job.1}}</td>
                     <td>{{job.2}}</td>
+                    <td>{{job.3}}</td>
                     <td>
-                        <a type="button" class="btn btn-warning" href="/edit/{{job.0}}">Editar</a>
+                    <!--     <a type="button" class="btn btn-warning" href="/edit/{{job.0}}">Editar</a> -->
                         <a type="button" class="btn btn-danger" href="/delete/{{job.0}}">Borrar</a>
                     </td>
                 </tr>
@@ -32,6 +33,8 @@
             </tbody>
 </table>
 
+<a type="button" class="btn btn-primary center" href="/save">Guardar</a>
+<a type="button" class="btn btn-primary center" href="/details">Generar Planilla</a>
 <!-- Modal -->
         <div class="modal" id="addJobs">
   <div class="modal-dialog">
