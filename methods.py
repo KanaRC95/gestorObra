@@ -25,6 +25,18 @@ def queryMats():
     store.close()
     return matList
 
+def queryMatsN(name):
+    with store.open_session() as session:
+        matList = list(  # Materialize query
+            session
+            .query(object_type=Material)  # Query for Products
+            .where_equals("name",name)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select("name", "unit", "contacto", "type","price", "proveedor")  # Project
+        )
+    store.close()
+    return matList
+
 def queryJobs():
     with store.open_session() as session:
         jobList = list(  # Materialize query
@@ -80,6 +92,7 @@ def jobs ():
     mats = queryJobs()
     for x in mats:
         temp.append(x.getName())
+        #x.setPrice()
         temp.append(x.getPrice())
         temp.append(x.getDesc())
         data.append(temp)

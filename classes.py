@@ -17,22 +17,36 @@ class User():
         return '<User {}>'.format(self.email)
 
 class Trabajo:
-    def __init__(self,name, price, desc, User):
+    mats = []
+    def __init__(self,name, price, desc, Materiales):
         self.name = name
         self.price = price
         self.desc = desc
-        self.user = User
+        self.Materiales = Materiales
 
 
     def getName(self):
         return self.name
     def getPrice(self):
-        return self.price
+        price = 0
+        if not self.Materiales:
+            return price
+        else:
+            for mat in self.Materiales:
+                price = price + int(mat.getPrice())
+            return price
     def getDesc(self):
         return self.desc
-    def getUser(self):
-        return self.user
-
+    def getMateriales(self):
+        return self.Materiales
+    def addMaterial(self,obj):
+        self.mats.append(obj)
+        self.Materiales = self.mats
+    def setPrice(self):
+        price = 0
+        for mat in self.Materiales:
+            price = price + int(mat.getPrice())
+        self.price = price
 class Material:
     def __init__(self, name, unit, type, price, proveedor, contacto, User):
         self.name = name

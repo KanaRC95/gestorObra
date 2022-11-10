@@ -22,6 +22,7 @@ data = []
 budget = []
 budgetO = []
 TOTAL = 0
+title = ''
 BINDEX = -1
 
 
@@ -63,7 +64,8 @@ def rmats():
 @login_required
 def rjobs():
     data = jobs()
-    return render_template('trabajos.html', jobs=data)
+    data2 = mats()
+    return render_template('trabajos.html', jobs=data, mats=data2)
 
 @app.route('/clients')
 @login_required
@@ -92,7 +94,7 @@ def add_mats():
 
         material = Material(name,units,tipo,precio, proveedor,contacto,current_user)
         addObject(material)
-        return redirect(url_for('mats'))
+        return redirect(url_for('rmats'))
 
 @app.route('/add_client', methods=['POST'])
 def add_client():
@@ -109,8 +111,9 @@ def add_job():
         name = request.form['tname']
         precio = request.form['tprice']
         desc = request.form['tdesc']
+        materiales = []
 
-        trabajo = Trabajo(name,precio, desc, current_user)
+        trabajo = Trabajo(name,precio, desc, materiales)
         addObject(trabajo)
         data = jobs()
         return render_template('trabajos.html', jobs=data, mats=data)
@@ -138,6 +141,19 @@ def add_pres(name):
     return redirect('/pres')
     #return flask.render_template('pres.html', jobs=budget, mats=data, total=TOTAL)
 
+@app.route('/add_mat_tojob/<name>', methods=['POST','GET'])
+def addM_toJ(name):
+    global title
+    mat = queryMatsN(name)
+    job = queryJobsL(title)
+
+    with store.open_session() as session:
+        job[0].addMaterial(mat)
+        session.save_changes()
+        store.close()
+
+    return redirect('/jobs')
+
 @app.route('/delete/<id>', methods=['POST','GET'])
 def del_pres(id):
     global TOTAL, BINDEX
@@ -146,6 +162,13 @@ def del_pres(id):
     budget.pop(int(id))
     budgetO.pop(int(id))
     return redirect('/pres')
+
+@app.route('/edit_job/<id>', methods=['POST','GET'])
+def addM_toJob(id):
+    global title
+    title = id
+    dataM = mats()
+    return flask.render_template('job_edit.html', title=title, mats=dataM)
 
 @app.route('/save', methods=['GET','POST'])
 def save():
