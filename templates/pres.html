@@ -1,124 +1,86 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<body>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Cargar Trabajo
+<head>
+    <meta charset="UTF-8">
+    <title>Presupuestos</title>
+</head>
+<body>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPres">
+  Nuevo Presupuesto
 </button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addJobs">
-  Anhadir Trabajo
-</button>
-<H1>Total: {{total}}</H1>
+<br>
+<br>
+<h1>Historial</h1>
 <table class="table table-striped table-hover table-bordered">
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray">Precio</td>
-                    <td style="background: dimgray" >Descripcion</td>
+                    <td style="background: dimgray" >Cliente</td>
+                    <td style="background: dimgray" >Total Presupuestado</td>
+                    <td style="background: dimgray">Estado</td>
+                    <td style="background: dimgray">Opciones</td>
                 </tr>
             </thead>
             <tbody>
-                {% for job in jobs %}
+                {% for pr in pres %}
                 <tr>
-                    <td>{{job.1}}</td>
-                    <td>{{job.2}}</td>
-                    <td>{{job.3}}</td>
+                    <td>{{pr.0}}</td>
+                    <td>{{pr.1.name}} - {{pr.1.ruc}}</td>
+                    <td>{{pr.5}}</td>
+                    <td>{{pr.4}}</td>
                     <td>
-                    <!--     <a type="button" class="btn btn-warning" href="/edit/{{job.0}}">Editar</a> -->
-                        <a type="button" class="btn btn-danger" href="/delete/{{job.0}}">Borrar</a>
+                        <a type="button" class="btn btn-warning" href="/cargaPres/{{pr.0}}">Detalles</a>
+                        <a type="button" class="btn btn-danger" >Cerrar</a>
+                        <a type="button" class="btn btn-success" href="/generarProy/{{pr.0}}">Generar Proyecto</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
 </table>
 
-<a type="button" class="btn btn-primary center" href="/save">Guardar</a>
-<a type="button" class="btn btn-primary center" href="/details">Generar Planilla</a>
+
 <!-- Modal -->
-        <div class="modal" id="addJobs">
+        <div class="modal" id="newPres">
           <div class="modal-dialog">
             <div class="modal-content">
 
               <!-- Modal Header -->
               <div class="modal-header">
-                <h4 class="modal-title">Carga de Material</h4>
+                <h4 class="modal-title">Nuevo Presupuesto</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
 
               <!-- Modal body -->
               <div class="modal-body">
-                <table class="table table-striped table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <td style="background: dimgray">Nombre</td>
-                            <td style="background: dimgray">Precio</td>
-                            <td style="background: dimgray" >Descripcion</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for mat in mats %}
-                        <tr>
-                            <td>{{mat.0}}</td>
-                            <td>{{mat.1}}</td>
-                            <td>{{mat.2}}</td>
-                            <td>
-                                <a type="button" class="btn btn-warning" href="/add_pres/{{mat.0}}">Seleccionar</a>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                    </table>
+                  <form action="/add_pres" method="POST">
+                    <div class="form-group">
+                        <label class="form-label mt-4">Nombre de la Obra</label>
+                        <input type="text" class="form-control" name="oname">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelect1" class="form-label mt-4">Cliente</label>
+                        <select class="form-select" id="exampleSelect1" name="client">
+                            {% for client in clients %}
+                                <option>{{client.0}}/{{client.3}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <a type="button" class="btn btn-warning" href="/clients/">Añadir Clientes</a>
+                 <div class="form-group">
+                    <label class="form-label mt-4">Direccion</label>
+                    <input type="text" class="form-control" name="addr">
+                </div>
+
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                  </form>
                 </div>
                 </div>
             </div>
         </div>
-
-<!-- Modal -->
-        <div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Carga de Material</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form action="/add_job" method="POST">
-
-          <div class="form-group">
-            <label class="form-label mt-4">Nombre</label>
-            <input type="text" class="form-control" name="tname">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label mt-4">Precio</label>
-            <input type="text" class="form-control" name="tprice">
-            </div>
-          <div class="form-group">
-            <label class="form-label mt-4">Descripcion</label>
-            <input type="text" class="form-control"  name="tdesc">
-          </div>
-
-
-          <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Guardar</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-      </div>
-
-
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-    </body>
-</html>
-
 </body>
-</html>
+
+
 {% endblock %}

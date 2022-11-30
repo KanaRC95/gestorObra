@@ -17,71 +17,96 @@ class User():
         return '<User {}>'.format(self.email)
 
 class Trabajo:
-    mats = []
-    def __init__(self,name, price, desc, Materiales):
+
+    def __init__(self,name, priceM, totalM, totalT, desc, Materiales):
         self.name = name
-        self.price = price
+        self.priceM = priceM
+        self.totalM = totalM
         self.desc = desc
         self.Materiales = Materiales
+        self.totalT = totalT
+
+
 
 
     def getName(self):
         return self.name
+
     def getPrice(self):
-        price = 0
-        if not self.Materiales:
-            return price
-        else:
-            for mat in self.Materiales:
-                price = price + int(mat.getPrice())
-            return price
+        return self.priceM
+
+    def getPrice(self):
+        return self.priceM
+
     def getDesc(self):
         return self.desc
+
     def getMateriales(self):
         return self.Materiales
-    def addMaterial(self,obj):
-        self.mats.append(obj)
-        self.Materiales = self.mats
-    def setPrice(self):
-        price = 0
-        for mat in self.Materiales:
-            price = price + int(mat.getPrice())
-        self.price = price
+
+
+
+
 class Material:
-    def __init__(self, name, unit, type, price, proveedor, contacto, User):
+    def __init__(self, name, type, price, Proveedor, cant):
         self.name = name
-        self.unit = unit
         self.type = type
         self.price = price
-        self.proveedor = proveedor
-        self.contacto = contacto
-        self.user = User
+        self.Proveedor = Proveedor
+        if cant == 0:
+            self.total = 0
+            self.cant = 0
+        else:
+            self.cant = cant
+            self.total = int(self.price) * int(self.cant)
 
 
     def getName(self):
         return self.name
-
-    def getUnit(self):
-        return self.unit
-
-    def getCon(self):
-        return self.contacto
 
     def getType(self):
         return self.type
 
     def getSource(self):
-        return self.proveedor
+        return self.Proveedor
+
     def getPrice(self):
         return self.price
 
-    def getUser(self):
-        return self.user
+    def setTotal(self):
+        self.total = int(self.price) * int(self.cant)
+        return self.total
+
+    def getTotal(self):
+        return self.total
+
+
+
+class Proveedor():
+    def __init__(self,nombre, email, cel, city):
+        self.nombre = nombre
+        self.email = email
+        self.cel = cel
+        self.city = city
+
+    def getName(self):
+        return self.nombre
+    def getMail(self):
+        return self.email
+    def getCel(self):
+        return self.cel
+    def getCity(self):
+        return self.city
 
 class Cliente():
-    def __init__(self,name, contacto):
+    def __init__(self,name, phone, addr, ruc, email, ciudad, type):
         self.name = name
-        self.contacto = contacto
+        self.phone = phone
+        self.addr = addr
+        self.ruc = ruc
+        self.email = email
+        self.ciudad = ciudad
+        self.type = type
 
     def getName(self):
         return self.name
@@ -90,12 +115,57 @@ class Cliente():
         return self.contacto
 
 class Obrero():
-    def __init__(self,name):
+    def __init__(self,name, tel, occ, isCont, bloodT, addr, cont1, cont2, isActive, Trabajos):
         self.name = name
+        self.tel = tel
+        self.occ = occ
+        self.isCont = isCont
+        self.bloodT = bloodT
+        self.addr = addr
+        self.cont1 = cont1
+        self.cont2 = cont2
+        self.isActive = isActive
+        self.Trabajos = Trabajos
+
+class Proyecto():
+    def __init__(self, pname, Cliente, addr, Materiales, Obreros, Capataz, fechaInicio, fechaFin,
+                 Pedidos, TrabajosR, TrabajosD, budget):
+
+        self.pname = pname
+        self.Cliente = Cliente
+        self.addr = addr
+        self.Materiales = Materiales
+        self.Obreros = Obreros
+        self.Capataz = Capataz
+        self.fechaInicio = fechaInicio
+        self.fechaFin = fechaFin
+        self.Pedidos = Pedidos
+        self.TrabajosR = TrabajosR
+        self.TrabajosD = TrabajosD
+        self.budget = budget
 
 class Presupuesto():
-    def __init__(self,cname, user, details):
-        self.cname = cname
-        self.user = user
-        self.details = details
+    def __init__(self,oname, Cliente, addr, Trabajos, status, budget):
+        self.oname = oname
+        self.Cliente = Cliente
+        self.addr = addr
+        self.Trabajos = Trabajos
+        self.status = status
+        self.budget = budget
 
+    def addJob(self,job):
+        if not self.Trabajos:
+            jobs = []
+            jobs.append(job)
+            self.Trabajos = jobs
+        else:
+            self.Trabajos.append(job)
+
+    def getJobs(self):
+        return self.Trabajos
+
+    def addBudget(self,val):
+        self.budget += int(val)
+
+    def getBudget(self):
+        return self.budget

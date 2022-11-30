@@ -9,7 +9,12 @@
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray">Contacto</td>
+                    <td style="background: dimgray">Telefono</td>
+                    <td style="background: dimgray">Direccion</td>
+                    <td style="background: dimgray">RUC</td>
+                    <td style="background: dimgray">E-mail</td>
+                    <td style="background: dimgray">Ciudad</td>
+                    <td style="background: dimgray">Tipo</td>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +22,11 @@
                 <tr>
                     <td>{{client.0}}</td>
                     <td>{{client.1}}</td>
+                    <td>{{client.2}}</td>
+                    <td>{{client.3}}</td>
+                    <td>{{client.4}}</td>
+                    <td>{{client.5}}</td>
+                    <td>{{client.6}}</td>
 
                     <td>
                         <a type="button" class="btn btn-warning" >Editar</a>
@@ -46,8 +56,31 @@
             <input type="text" class="form-control" name="cname">
           </div>
           <div class="form-group">
-            <label class="form-label mt-4">Contacto</label>
-            <input type="text" class="form-control" name="ccont">
+            <label class="form-label mt-4">Telefono</label>
+            <input type="text" class="form-control" name="cphone">
+          </div>
+           <div class="form-group">
+            <label class="form-label mt-4">Direccion</label>
+            <input type="text" class="form-control" name="caddr">
+          </div>
+             <div class="form-group">
+            <label class="form-label mt-4">RUC</label>
+            <input type="text" class="form-control" name="cruc">
+          </div>
+             <div class="form-group">
+            <label class="form-label mt-4">Email</label>
+            <input type="text" class="form-control" name="cemail">
+          </div>
+             <div class="form-group">
+            <label class="form-label mt-4">Ciudad</label>
+            <input type="text" class="form-control" name="ccity">
+          </div>
+            <div class="form-group">
+            <label for="exampleSelect1" class="form-label mt-4">Tipo</label>
+            <select class="form-select" id="exampleSelect1" name="ctype">
+              <option>Particular</option>
+              <option>Empresa</option>
+            </select>
           </div>
 
           <div class="modal-footer">

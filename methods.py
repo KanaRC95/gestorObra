@@ -20,7 +20,7 @@ def queryMats():
             .query(object_type=Material)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
-            .select("name", "unit", "contacto", "type","price", "proveedor")  # Project
+            .select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
     return matList
@@ -32,7 +32,7 @@ def queryMatsN(name):
             .query(object_type=Material)  # Query for Products
             .where_equals("name",name)  # Filter
             # .skip(0).take(10)                       # Page
-            .select("name", "unit", "contacto", "type","price", "proveedor")  # Project
+            .select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
     return matList
@@ -44,7 +44,7 @@ def queryJobs():
             .query(object_type=Trabajo)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
-            .select("name", "price", "desc")  # Project
+            .select('name', 'priceM', 'totalM', 'totalT','desc', 'Materiales')  # Project
         )
     store.close()
     return jobList
@@ -55,10 +55,58 @@ def queryClients():
             .query(object_type=Cliente)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
-            .select("name", "contacto")  # Project
+            .select("name", "phone", "addr", "ruc", "email", "ciudad","type")  # Project
         )
     store.close()
     return clientList
+
+def queryPersonnel():
+    with store.open_session() as session:
+        clientList = list(  # Materialize query
+            session
+            .query(object_type=Obrero)  # Query for Products
+            # .where_greater_than("UnitsInStock", 5)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select('name', 'tel', 'occ', 'isCont', 'bloodT', 'addr', 'cont1', 'cont2', 'isActive', 'Trabajos')  # Project
+        )
+    store.close()
+    return clientList
+
+def queryClient(ruc):
+    with store.open_session() as session:
+        clientList = list(  # Materialize query
+            session
+            .query(object_type=Cliente)  # Query for Products
+            .where_equals("ruc",ruc)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select("name", "phone", "addr", "ruc", "email", "ciudad","type")  # Project
+        )
+    store.close()
+    return clientList[0]
+
+def queryPres():
+    with store.open_session() as session:
+        jobList = list(  # Materialize query
+            session
+            .query(object_type=Presupuesto)  # Query for Products
+            #.where_equals("name",name)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select('oname', 'Cliente', 'Trabajos', 'status','budget')  # Project
+        )
+    store.close()
+    return jobList
+
+def queryPresL(oname):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=Presupuesto)  # Query for Products
+            .where_equals("oname",oname)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select('oname', 'Cliente', "addr" ,'Trabajos', 'status','budget')  # Project
+        )
+    store.close()
+    return data
 
 def queryJobsL(name):
     with store.open_session() as session:
@@ -67,21 +115,19 @@ def queryJobsL(name):
             .query(object_type=Trabajo)  # Query for Products
             .where_equals("name",name)  # Filter
             # .skip(0).take(10)                       # Page
-            .select("name", "price", "desc")  # Project
+            .select('name', 'priceM', 'totalM', 'totalT','desc', 'Materiales')  # Project
         )
     store.close()
     return jobList
+
 def mats ():
     temp =[]
     data = []
     mats = queryMats()
     for x in mats:
         temp.append(x.getName())
-        temp.append(x.getUnit())
         temp.append(x.getType())
         temp.append(x.getPrice())
-        temp.append(x.getSource())
-        temp.append(x.getCon())
         data.append(temp)
         temp = []
     return(data)
@@ -89,26 +135,83 @@ def mats ():
 def jobs ():
     temp =[]
     data = []
-    mats = queryJobs()
-    for x in mats:
+    trab = queryJobs()
+    for x in trab:
         temp.append(x.getName())
-        #x.setPrice()
-        temp.append(x.getPrice())
+        temp.append(x.priceM)
+        temp.append(x.totalM)
+        temp.append(x.totalT)
         temp.append(x.getDesc())
+        temp.append(x.Materiales)
         data.append(temp)
         temp = []
     return(data)
+
+def personnel():
+    #name, tel, occ, isCont, bloodT, addr, cont1, cont2, isActive, Trabajos
+    temp = []
+    data = []
+    pr = queryPersonnel()
+    for x in pr:
+        temp.append(x.name)
+        temp.append(x.tel)
+        temp.append(x.occ)
+        temp.append(x.isCont)
+        temp.append(x.bloodT)
+        temp.append(x.addr)
+        temp.append(x.cont1)
+        temp.append(x.cont2)
+        temp.append(x.isActive)
+        temp.append(x.Trabajos)
+        data.append(temp)
+        temp = []
+    return (data)
 
 def clients ():
     temp =[]
     data = []
     cl = queryClients()
     for x in cl:
-        temp.append(x.getName())
-        temp.append(x.getCont())
+        temp.append(x.name)
+        temp.append(x.phone)
+        temp.append(x.addr)
+        temp.append(x.ruc)
+        temp.append(x.email)
+        temp.append(x.ciudad)
+        temp.append(x.type)
         data.append(temp)
         temp = []
     return(data)
+
+def pres():
+    temp = []
+    data = []
+    pr = queryPres()
+    for x in pr:
+        temp.append(x.oname)
+        temp.append(x.Cliente)
+        temp.append(x.addr)
+        temp.append(x.Trabajos)
+        temp.append(x.status)
+        temp.append(x.budget)
+        data.append(temp)
+        temp = []
+    return(data)
+
+def presL(oname):
+    temp = []
+    data = []
+    pr = queryPresL(oname)
+    for x in pr:
+        temp.append(x.oname)
+        temp.append(x.Cliente)
+        temp.append(x.addr)
+        temp.append(x.Trabajos)
+        temp.append(x.status)
+        temp.append(x.budget)
+        data.append(temp)
+        temp = []
+    return(data[0])
 
 def queryUsers(name,password):
     with store.open_session() as session:

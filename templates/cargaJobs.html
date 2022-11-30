@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+<head>
+    <title>Carga Trabajos</title>
+</head>
+
+<body>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="addMat">
+  Cargar Materiales
+</button>
+<form action="/add_job" method="POST">
+
+          <div class="form-group">
+            <label class="form-label mt-4">Nombre</label>
+            <input type="text" class="form-control" name="tname">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label mt-4">Precio de Mano de Obra</label>
+            <input type="text" class="form-control" name="tprice">
+            </div>
+          <div class="form-group">
+            <label class="form-label mt-4">Descripcion</label>
+            <input type="text" class="form-control"  name="tdesc">
+          </div>
+
+        <div class="form-group">
+        {% for mat in mats %}
+            <label><input type="checkbox" value="{{mat.0}}" name="check">{{mat.0}}</label>
+            <input type="text" class="form-control"  name="mcant">
+        {% endfor %}
+        </div>
+    <br>
+    <br>
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
+</form>
+
+</body>
+{% endblock %}

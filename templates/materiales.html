@@ -6,15 +6,17 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Cargar Material
 </button>
+<br>
+<br>
 <table class="table table-striped table-hover table-bordered">
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray">Unidades</td>
                     <td style="background: dimgray" >Tipo</td>
                     <td style="background: dimgray" >Precio</td>
                     <td style="background: dimgray">Proveedor</td>
                     <td style="background: dimgray">Contacto</td>
+                    <td style="background: dimgray">Opciones</td>
                 </tr>
             </thead>
             <tbody>
@@ -25,7 +27,7 @@
                     <td>{{mat.2}}</td>
                     <td>{{mat.3}}</td>
                     <td>{{mat.4}}</td>
-                    <td>{{mat.5}}</td>
+
 
                     <td>
                         <a type="button" class="btn btn-warning" >Editar</a>
@@ -55,10 +57,7 @@
             <label class="form-label mt-4">Nombre</label>
             <input type="text" class="form-control" name="mname">
           </div>
-          <div class="form-group">
-            <label class="form-label mt-4">Unidades</label>
-            <input type="text" class="form-control" name="units">
-            </div>
+
           <div class="form-group">
             <label for="exampleSelect1" class="form-label mt-4">Tipo</label>
             <select class="form-select" id="exampleSelect1" name="type">
@@ -74,10 +73,7 @@
             <label class="form-label mt-4">Proveedor</label>
             <input type="text" class="form-control"  name="source">
           </div>
-          <div class="form-group">
-            <label class="form-label mt-4">Contacto</label>
-            <input type="text" class="form-control" name="pcont">
-          </div>
+
 
           <div class="modal-footer">
         <button type="submit" class="btn btn-success">Guardar</button>
