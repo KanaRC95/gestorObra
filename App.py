@@ -1,5 +1,5 @@
 import datetime
-
+from collections import *
 import flask
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
@@ -21,12 +21,13 @@ app.config['SECRET_KEY'] = '7110c8ae51a4b5af97be6534caef90e4bb9bdcb3380af008f90b
 login_manager = LoginManager()
 login_manager.init_app(app)
 current_user = ''
+currentP = ''
+currentPy = ''
 data = []
 budget = []
 budgetO = []
 TOTAL = 0
 title = ''
-currentP = ''
 BINDEX = -1
 
 
@@ -104,6 +105,12 @@ def bgt():
     cl = clients()
     return render_template('pres.html', pres=pr, clients=cl)
 
+@app.route('/proy')
+@login_required
+def proy():
+    proys = proyL()
+    return render_template('proyScreen.html', pys=proys)
+
 @app.route('/cargaPres/<name>')
 @login_required
 def nbgt(name):
@@ -117,12 +124,91 @@ def nbgt(name):
 @app.route('/generarProy/<name>')
 @login_required
 def genProy(name):
-    global currentP
-    currentP = name
     presE = queryPresL(name)
-    jobsL = presE[0].getJobs()
-    js = jobs()
-    return render_template('cargaPres.html', pres=presE, jobs=js, listado=jobsL)
+    #pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
+    #Pedidos, TrabajosR, TrabajosD, budget
+    pname = 'Proyecto '+presE[0].oname
+    client = presE[0].Cliente
+    addr = presE[0].addr
+    tbjs = presE[0].Trabajos
+    bgt = presE[0].budget
+    datenow = datetime.datetime.now().strftime("%x")
+    matList = []
+    matN = matNames()
+    for tb in tbjs:
+        for tbs in tb['Materiales']:
+         matList.append(tbs)
+    res = {}
+    for mt in matList:
+        mt.pop('Proveedor')
+        mt.pop('type')
+        mt.pop('price')
+        mt.pop('total')
+        if mt['name'] in res.keys():
+            res[mt['name']]+=mt['cant']
+        else:
+            res[mt['name']] = mt['cant']
+
+    proy = Proyecto(pname,client,addr,res,None,None,None,datenow,None,None,tbjs,None,bgt,0,'Comenzado')
+    addObject(proy)
+
+    return redirect(url_for('proy'))
+
+@app.route('/startJ/<name>')
+@login_required
+def stJ(name):
+    global currentPy
+    p = currentPy
+    tr = ''
+    datenow = datetime.datetime.now().strftime("%x")
+    for x in p.TrabajosR:
+        if x['name']==name:
+            tr = x
+    trP = TrabajoP(tr['name'],tr['Materiales'],tr['totalT'],None,datenow,None,p.pname)
+    addObject(trP)
+    trP = query(TrabajoP)
+    return redirect(url_for('deetsProy', name = p.pname))
+
+@app.route('/test')
+@login_required
+def testing():
+    return redirect(url_for('home'))
+
+@app.route('/deetsProy/<name>')
+@login_required
+def deetsProy(name):
+    proy = queryProyL(name)
+    global currentPy
+    currentPy = proy
+    trP = query(TrabajoP)
+    obr = query(Obrero)
+    return render_template('gestionProy.html', data=proy, trps=trP, obrs=obr)
+
+@app.route('/assigOb/<job>/<name>/<py>')
+@login_required
+def addObr(job,name,py):
+    p = queryP(Proyecto,py)
+    global currentPy
+    currentPy = p
+    jobN = queryN(Trabajo,job).name
+    with store.open_session() as session:
+        qObr = list(
+            session
+            .query(object_type=Obrero)  # Query for Products
+            .where_equals("name", name)
+        )
+
+        qTbs = list(
+            session
+            .query(object_type=TrabajoP)  # Query for Products
+            .where_equals("tpname", job)
+        )
+        qTbs[0].addObrero(qObr[0].name,qObr[0].occ, p.pname)
+        qObr[0].addTrabajo(jobN,p)
+        session.save_changes()
+    store.close()
+    return redirect(url_for('deetsProy', name = p.pname))
+
 
 @login_manager.unauthorized_handler
 def unauthorized():
@@ -198,15 +284,15 @@ def add_job():
         precio = request.form['tprice']
         desc = request.form['tdesc']
         materiales = request.form.getlist("check")
-        cant = request.form.getlist("mcant")
+        c = request.form.getlist("mcant")
         prov = Proveedor('Alberto', 'a@a.com', '0985000111', 'Pilar')
+        cant = [s for s in c if s.strip()]
         jmats = []
         for m, c in zip(materiales,cant):
             q = queryMatsN(m)
-            print(m+"  -  "+c)
             aux = q[0]
             #(self, name, type, price, Proveedor, cant)
-            mat = Material(aux.getName(),aux.getType(),aux.getPrice(),prov,int(c))
+            mat = Material(aux.getName(),aux.getType(),int(aux.getPrice()),prov,int(c))
             jmats.append(mat)
         total = 0
         for mat in jmats:

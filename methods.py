@@ -11,7 +11,41 @@ def addObject(obj):
         session.store(obj)
         session.save_changes()
         store.close()
+def query(type):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)  # Query for Products
+            # .where_greater_than("UnitsInStock", 5)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data
 
+def queryN(type, name):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)  # Query for Products
+            .where_equals("name",name)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data[0]
+
+def queryP(type, name):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)  # Query for Products
+            .where_equals("pname",name)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data[0]
 
 def queryMats():
     with store.open_session() as session:
@@ -86,7 +120,7 @@ def queryClient(ruc):
 
 def queryPres():
     with store.open_session() as session:
-        jobList = list(  # Materialize query
+        data = list(  # Materialize query
             session
             .query(object_type=Presupuesto)  # Query for Products
             #.where_equals("name",name)  # Filter
@@ -94,7 +128,34 @@ def queryPres():
             .select('oname', 'Cliente', 'Trabajos', 'status','budget')  # Project
         )
     store.close()
-    return jobList
+    return data
+
+def queryProy():
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=Proyecto)  # Query for Products
+            #.where_equals("name",name)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select('pname', 'Cliente', 'addr', 'MatsFaltantes','MatsDisponibles', 'Obreros', 'Capataz', 'fechaInicio', 'fechaFin', 'Pedidos', 'TrabajosR', 'TrabajosD', 'presupuestado' ,'budget', 'status')  # Project
+        )
+    store.close()
+    return data
+
+def queryProyL(name):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=Proyecto)  # Query for Products
+            .where_equals("pname",name)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select('pname', 'Cliente', 'addr', 'MatsFaltantes','MatsDisponibles', 'Obreros', 'Capataz', 'fechaInicio', 'fechaFin', 'Pedidos', 'TrabajosR', 'TrabajosD', 'presupuestado' ,'budget', 'status')  # Project
+        )
+    store.close()
+    if data:
+        return data[0]
+    else:
+        return None
 
 def queryPresL(oname):
     with store.open_session() as session:
@@ -147,6 +208,13 @@ def jobs ():
         temp = []
     return(data)
 
+def matNames():
+    r = []
+    m = queryMats()
+    for x in m:
+        r.append(x.name)
+    return r
+
 def personnel():
     #name, tel, occ, isCont, bloodT, addr, cont1, cont2, isActive, Trabajos
     temp = []
@@ -194,6 +262,25 @@ def pres():
         temp.append(x.Trabajos)
         temp.append(x.status)
         temp.append(x.budget)
+        data.append(temp)
+        temp = []
+    return(data)
+
+def proyL():
+    temp = []
+    data = []
+    pr = queryProy()
+    # pname, Cliente, addr, Materiales, Obreros, Capataz, fechaInicio, fechaFin,
+    # Pedidos, TrabajosR, TrabajosD, budget
+    for x in pr:
+        temp.append(x.pname)
+        temp.append(x.Cliente)
+        temp.append(x.addr)
+        temp.append(x.MatsFaltantes)
+        temp.append(x.MatsDisponibles)
+        temp.append(x.fechaInicio)
+        temp.append(x.budget)
+        temp.append(x.status)
         data.append(temp)
         temp = []
     return(data)

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Presupuestos</title>
+</head>
+<body>
+<br>
+<br>
+<h1>Historial</h1>
+<table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <td style="background: dimgray">Nombre</td>
+                    <td style="background: dimgray" >Cliente</td>
+                    <td style="background: dimgray" >Direccion</td>
+                    <td style="background: dimgray">Fecha de Inicio</td>
+                    <td style="background: dimgray">Presupuesto</td>
+                    <td style="background: dimgray">Estado</td>
+                    <td style="background: dimgray">Opciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for py in pys %}
+                <tr>
+                    <td>{{py.0}}</td>
+                    <td>{{py.1.name}} - {{py.1.ruc}}</td>
+                    <td>{{py.2}}</td>
+                    <td>{{py.5}}</td>
+                    <td>{{py.6}}</td>
+                    <td>{{py.7}}</td>
+                    <td>
+                        <a type="button" class="btn btn-warning" href="/deetsProy/{{py.0}}">Detalles</a>
+                        <a type="button" class="btn btn-danger" >Cerrar</a>
+                        <a type="button" class="btn btn-success" href="/generarProy/{{py.0}}">Generar Proyecto</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+</table>
+
+</body>
+
+
+{% endblock %}

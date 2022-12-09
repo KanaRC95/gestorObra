@@ -26,9 +26,6 @@ class Trabajo:
         self.Materiales = Materiales
         self.totalT = totalT
 
-
-
-
     def getName(self):
         return self.name
 
@@ -44,8 +41,34 @@ class Trabajo:
     def getMateriales(self):
         return self.Materiales
 
+class TrabajoP:
+    def __init__(self, tpname, Materiales, precioTotal, Obreros, fechaInicio, fechaFin, Proyecto):
+        self.tpname = tpname
+        self.Materiales = Materiales
+        self.precioTotal = precioTotal
+        self.Obreros = Obreros
+        self.fechaInicio = fechaInicio
+        self.fechaFin = fechaFin
+        self.Proyecto = Proyecto
 
 
+    def addObrero(self,name, occ, proy):
+        if not self.Obreros:
+            obs = []
+            ob = {
+                "Nombre": name,
+                "Ocupacion": occ,
+                "Proyecto": proy
+            }
+            obs.append(ob)
+            self.Obreros = obs
+        else:
+            ob = {
+                "Nombre": name,
+                "Ocupacion": occ,
+                "Proyecto": proy
+            }
+            self.Obreros.append(ob)
 
 class Material:
     def __init__(self, name, type, price, Proveedor, cant):
@@ -127,14 +150,33 @@ class Obrero():
         self.isActive = isActive
         self.Trabajos = Trabajos
 
+    def addTrabajo(self,job, Proy):
+        if not self.Trabajos:
+            jobs = []
+            jb = {
+                "Trabajo": job,
+                "Proyecto": Proy
+            }
+            jobs.append(jb)
+            self.Trabajos = jobs
+        else:
+            jb = {
+                "Trabajo": job,
+                "Proyecto": Proy
+            }
+            self.Trabajos.append(jb)
+
+
+
 class Proyecto():
-    def __init__(self, pname, Cliente, addr, Materiales, Obreros, Capataz, fechaInicio, fechaFin,
-                 Pedidos, TrabajosR, TrabajosD, budget):
+    def __init__(self, pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
+                 Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status):
 
         self.pname = pname
         self.Cliente = Cliente
         self.addr = addr
-        self.Materiales = Materiales
+        self.MatsFaltantes = MatsFaltantes
+        self.MatsDisponibles = MatsDisponibles
         self.Obreros = Obreros
         self.Capataz = Capataz
         self.fechaInicio = fechaInicio
@@ -142,7 +184,9 @@ class Proyecto():
         self.Pedidos = Pedidos
         self.TrabajosR = TrabajosR
         self.TrabajosD = TrabajosD
+        self.presupuestado = presupuestado
         self.budget = budget
+        self.status = status
 
 class Presupuesto():
     def __init__(self,oname, Cliente, addr, Trabajos, status, budget):

@@ -4,3 +4,8 @@
   margin-right: auto;
   width: 50%;
 }
+
+.disable-section {
+  pointer-events: none;
+  opacity: 0.4;
+}

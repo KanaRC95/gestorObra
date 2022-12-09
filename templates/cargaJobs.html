@@ -2,6 +2,7 @@
 {% block body %}
 <head>
     <title>Carga Trabajos</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 </head>
 
 <body>
@@ -26,8 +27,8 @@
 
         <div class="form-group">
         {% for mat in mats %}
-            <label><input type="checkbox" value="{{mat.0}}" name="check">{{mat.0}}</label>
-            <input type="text" class="form-control"  name="mcant">
+            <label><input type="checkbox" value="{{mat.0}}" name="check" id="check">{{mat.0}}</label>
+            <input type="text" class="form-control" id="mcant" name="mcant">
         {% endfor %}
         </div>
     <br>
@@ -38,4 +39,13 @@
 </form>
 
 </body>
+<script>
+    function enableMats() {
+  if (document.getElementById("check").checked) {
+    document.getElementById("mcant").classList.remove('disable-section')
+  } else {
+    document.getElementById("mcant").classList.add('disable-section')
+  }
+}
+</script>
 {% endblock %}
