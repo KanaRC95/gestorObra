@@ -1,5 +1,6 @@
 from pyravendb.store import document_store
 from classes import *
+import datetime
 store = document_store.DocumentStore(urls=["http://localhost:8080"], database="gestorObra")
 store.initialize()
 import os
@@ -41,6 +42,18 @@ def queryP(type, name):
             session
             .query(object_type=type)  # Query for Products
             .where_equals("pname",name)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data[0]
+
+def queryTP(type, name):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)  # Query for Products
+            .where_equals("tpname",name)  # Filter
             # .skip(0).take(10)                       # Page
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
@@ -251,6 +264,9 @@ def clients ():
         temp = []
     return(data)
 
+def dateNow():
+    return datetime.datetime.now().strftime("%x")
+
 def pres():
     temp = []
     data = []
@@ -265,6 +281,7 @@ def pres():
         data.append(temp)
         temp = []
     return(data)
+
 
 def proyL():
     temp = []

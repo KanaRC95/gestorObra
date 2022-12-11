@@ -105,6 +105,12 @@ def bgt():
     cl = clients()
     return render_template('pres.html', pres=pr, clients=cl)
 
+@app.route('/prov')
+@login_required
+def provs():
+    pr = query(Proveedor)
+    return render_template('prov.html', provs=pr)
+
 @app.route('/proy')
 @login_required
 def proy():
@@ -154,20 +160,30 @@ def genProy(name):
 
     return redirect(url_for('proy'))
 
-@app.route('/startJ/<name>')
+@app.route('/startJ/<name>/<proy>')
 @login_required
-def stJ(name):
-    global currentPy
-    p = currentPy
+def stJ(name,proy):
+    py = queryP(Proyecto,proy)
     tr = ''
     datenow = datetime.datetime.now().strftime("%x")
-    for x in p.TrabajosR:
+
+    for x in py.TrabajosR:
         if x['name']==name:
             tr = x
-    trP = TrabajoP(tr['name'],tr['Materiales'],tr['totalT'],None,datenow,None,p.pname)
+            with store.open_session() as session:
+                p = list(
+                    session
+                    .query(object_type=Proyecto)  # Query for Products
+                    .where_equals("pname", proy)
+                )
+                p[0].movTR(x)
+                session.save_changes()
+            store.close()
+
+
+    trP = TrabajoP(tr['name'],tr['Materiales'],tr['totalT'],None,datenow,None,py.pname)
     addObject(trP)
-    trP = query(TrabajoP)
-    return redirect(url_for('deetsProy', name = p.pname))
+    return redirect(url_for('deetsProy', name = py.pname))
 
 @app.route('/test')
 @login_required
@@ -182,7 +198,66 @@ def deetsProy(name):
     currentPy = proy
     trP = query(TrabajoP)
     obr = query(Obrero)
-    return render_template('gestionProy.html', data=proy, trps=trP, obrs=obr)
+    prv = query(Proveedor)
+    mt = query(Material)
+    return render_template('gestionProy.html', data=proy, trps=trP, obrs=obr, prov=prv, mats=mt)
+
+@app.route('/pend/<name>/<proy>')
+@login_required
+def penScr(name,proy):
+    trp = queryTP(TrabajoP,name)
+    p = queryP(Proyecto,proy)
+    obr = query(Obrero)
+    return render_template('pendiente.html', pr=p, tps=trp, obrs=obr)
+
+@app.route('/pendC/<name>/<proy>')
+@login_required
+def compTR(name, proy):
+    #chequear materiales disponibles
+    m = {}
+    p = queryP(Proyecto,proy)
+    with store.open_session() as session:
+        trp = list(  # Materialize query
+            session
+            .query(object_type=TrabajoP)  # Query for Products
+            .where_equals("tpname", name)  # Filter
+        )
+        p = list(
+            session
+            .query(object_type=Proyecto)  # Query for Products
+            .where_equals("pname", proy)
+        )
+        obr = list(session.query(object_type=Obrero))
+        for x in trp[0].Materiales:
+            m[x['name']]=x['cant']
+        pm = p[0].MatsDisponibles
+        err = []
+        if pm:
+            for key in pm.keys():
+                #pm: disponibles, m: necesarios
+                if key in m.keys():
+                    if pm[key] < m[key]:
+                        e = 'No hay suficiente '+key+'.'
+                        err.append(e)
+        if not trp[0].Obreros:
+            e = 'No hay Obreros asignados.'
+            err.append(e)
+
+        if not err:
+            for key in p[0].MatsDisponibles.keys():
+                if key in m.keys():
+                    p[0].MatsDisponibles[key]-=m[key]
+
+            trp[0].fechaFin = dateNow()
+            p[0].compTR(trp[0]) #Hacer dict para que no guarde tan complejo
+            session.delete_by_entity(trp[0])
+            session.save_changes()
+        else:
+            return render_template('error.html', error=err)
+    store.close()
+
+    obr = query(Obrero)
+    return redirect(url_for('deetsProy', name = p[0].pname))
 
 @app.route('/assigOb/<job>/<name>/<py>')
 @login_required
@@ -204,7 +279,7 @@ def addObr(job,name,py):
             .where_equals("tpname", job)
         )
         qTbs[0].addObrero(qObr[0].name,qObr[0].occ, p.pname)
-        qObr[0].addTrabajo(jobN,p)
+        qObr[0].addTrabajo(jobN,p.pname,dateNow())
         session.save_changes()
     store.close()
     return redirect(url_for('deetsProy', name = p.pname))
@@ -215,6 +290,7 @@ def unauthorized():
     return render_template('error.html')
 
 @app.route('/add_mat', methods=['POST'])
+@login_required
 def add_mats():
     if request.method == 'POST':
         name = request.form['mname']
@@ -226,7 +302,58 @@ def add_mats():
         addObject(material)
         return redirect(url_for('rmats'))
 
+@app.route('/add_pay/<name>', methods=['POST'])
+@login_required
+def add_pay(name):
+    p = queryP(Proyecto, name)
+    f = {}
+    if request.method == 'POST':
+        cuota = request.form['cuota']
+        iva = request.form['iva']
+        pago = request.form['paid']
+        f['Cliente'] = p.Cliente['name']
+        f['RUC'] = p.Cliente['ruc']
+        f['Detalles'] = 'Materiales y Mano de Obra'
+        f['IVA'] = iva
+        f['Cuota'] = int(cuota)
+        f['Valor'] = int(pago)
+        with store.open_session() as session:
+            p = list(
+                session
+                .query(object_type=Proyecto)  # Query for Products
+                .where_equals("pname", name)
+            )
+            p[0].budget += int(pago)
+            p[0].addFactura(f)
+            session.save_changes()
+        store.close()
+
+        print(f)
+        return redirect(url_for('deetsProy', name = p[0].pname))
+
+@app.route('/add_ped/<name>', methods=['POST'])
+@login_required
+def add_pay(name):
+    p = queryP(Proyecto, name)
+    return redirect(url_for('deetsProy', name=p.pname))
+
+@app.route('/add_prov', methods=['POST'])
+@login_required
+def add_prov():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        tel = request.form['phone']
+        city = request.form['city']
+        addr = request.form['addr']
+        #(self, name, type, price, Proveedor, cant)
+        p = Proveedor(name,email,tel,city,addr)
+        addObject(p)
+
+        return redirect(url_for('provs'))
+
 @app.route('/add_pers', methods=['POST'])
+@login_required
 def add_pers():
     if request.method == 'POST':
         name = request.form['name']
@@ -245,6 +372,7 @@ def add_pers():
         return redirect(url_for('rpers'))
 
 @app.route('/add_pres', methods=['POST'])
+@login_required
 def add_pres():
     if request.method == 'POST':
         obra = request.form['oname']
@@ -263,6 +391,7 @@ def add_pres():
 
 
 @app.route('/add_client', methods=['POST'])
+@login_required
 def add_client():
     if request.method == 'POST':
         name = request.form['cname']
@@ -278,6 +407,7 @@ def add_client():
         return redirect('/clients')
 
 @app.route('/add_job', methods=['POST'])
+@login_required
 def add_job():
     if request.method == 'POST':
         name = request.form['tname']
@@ -306,6 +436,7 @@ def add_job():
 
 
 @app.route('/details', methods=['GET','POST'])
+@login_required
 def deets():
     pres = presL(currentP)
     presE = queryPresL(currentP)
@@ -314,6 +445,7 @@ def deets():
     return render_template('detalles.html', info=pres, listado=jobsL, fecha=datenow)
 
 @app.route('/add_pr/<name>', methods=['POST','GET'])
+@login_required
 def add_pr(name):
     global currentP
     js = queryJobsL(name)
@@ -333,6 +465,7 @@ def add_pr(name):
     #return flask.render_template('cargaPres.html', jobs=budget, mats=data, total=TOTAL)
 
 @app.route('/add_mat_tojob/<name>', methods=['POST','GET'])
+@login_required
 def addM_toJ(name):
     global title
     mat = queryMatsN(name)
@@ -346,6 +479,7 @@ def addM_toJ(name):
     return redirect('/jobs')
 
 @app.route('/delete/<id>', methods=['POST','GET'])
+@login_required
 def del_pres(id):
     global TOTAL, BINDEX
     BINDEX -= 1
@@ -355,6 +489,7 @@ def del_pres(id):
     return redirect('/pres')
 
 @app.route('/edit_job/<id>', methods=['POST','GET'])
+@login_required
 def addM_toJob(id):
     job = queryJobsL(id)
     dataM = job[0].Materiales
@@ -362,6 +497,7 @@ def addM_toJob(id):
     return flask.render_template('job_edit.html', title=title, mats=dataM, job=job[0])
 
 @app.route('/save', methods=['GET','POST'])
+@login_required
 def save():
     pres = Presupuesto('test',current_user,budget)
     addObject(pres)

@@ -106,14 +106,15 @@ class Material:
 
 
 class Proveedor():
-    def __init__(self,nombre, email, cel, city):
-        self.nombre = nombre
+    def __init__(self,name, email, cel, city, addr):
+        self.name = name
         self.email = email
         self.cel = cel
         self.city = city
+        self.addr = addr
 
     def getName(self):
-        return self.nombre
+        return self.name
     def getMail(self):
         return self.email
     def getCel(self):
@@ -150,27 +151,30 @@ class Obrero():
         self.isActive = isActive
         self.Trabajos = Trabajos
 
-    def addTrabajo(self,job, Proy):
+    def addTrabajo(self,job, Proy, date):
         if not self.Trabajos:
             jobs = []
             jb = {
                 "Trabajo": job,
-                "Proyecto": Proy
+                "Proyecto": Proy,
+                "Fecha: ": date
             }
             jobs.append(jb)
             self.Trabajos = jobs
         else:
             jb = {
                 "Trabajo": job,
-                "Proyecto": Proy
+                "Proyecto": Proy,
+                "Fecha: ": date
             }
             self.Trabajos.append(jb)
 
 
 
+
 class Proyecto():
     def __init__(self, pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
-                 Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status):
+                 Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status, pagos):
 
         self.pname = pname
         self.Cliente = Cliente
@@ -187,6 +191,26 @@ class Proyecto():
         self.presupuestado = presupuestado
         self.budget = budget
         self.status = status
+        self.pagos = pagos
+
+    def movTR(self,elem):
+        self.TrabajosR.remove(elem)
+
+    def compTR(self, tr):
+        if not self.TrabajosD:
+            tc = []
+            tc.append(tr)
+            self.TrabajosD = tc
+        else:
+            self.TrabajosD.append(tr)
+
+    def addFactura(self,f):
+        if not self.pagos:
+            pg = []
+            pg.append(f)
+            self.pagos = pg
+        else:
+            self.pagos.append(f)
 
 class Presupuesto():
     def __init__(self,oname, Cliente, addr, Trabajos, status, budget):
