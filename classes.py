@@ -17,7 +17,6 @@ class User():
         return '<User {}>'.format(self.email)
 
 class Trabajo:
-
     def __init__(self,name, priceM, totalM, totalT, desc, Materiales):
         self.name = name
         self.priceM = priceM
@@ -25,6 +24,8 @@ class Trabajo:
         self.desc = desc
         self.Materiales = Materiales
         self.totalT = totalT
+        self.superficie = 0
+        self.medicion = ''
 
     def getName(self):
         return self.name
@@ -139,10 +140,11 @@ class Cliente():
         return self.contacto
 
 class Obrero():
-    def __init__(self,name, tel, occ, isCont, bloodT, addr, cont1, cont2, isActive, Trabajos):
+    def __init__(self,name, tel, occ, ced, isCont, bloodT, addr, cont1, cont2, isActive, Trabajos):
         self.name = name
         self.tel = tel
         self.occ = occ
+        self.ced = ced
         self.isCont = isCont
         self.bloodT = bloodT
         self.addr = addr
@@ -174,7 +176,7 @@ class Obrero():
 
 class Proyecto():
     def __init__(self, pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
-                 Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status, pagos):
+                 Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status, pagos, gastos):
 
         self.pname = pname
         self.Cliente = Cliente
@@ -192,6 +194,7 @@ class Proyecto():
         self.budget = budget
         self.status = status
         self.pagos = pagos
+        self.gastos = gastos
 
     def movTR(self,elem):
         self.TrabajosR.remove(elem)

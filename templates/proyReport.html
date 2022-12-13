@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles Presupuestos</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+        <h4>Reporte: {{fr}}</h4>
+        <br>
+        <br>
+        <h2>Detalles de la Obra</h2>
+        Nombre del Proyecto: {{proy.pname}}<br>
+        Fecha Inicio: {{proy.fechaInicio}}<br>
+        Fecha Fin: {{proy.fechaFin}}<br>
+        Direccion: {{proy.addr}}<br>
+        Capataz: {{proy.Capataz.name}} - Cedula: {{proy.Capataz.ced}} <br>
+    <br>
+        <h2>Detalles del cliente</h2>
+        Nombre: {{proy.Cliente.name}}<br>
+        Tipo: {{proy.Cliente.type}}<br>
+        RUC: {{proy.Cliente.ruc}}<br>
+        Email: {{proy.Cliente.email}}<br>
+        Ciudad: {{proy.Cliente.ciudad}}<br>
+    <br>
+        <h2>Detalles Financieros</h2>
+        Valor Presupuestado: {{proy.presupuestado}}<br>
+        Gasto Total: {{proy.gastos}}<br>
+        <br>
+        <br>
+    {% if proy.TrabajosR is defined and proy.TrabajosR|length > 0 %}
+        Los siguientes trabajos no se completaron: <br>
+        <table class="table table-striped table-hover table-bordered table-info">
+            <thead>
+                <tr>
+                    <td style="background: dimgray">Nombre</td>
+                    <td style="background: dimgray" >Materiales</td>
+                    <td style="background: dimgray" >Descripcion</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tr in proy.TrabajosR %}
+                <tr>
+                    <td>{{tr.name}}</td>
+                    <td>
+                        {% for mt in tr.Materiales %}
+                            {{mt.name}}:{{mt.cant}}<br>
+                        {% endfor %}
+                    </td>
+                    <td>{{tr.desc}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+</table>
+    {% else %}
+        Se pudieron completar todos los trabajos. <br>
+    {% endif %}
+
+    {% if proy.TrabajosD is not none and proy.TrabajosD|length > 0 %}
+        Trabajos Completados:
+        <table class="table table-striped table-hover table-bordered table-info">
+            <thead>
+                <tr>
+                    <td style="background: dimgray">Nombre</td>
+                    <td style="background: dimgray" >Materiales</td>
+                    <td style="background: dimgray" >Precio Total</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tr in proy.TrabajosD %}
+                <tr>
+                    <td>{{tr.tpname}}</td>
+                    <td>
+                        {% for mt in tr.Materiales %}
+                            {{mt.name}}:{{mt.cant}}<br>
+                        {% endfor %}
+                    </td>
+                    <td>{{tr.precioTotal}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+</table>
+    {% endif %}
+    {% if inpro is defined and inpro|length > 0 %}
+        Los siguientes trabajos se estaban realizando, pero no se pudieron terminar:<br>
+        </table>
+<table id="tablaJobsP" class="table table-striped table-hover table-bordered table-info">
+            <thead>
+                <tr>
+                    <td style="background: dimgray">Nombre</td>
+                    <td style="background: dimgray" >Materiales</td>
+                    <td style="background: dimgray" >FechaInicio</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tr in inpro %}
+                <tr>
+                    <td>{{tr.tpname}}</td>
+                    <td>
+                        {% for mt in tr.Materiales %}
+                            {{mt.name}}:{{mt.cant}}<br>
+                        {% endfor %}
+                    </td>
+                    <td>{{tr.fechaInicio}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+</table>
+    {% endif %}
+
+<br>
+<br>
+
+        {% if proy.MatsDisponibles is not none %}
+        Sobraron los siguientes materiales:<br>
+        <table class="table table-striped table-hover table-bordered table-info">
+            <thead>
+                <tr>
+                    <td style="background: dimgray">Nombre</td>
+                    <td style="background: dimgray" >Cantidad</td>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                  {% for key, value in proy.MatsDisponibles.items() %}
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                  {% endfor %}
+            </tr>
+            </tbody>
+         </table>
+        {% else %}
+            NO BLAH
+        {% endif %}
+<br>
+<br>
+<div><button onClick="window.print()" class="btn btn-outline-success">Imprimir
+</button></div>
+<br>
+<a type="button" class="btn btn-outline-warning" href="/pres">Regresar</a>
+</body>
+</html>

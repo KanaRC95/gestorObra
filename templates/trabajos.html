@@ -23,14 +23,14 @@
             <tbody>
                 {% for job in jobs %}
                 <tr>
-                    <td>{{job.0}}</td>
-                    <td>{{job.1}}</td>
-                    <td>{{job.2}}</td>
-                    <td>{{job.3}}</td>
-                    <td>{{job.4}}</td>
+                    <td>{{job.name}}</td>
+                    <td>{{job.priceM}}</td>
+                    <td>{{job.totalM}}</td>
+                    <td>{{job.totalT}}</td>
+                    <td>{{job.desc}}</td>
                     <td>
-                        <a type="button" class="btn btn-warning" href="/edit_job/{{job.0}}">Editar</a>
-                        <a type="button" class="btn btn-danger" >Borrar</a>
+                        <a type="button" class="btn btn-warning" href="/edit_job/{{job.name}}">Editar</a>
+                        <a type="button" class="btn btn-danger" href="/del_job/{{job.name}}">Borrar</a>
                     </td>
                 </tr>
                 {% endfor %}

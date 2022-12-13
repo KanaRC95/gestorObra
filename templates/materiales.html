@@ -13,7 +13,7 @@
                 <tr>
                     <td style="background: dimgray">Nombre</td>
                     <td style="background: dimgray" >Tipo</td>
-                    <td style="background: dimgray" >Precio</td>
+                    <td style="background: dimgray" >Precio Unitario</td>
                     <td style="background: dimgray">Proveedor</td>
                     <td style="background: dimgray">Contacto</td>
                     <td style="background: dimgray">Opciones</td>
@@ -22,16 +22,16 @@
             <tbody>
                 {% for mat in mats %}
                 <tr>
-                    <td>{{mat.0}}</td>
-                    <td>{{mat.1}}</td>
-                    <td>{{mat.2}}</td>
-                    <td>{{mat.3}}</td>
-                    <td>{{mat.4}}</td>
+                    <td>{{mat.name}}</td>
+                    <td>{{mat.type}}</td>
+                    <td>{{mat.price}}</td>
+                    <td>{{mat.Proveedor.name}}</td>
+                    <td>{{mat.Proveedor.cel}}</td>
 
 
                     <td>
                         <a type="button" class="btn btn-warning" >Editar</a>
-                        <a type="button" class="btn btn-danger" >Borrar</a>
+                        <a type="button" class="btn btn-danger" href="del_mat/{{mat.0}}">Borrar</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -66,13 +66,17 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label mt-4">Precio</label>
+            <label class="form-label mt-4">Precio Unitario</label>
             <input type="text" class="form-control" name="price">
             </div>
           <div class="form-group">
-            <label class="form-label mt-4">Proveedor</label>
-            <input type="text" class="form-control"  name="source">
-          </div>
+                        <label  class="form-label mt-4">Material</label>
+                        <select class="form-select"  name="source">
+                            {% for pv in provs %}
+                                <option>{{pv.name}} / {{pv.city}}</option>
+                            {% endfor %}
+                        </select>
+            </div>
 
 
           <div class="modal-footer">

@@ -36,6 +36,18 @@ def queryN(type, name):
     store.close()
     return data[0]
 
+def queryTPr(type,proy):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)  # Query for Products
+            .where_equals("Proyecto",proy)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data
+
 def queryP(type, name):
     with store.open_session() as session:
         data = list(  # Materialize query
@@ -91,7 +103,7 @@ def queryJobs():
             .query(object_type=Trabajo)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
-            .select('name', 'priceM', 'totalM', 'totalT','desc', 'Materiales')  # Project
+            #.select('name', 'priceM', 'totalM', 'totalT','desc', 'Materiales')  # Project
         )
     store.close()
     return jobList
@@ -114,7 +126,7 @@ def queryPersonnel():
             .query(object_type=Obrero)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
-            .select('name', 'tel', 'occ', 'isCont', 'bloodT', 'addr', 'cont1', 'cont2', 'isActive', 'Trabajos')  # Project
+            #.select('name', 'tel', 'occ', 'isCont', 'bloodT', 'addr', 'cont1', 'cont2', 'isActive', 'Trabajos')  # Project
         )
     store.close()
     return clientList
@@ -150,7 +162,7 @@ def queryProy():
             .query(object_type=Proyecto)  # Query for Products
             #.where_equals("name",name)  # Filter
             # .skip(0).take(10)                       # Page
-            .select('pname', 'Cliente', 'addr', 'MatsFaltantes','MatsDisponibles', 'Obreros', 'Capataz', 'fechaInicio', 'fechaFin', 'Pedidos', 'TrabajosR', 'TrabajosD', 'presupuestado' ,'budget', 'status')  # Project
+            #.select('pname', 'Cliente', 'addr', 'MatsFaltantes','MatsDisponibles', 'Obreros', 'Capataz', 'fechaInicio', 'fechaFin', 'Pedidos', 'TrabajosR', 'TrabajosD', 'presupuestado' ,'budget', 'status')  # Project
         )
     store.close()
     return data
@@ -177,7 +189,7 @@ def queryPresL(oname):
             .query(object_type=Presupuesto)  # Query for Products
             .where_equals("oname",oname)  # Filter
             # .skip(0).take(10)                       # Page
-            .select('oname', 'Cliente', "addr" ,'Trabajos', 'status','budget')  # Project
+            #.select('oname', 'Cliente', "addr" ,'Trabajos', 'status','budget')  # Project
         )
     store.close()
     return data
@@ -217,6 +229,7 @@ def jobs ():
         temp.append(x.totalT)
         temp.append(x.getDesc())
         temp.append(x.Materiales)
+        temp.append(x.medicion)
         data.append(temp)
         temp = []
     return(data)
@@ -237,6 +250,7 @@ def personnel():
         temp.append(x.name)
         temp.append(x.tel)
         temp.append(x.occ)
+        temp.append(x.ced)
         temp.append(x.isCont)
         temp.append(x.bloodT)
         temp.append(x.addr)

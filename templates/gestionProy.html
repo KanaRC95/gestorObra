@@ -1,24 +1,39 @@
 {% extends "layout.html" %}
 {% block body %}
 
-<head>
+<head xmlns="http://www.w3.org/1999/html">
     <meta charset="UTF-8">
     <title>Gestion Proyecto</title>
 </head>
 <body>
     <h1>{{data.pname}}</h1>
 
-    Presupuestado: {{data.presupuestado}}
-    Presupuesto Actual: {{data.budget}}<br>
-    <div>
+    <h3>Presupuestado: {{data.presupuestado}}</h3>
+    <h3>Presupuesto Actual: {{data.budget}}</h3><br>
+    <table>
+    <td>
         <a type="button" class="btn btn-success" data-toggle="modal" data-target="#addBgt">Realizar Pago</a>
-        <br>
-        <br>
         <a type="button" class="btn btn-success" data-toggle="modal" href="#addMats">Realizar Pedido de Materiales</a>
-        <br>
-        <br>
-    </div>
+    </td>
+    </table>
+    <br>
+    <table>
+    <td>
+        <a type="button" class="btn btn-warning" href="/proyReport/{{data.pname}}">Generar Reporte</a>
+        <a type="button" class="btn btn-danger" onclick="return confirm('Esta seguro?');" href="/test">Finalizar Obra</a>
+    </td>
+    </table>
+    <br>
+    <table>
+    <td>
+        <h5>Capataz: {{data.Capataz.name}} ({{data.Capataz.ced}})</h5>
+        <a type="button" class="btn btn-success" data-toggle="modal" data-target="#addCptz">Asignar Capataz</a>
+    </td>
+    </table>
+    <br>
     <button type="button" class="btn btn-primary" id="hideClient" onclick="toggleJobs();">Trabajos Pendientes</button>
+    <button type="button" class="btn btn-primary" id="trP" onclick="toggleJobsP();">Trabajos En Progreso</button>
+    <button type="button" class="btn btn-primary" id="hideJD" onclick="toggleJobsD();">Trabajos Completados</button>
     <table id="tablaJobsR" class="table table-striped table-hover table-bordered table-info" style="display:none">
             <thead>
                 <tr>
@@ -45,9 +60,6 @@
                 {% endfor %}
             </tbody>
 </table>
-<br>
-<br>
-<button type="button" class="btn btn-primary" id="trP" onclick="toggleJobsP();">Trabajos En Progreso</button>
 <table id="tablaJobsP" class="table table-striped table-hover table-bordered table-info" style="display:none">
             <thead>
                 <tr>
@@ -88,9 +100,6 @@
                 {% endfor %}
             </tbody>
 </table>
-<br>
-<br>
-<button type="button" class="btn btn-primary" id="hideJD" onclick="toggleJobsD();">Trabajos Completados</button>
 <table id="tablaJobsD" class="table table-striped table-hover table-bordered table-info" style="display:none">
             <thead>
                 <tr>
@@ -122,24 +131,24 @@
 </table>
 <br>
 <br>
-<div class="card border-warning mb-3" style="max-width: 20rem;">
-  <div class="card-header">Materiales Necesarios</div>
-  <div class="card-body">
-      {% for name, cant in data.MatsFaltantes.items()%}
-    <p class="card-text"> {{name}}:{{cant}}</p>
-      {% endfor %}
-  </div>
-</div>
-<div class="card border-success mb-3" style="max-width: 20rem;">
-  <div class="card-header">Materiales Disponibles</div>
-  <div class="card-body">
-      {% if data.MatsDisponibles != None%}
-        {% for name, cant in data.MatsDisponibles.items()%}
-            <p class="card-text">{{name}}:{{cant}}</p>
-        {% endfor %}
-      {% endif %}
-  </div>
-</div>
+        <div class="card border-warning mb-3" style="max-width: 20rem;">
+          <div class="card-header">Materiales Necesarios</div>
+          <div class="card-body">
+              {% for name, cant in data.MatsFaltantes.items()%}
+            <p class="card-text"> {{name}}:{{cant}}</p>
+              {% endfor %}
+          </div>
+        </div>
+        <div class="card border-success mb-3" style="max-width: 20rem;">
+          <div class="card-header">Materiales Disponibles</div>
+          <div class="card-body">
+              {% if data.MatsDisponibles != None%}
+                {% for name, cant in data.MatsDisponibles.items()%}
+                    <p class="card-text">{{name}}:{{cant}}</p>
+                {% endfor %}
+              {% endif %}
+          </div>
+        </div>
 
 <div class="modal" id="addBgt">
   <div class="modal-dialog">
@@ -219,15 +228,42 @@
             <input type="text" class="form-control" name="cant">
           </div>
 
-            <div class="form-group">
-                        <label  class="form-label mt-4">Proveedor</label>
-                        <select class="form-select"  name="mat">
-                            {% for pv in prov %}
-                                <option>{{pv.name}} / {{pv.city}}</option>
-                            {% endfor %}
-                        </select>
-            </div>
 
+          <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          </div>
+
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="addCptz">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Asignar Capataz</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/assignCptz/{{data.pname}}" method="POST">
+
+          <div class="form-group">
+            <label class="form-label mt-4">Obreros Disponibles</label>
+            <select class="form-select" name="cap">
+               {% for obr in obrs%}
+              <option>{{obr.name}} / {{obr.ced}}</option>
+               {% endfor %}
+            </select>
+          </div>
           <div class="modal-footer">
         <button type="submit" class="btn btn-success">Guardar</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -239,5 +275,6 @@
     </div>
   </div>
 </div>
+
 </body>
 {% endblock %}
