@@ -3,7 +3,7 @@
 
 <body>
     {% if current_user.is_authenticated %}
-    <h1>Bienvenido {{ current_user.name }}!</h1>
+    <h1 class="center">Bienvenido {{ current_user.name }}!</h1>
     {% endif %}
 
 
@@ -14,14 +14,6 @@
       <div class="card-header"><a type="button" class="btn btn-primary center" href="/pres" style="white-space: nowrap; width: 200px">Elaborar Presupuesto</a></div>
       <div class="card-body">
         <img src="static/img/pres.jpg" style="max-height: 500px; max-width: 285px">
-      </div>
-    </div>
-    </div>
-    <div class="col-sm">
-      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-      <div class="card-header"><a type="button" href="/pers" class="btn btn-primary center" style="white-space: nowrap; width: 200px">Ver Personal</a></div>
-      <div class="card-body">
-        <img src="static/img/mats.jpg" style="max-height: 500px; max-width: 285px">
       </div>
     </div>
     </div>

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<body>
+    <form action="/edit_mat" method="POST">
+
+          <div class="form-group">
+            <label class="form-label mt-4">Nombre</label>
+            <input type="text" class="form-control" value={{mat.name}} name="mname">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleSelect1" class="form-label mt-4">Tipo</label>
+            <select class="form-select" id="exampleSelect1" name="type">
+              <option>Bolsas</option>
+              <option>Kilos</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label mt-4">Precio Unitario</label>
+            <input type="text" class="form-control" value={{mat.price}} name="price">
+            </div>
+          <div class="form-group">
+                        <label  class="form-label mt-4">Material</label>
+                        <select class="form-select"  name="source">
+                            {% for pv in provs %}
+                                <option>{{pv.name}} / {{pv.city}}</option>
+                            {% endfor %}
+                        </select>
+            </div>
+
+
+          <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      </div>
+
+
+      </form>
+</body>
+{% endblock %}

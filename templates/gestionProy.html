@@ -260,7 +260,9 @@
             <label class="form-label mt-4">Obreros Disponibles</label>
             <select class="form-select" name="cap">
                {% for obr in obrs%}
-              <option>{{obr.name}} / {{obr.ced}}</option>
+                    {% if obr.isActive == "Si"%}
+                        <option>{{obr.name}} / {{obr.ced}}</option>
+                    {% endif%}
                {% endfor %}
             </select>
           </div>

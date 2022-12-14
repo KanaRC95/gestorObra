@@ -12,11 +12,13 @@ def addObject(obj):
         session.store(obj)
         session.save_changes()
         store.close()
-def query(type):
+
+def query(type, user):
     with store.open_session() as session:
         data = list(  # Materialize query
             session
-            .query(object_type=type)  # Query for Products
+            .query(object_type=type)
+            .where_equals("User",user)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
@@ -24,12 +26,26 @@ def query(type):
     store.close()
     return data
 
-def queryN(type, name):
+def queryID(type, id):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)
+            .where_equals("id",id)  # Query for Products
+            # .where_greater_than("UnitsInStock", 5)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data
+
+def queryN(type, name, user):
     with store.open_session() as session:
         data = list(  # Materialize query
             session
             .query(object_type=type)  # Query for Products
-            .where_equals("name",name)  # Filter
+            .where_equals("name",name)
+            .where_equals("User",user)  # Filter
             # .skip(0).take(10)                       # Page
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
@@ -48,24 +64,39 @@ def queryTPr(type,proy):
     store.close()
     return data
 
-def queryP(type, name):
+def queryP(type, name, user):
     with store.open_session() as session:
         data = list(  # Materialize query
             session
             .query(object_type=type)  # Query for Products
-            .where_equals("pname",name)  # Filter
+            .where_equals("pname",name)
+            .where_equals("User",user)  # Filter
             # .skip(0).take(10)                       # Page
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
     return data[0]
 
-def queryTP(type, name):
+def queryTP(type, name, user):
     with store.open_session() as session:
         data = list(  # Materialize query
             session
             .query(object_type=type)  # Query for Products
-            .where_equals("tpname",name)  # Filter
+            .where_equals("tpname",name)
+            .where_equals("User",user)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data[0]
+
+def queryPr(type, name, user):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)  # Query for Products
+            .where_equals("oname",name)
+            .where_equals("User",user)  # Filter
             # .skip(0).take(10)                       # Page
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
@@ -331,14 +362,15 @@ def presL(oname):
         temp = []
     return(data[0])
 
-def queryUsers(name,password):
+def queryUsers(id,password):
     with store.open_session() as session:
         userList = list(  # Materialize query
             session
             .query(object_type=User)  # Query for Products
-            .where_equals("name",name) # Filter
+            .where_equals("id",id)
+            .where_equals("password",password) # Filter
             # .skip(0).take(10)                       # Page
-            .select("id","name")  # Project
+            #.select("id","name")  # Project
         )
     store.close()
     return userList

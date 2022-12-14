@@ -25,14 +25,14 @@
             <tbody>
                 {% for py in pys %}
                 <tr>
-                    <td>{{py.0}}</td>
-                    <td>{{py.1.name}} - {{py.1.ruc}}</td>
-                    <td>{{py.2}}</td>
-                    <td>{{py.5}}</td>
-                    <td>{{py.6}}</td>
-                    <td>{{py.7}}</td>
+                    <td>{{py.pname}}</td>
+                    <td>{{py.Cliente.name}} - {{py.Cliente.ruc}}</td>
+                    <td>{{py.addr}}</td>
+                    <td>{{py.fechaInicio}}</td>
+                    <td>{{py.budget}}</td>
+                    <td>{{py.status}}</td>
                     <td>
-                        <a type="button" class="btn btn-warning" href="/deetsProy/{{py.0}}">Detalles</a>
+                        <a type="button" class="btn btn-warning" href="/deetsProy/{{py.pname}}">Detalles</a>
                         <a type="button" class="btn btn-danger" >Cerrar</a>
                     </td>
                 </tr>

@@ -4,7 +4,8 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Cargar Cliente
 </button>
-
+<br>
+<br>
 <table class="table table-striped table-hover table-bordered">
             <thead>
                 <tr>
@@ -21,13 +22,13 @@
             <tbody>
                 {% for client in clients %}
                 <tr>
-                    <td>{{client.0}}</td>
-                    <td>{{client.1}}</td>
-                    <td>{{client.2}}</td>
-                    <td>{{client.3}}</td>
-                    <td>{{client.4}}</td>
-                    <td>{{client.5}}</td>
-                    <td>{{client.6}}</td>
+                    <td>{{client.name}}</td>
+                    <td>{{client.phone}}</td>
+                    <td>{{client.addr}}</td>
+                    <td>{{client.ruc}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.ciudad}}</td>
+                    <td>{{client.type}}</td>
 
                     <td>
                         <a type="button" class="btn btn-warning" >Editar</a>

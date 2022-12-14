@@ -3,39 +3,35 @@
 
 <body>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Cargar Material
-</button>
-<br>
-<br>
-<a type="button" class="btn btn-success" href="/audits">Ver Historial de Cambios</a>
+<a type="button" class="btn btn-warning" href="/mats">Volver</a>
 <br>
 <br>
 <table class="table table-striped table-hover table-bordered">
             <thead>
                 <tr>
-                    <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray" >Tipo</td>
-                    <td style="background: dimgray" >Precio Unitario</td>
-                    <td style="background: dimgray">Proveedor</td>
-                    <td style="background: dimgray">Contacto</td>
-                    <td style="background: dimgray">Opciones</td>
+                    <td style="background: dimgray">Antes</td>
+                    <td style="background: dimgray" >Despues</td>
+                    <td style="background: dimgray" >Fecha y Hora</td>
                 </tr>
             </thead>
             <tbody>
-                {% for mat in mats %}
+                {% for dt in data %}
                 <tr>
-                    <td>{{mat.name}}</td>
-                    <td>{{mat.type}}</td>
-                    <td>{{mat.price}}</td>
-                    <td>{{mat.Proveedor.name}}</td>
-                    <td>{{mat.Proveedor.cel}}</td>
-
-
                     <td>
-                        <a type="button" class="btn btn-warning" href="editScreen/{{mat.name}}">Editar</a>
-                        <a type="button" class="btn btn-danger" href="del_mat/{{mat.name}}">Borrar</a>
+                        Nombre: {{dt.antes.name}}<br>
+                        Tipo: {{dt.antes.type}}<br>
+                        Precio: {{dt.antes.price}}<br>
+                        Proveedor: {{dt.antes.Proveedor.name}}<br>
+                        Ciudad: {{dt.antes.Proveedor.city}}<br>
                     </td>
+                    <td>
+                        Nombre: {{dt.despues.name}}<br>
+                        Tipo: {{dt.despues.type}}<br>
+                        Precio: {{dt.despues.price}}<br>
+                        Proveedor: {{dt.despues.Proveedor.name}}<br>
+                        Ciudad: {{dt.despues.Proveedor.city}}<br>
+                    </td>
+                    <td>{{dt.fecha}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

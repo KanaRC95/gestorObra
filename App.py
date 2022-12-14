@@ -1,6 +1,7 @@
 import datetime
 from collections import *
 import flask
+import flask_login
 from flask import Flask, render_template, request, url_for, flash, redirect
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
 from pyravendb.store import document_store
@@ -32,9 +33,6 @@ BINDEX = -1
 
 
 
-user = User('Kana','Brian','a@a.com','12345',True)
-
-
 
 @app.route('/')
 def inicio():
@@ -42,7 +40,6 @@ def inicio():
 
 @app.route('/feats')
 def feats():
-    addObject(user)
     return render_template('login.html', data=data)
 
 @login_manager.user_loader
@@ -64,59 +61,64 @@ def home ():
 @app.route('/info')
 @login_required
 def info ():
-    print(current_user)
     return render_template('data.html', data=data)
 
 @app.route('/mats')
 @login_required
 def rmats():
-    data = query(Material)
-    pr = query(Proveedor)
+    data = query(Material, flask_login.current_user.id)
+    pr = query(Proveedor, flask_login.current_user.id)
     return render_template('materiales.html', mats=data, provs=pr)
+
+@app.route('/audits')
+@login_required
+def audits():
+    data = query(Audit, flask_login.current_user.id)
+    return render_template('audits.html', data=data)
 
 @app.route('/pers')
 @login_required
 def rpers():
-    data = personnel()
+    data = query(Obrero,flask_login.current_user.id)
     return render_template('personal.html', obr=data)
 
 @app.route('/jobs')
 @login_required
 def rjobs():
-    data = queryJobs()
+    data = query(Trabajo,flask_login.current_user.id)
     return render_template('trabajos.html', jobs=data)
 
 @app.route('/cjobs')
 @login_required
 def cjobs():
-    dataM = mats()
-    prov = query(Proveedor)
+    dataM = query(Material,flask_login.current_user.id)
+    prov = query(Proveedor,flask_login.current_user.id)
     return render_template('cargaJobs.html', mats=dataM, provs=prov)
 
 
 @app.route('/clients')
 @login_required
 def cl():
-    data = clients()
+    data = query(Cliente,flask_login.current_user.id)
     return render_template('clients.html', clients=data)
 
 @app.route('/pres')
 @login_required
 def bgt():
-    pr = pres()
-    cl = clients()
+    pr = query(Presupuesto,flask_login.current_user.id)
+    cl = query(Cliente,flask_login.current_user.id)
     return render_template('pres.html', pres=pr, clients=cl)
 
 @app.route('/prov')
 @login_required
 def provs():
-    pr = query(Proveedor)
+    pr = query(Proveedor,flask_login.current_user.id)
     return render_template('prov.html', provs=pr)
 
 @app.route('/proy')
 @login_required
 def proy():
-    proys = proyL()
+    proys = query(Proyecto,flask_login.current_user.id)
     return render_template('proyScreen.html', pys=proys)
 
 @app.route('/proyReport/<name>')
@@ -127,11 +129,13 @@ def proyReport(name):
             session
             .query(object_type=Proyecto)  # Query for Products
             .where_equals("pname", name)
+            .where_equals("User", flask_login.current_user.id)
         )
         pend = list(
             session
             .query(object_type=TrabajoP)  # Query for Products
             .where_equals("Proyecto", name)
+            .where_equals("User", flask_login.current_user.id)
         )
         if not pend:
             pend = []
@@ -148,6 +152,7 @@ def cStatus(name):
             session
             .query(object_type=Presupuesto)  # Query for Products
             .where_equals("oname", name)
+            .where_equals("User", flask_login.current_user.id)
         )
         st = p[0].status
         if st=='Abierto':
@@ -171,33 +176,33 @@ def cptz(name):
                 session
                 .query(object_type=Proyecto)  # Query for Products
                 .where_equals("pname", name)
+                .where_equals("User", flask_login.current_user.id)
             )
             o = list(
                 session
                 .query(object_type=Obrero)  # Query for Products
                 .where_equals("name", name)
                 .where_equals("ced",ced)
+                .where_equals("User", flask_login.current_user.id)
             )
             p[0].Capataz=o[0]
             session.save_changes()
         store.close()
-
         return redirect(url_for('deetsProy', name=name))
 
 @app.route('/cargaPres/<name>')
 @login_required
 def nbgt(name):
-    global currentP
     currentP = name
-    presE = queryPresL(name)
+    presE = query(Presupuesto,flask_login.current_user.id)
     jobsL = presE[0].getJobs()
-    js = jobs()
+    js = query(Trabajo,flask_login.current_user.id)
     return render_template('cargaPres.html', pres=presE, jobs=js, listado=jobsL)
 
 @app.route('/generarProy/<name>')
 @login_required
 def genProy(name):
-    presE = queryPresL(name)
+    presE = queryN(Presupuesto,name,flask_login.current_user.id)
     #pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
     #Pedidos, TrabajosR, TrabajosD, budget
     pname = 'Proyecto '+presE[0].oname
@@ -222,7 +227,7 @@ def genProy(name):
         else:
             res[mt['name']] = mt['cant']
 
-    proy = Proyecto(pname,client,addr,res,None,None,None,datenow,None,None,tbjs,None,bgt,0,'Comenzado',None)
+    proy = Proyecto(pname,client,addr,res,None,None,None,datenow,None,None,tbjs,None,bgt,0,'Comenzado',None,flask_login.current_user.id)
     addObject(proy)
 
     return redirect(url_for('proy'))
@@ -230,7 +235,7 @@ def genProy(name):
 @app.route('/startJ/<name>/<proy>')
 @login_required
 def stJ(name,proy):
-    py = queryP(Proyecto,proy)
+    py = queryP(Proyecto,proy,flask_login.current_user.id)
     tr = ''
     datenow = datetime.datetime.now().strftime("%x")
 
@@ -242,13 +247,14 @@ def stJ(name,proy):
                     session
                     .query(object_type=Proyecto)  # Query for Products
                     .where_equals("pname", proy)
+                    .where_equals("User", flask_login.current_user.id)
                 )
                 p[0].movTR(x)
                 session.save_changes()
             store.close()
 
 
-    trP = TrabajoP(tr['name'],tr['Materiales'],tr['totalT'],None,datenow,None,py.pname)
+    trP = TrabajoP(tr['name'],tr['Materiales'],tr['totalT'],None,datenow,None,py.pname,flask_login.current_user.id)
     addObject(trP)
     return redirect(url_for('deetsProy', name = py.pname))
 
@@ -264,17 +270,17 @@ def deetsProy(name):
     global currentPy
     currentPy = proy
     trP = queryTPr(TrabajoP,name)
-    obr = query(Obrero)
-    prv = query(Proveedor)
-    mt = query(Material)
+    obr = query(Obrero,flask_login.current_user.id)
+    prv = query(Proveedor,flask_login.current_user.id)
+    mt = query(Material,flask_login.current_user.id)
     return render_template('gestionProy.html', data=proy, trps=trP, obrs=obr, prov=prv, mats=mt)
 
 @app.route('/pend/<name>/<proy>')
 @login_required
 def penScr(name,proy):
-    trp = queryTP(TrabajoP,name)
-    p = queryP(Proyecto,proy)
-    obr = query(Obrero)
+    trp = queryTP(TrabajoP,name,flask_login.current_user.id)
+    p = queryP(Proyecto,proy,flask_login.current_user.id)
+    obr = query(Obrero,flask_login.current_user.id)
     return render_template('pendiente.html', pr=p, tps=trp, obrs=obr)
 
 @app.route('/pendC/<name>/<proy>')
@@ -282,18 +288,20 @@ def penScr(name,proy):
 def compTR(name, proy):
     #chequear materiales disponibles
     m = {}
-    p = queryP(Proyecto,proy)
+    p = queryP(Proyecto,proy,flask_login.current_user.id)
     with store.open_session() as session:
         trp = list(  # Materialize query
             session
             .query(object_type=TrabajoP)  # Query for Products
             .where_equals("tpname",name)
-            .where_equals("Proyecto",proy)  # Filter
+            .where_equals("Proyecto",proy)
+            .where_equals("User", flask_login.current_user.id)# Filter
         )
         p = list(
             session
             .query(object_type=Proyecto)  # Query for Products
             .where_equals("pname", proy)
+            .where_equals("User", flask_login.current_user.id)
         )
         obr = list(session.query(object_type=Obrero))
         for x in trp[0].Materiales:
@@ -324,27 +332,29 @@ def compTR(name, proy):
             return render_template('error.html', error=err)
     store.close()
 
-    obr = query(Obrero)
+    obr = query(Obrero,flask_login.current_user.id)
     return redirect(url_for('deetsProy', name = p[0].pname))
 
 @app.route('/assigOb/<job>/<name>/<py>')
 @login_required
 def addObr(job,name,py):
-    p = queryP(Proyecto,py)
+    p = queryP(Proyecto,py,flask_login.current_user.id)
     global currentPy
     currentPy = p
-    jobN = queryN(Trabajo,job).name
+    jobN = queryN(Trabajo,job,flask_login.current_user.id).name
     with store.open_session() as session:
         qObr = list(
             session
             .query(object_type=Obrero)  # Query for Products
             .where_equals("name", name)
+            .where_equals("User", flask_login.current_user.id)
         )
 
         qTbs = list(
             session
             .query(object_type=TrabajoP)  # Query for Products
             .where_equals("tpname", job)
+            .where_equals("User", flask_login.current_user.id)
         )
         qTbs[0].addObrero(qObr[0].name,qObr[0].occ, p.pname)
         qObr[0].addTrabajo(jobN,p.pname,dateNow())
@@ -355,7 +365,7 @@ def addObr(job,name,py):
 
 @login_manager.unauthorized_handler
 def unauthorized():
-    return render_template('error.html')
+    return render_template('login.html')
 
 @app.route('/add_mat', methods=['POST'])
 @login_required
@@ -368,9 +378,71 @@ def add_mats():
         prov = x.split(" / ",1)[0]
         x = queryN(Proveedor,prov)
         #(self, name, type, price, Proveedor, cant)
-        material = Material(name,tipo,precio, x,0)
+        material = Material(name,tipo,precio, x,0,flask_login.current_user.id)
         addObject(material)
         return redirect(url_for('rmats'))
+
+@app.route('/editScreen/<name>')
+@login_required
+def edit_mat(name):
+    m = queryN(Material,name,flask_login.current_user.id)
+    p = query(Proveedor,flask_login.current_user.id)
+    return render_template('editMScreen.html', mat=m, provs=p)
+
+@app.route('/edit_mat', methods=['POST'])
+@login_required
+def editS():
+    if request.method == 'POST':
+        name = request.form['mname']
+        tipo = request.form['type']
+        precio = int(request.form['price'])
+        x = request.form['source']
+        prov = x.split(" / ", 1)[0]
+        x = queryN(Proveedor, prov,flask_login.current_user.id)
+        newTM = 0
+        # (self, name, type, price, Proveedor, cant)
+        material = queryN(Material,name,flask_login.current_user.id)
+        with store.open_session() as session:
+            m = list(
+                session
+                .query(object_type=Material)  # Query for Products
+                .where_equals("name", name)
+                .where_equals("User", flask_login.current_user.id)
+            )
+            trb = list(
+                session
+                .query(object_type=Trabajo)
+                .where_equals("User", flask_login.current_user.id)# Query for Products
+                #.where_equals("name", name)
+            )
+            m[0].name=name
+            m[0].type=tipo
+            m[0].price=precio
+            m[0].Proveedor=x
+            for t in trb:
+                for mt in t.Materiales:
+                    if mt['name']==name:
+                        mt['name'] = name
+                        mt['type'] = tipo
+                        mt['price'] = precio
+                        mt['Proveedor'] = x
+                        mt['total']=mt['price']*mt['cant']
+
+            for tr in trb:
+                for mt in t.Materiales:
+                    newTM += mt['total']
+                tr.totalM = newTM
+                tr.total = tr.totalM+tr.priceM
+
+            session.save_changes()
+
+        store.close()
+        t = datetime.datetime.now()
+        newM = queryN(Material,name,flask_login.current_user.id)
+        audit = Audit(material,newM,t, flask_login.current_user)
+        addObject(audit)
+        return redirect(url_for('rmats'))
+
 
 @app.route('/add_pay/<name>', methods=['POST'])
 @login_required
@@ -392,21 +464,21 @@ def add_pay(name):
                 session
                 .query(object_type=Proyecto)  # Query for Products
                 .where_equals("pname", name)
+                .where_equals("User", flask_login.current_user.id)
             )
             p[0].budget += int(pago)
             p[0].addFactura(f)
             session.save_changes()
         store.close()
-
         return redirect(url_for('deetsProy', name = p[0].pname))
 
 @app.route('/add_ped/<name>', methods=['POST'])
 @login_required
 def add_ped(name):
-    p = queryP(Proyecto, name)
+    p = queryP(Proyecto, name,flask_login.current_user.id)
     x = request.form['mat']
     mtname = x.split(' / ',1)[0]
-    mat = queryN(Material,mtname)
+    mat = queryN(Material,mtname,flask_login.current_user.id)
     val = int(request.form['cant'])
     mat.cant = val
     mat.setTotal()
@@ -421,6 +493,7 @@ def add_ped(name):
                 session
                 .query(object_type=Proyecto)  # Query for Products
                 .where_equals("pname", name)
+                .where_equals("User", flask_login.current_user.id)
             )
 
             if p[0].MatsDisponibles:
@@ -451,7 +524,7 @@ def add_prov():
         city = request.form['city']
         addr = request.form['addr']
         #(self, name, type, price, Proveedor, cant)
-        p = Proveedor(name,email,tel,city,addr)
+        p = Proveedor(name,email,tel,city,addr,flask_login.current_user.id)
         addObject(p)
 
         return redirect(url_for('provs'))
@@ -489,7 +562,7 @@ def add_pres():
         clName = cl.split("/")
         client = queryClient(clName[1])
 
-        pres = Presupuesto(obra, client, addr, jobs, status, budget)
+        pres = Presupuesto(obra, client, addr, jobs, status, budget,flask_login.current_user.id)
         addObject(pres)
 
     return redirect('/pres')
@@ -507,7 +580,7 @@ def add_client():
         city = request.form['ccity']
         type = request.form['ctype']
 
-        client = Cliente(name,phone,addr,ruc,mail,city,type)
+        client = Cliente(name,phone,addr,ruc,mail,city,type,flask_login.current_user.id)
         addObject(client)
         return redirect('/clients')
 
@@ -527,14 +600,14 @@ def add_job():
             q = queryMatsN(m)
             aux = q[0]
             #(self, name, type, price, Proveedor, cant)
-            mat = Material(aux.getName(),aux.getType(),int(aux.getPrice()),'',int(c))
+            mat = Material(aux.getName(),aux.getType(),int(aux.getPrice()),'',int(c),flask_login.current_user.id)
             jmats.append(mat)
         total = 0
         for mat in jmats:
             total += int(mat.getTotal())
 
 
-        trabajo = Trabajo(name,int(precio), total, (int(precio)+total) ,desc,jmats)
+        trabajo = Trabajo(name,int(precio), total, (int(precio)+total) ,desc,jmats,0,flask_login.current_user.id)
         trabajo.medicion = md
         addObject(trabajo)
         return redirect(url_for('rjobs'))
@@ -543,9 +616,9 @@ def add_job():
 @app.route('/details/<name>', methods=['GET','POST'])
 @login_required
 def deets(name):
-    pres = queryPresL(name)
-    jobsL = pres[0].Trabajos
-    return render_template('detalles.html', info=pres[0], listado=jobsL, fecha=dateNow())
+    pres = queryPr(Presupuesto,name,flask_login.current_user.id)
+    jobsL = pres.Trabajos
+    return render_template('detalles.html', info=pres, listado=jobsL, fecha=dateNow())
 
 @app.route('/add_pr/<pr>', methods=['POST','GET'])
 @login_required
@@ -553,7 +626,7 @@ def add_pr(pr):
     if request.method == 'POST':
         ct = int(request.form['cant'])
         jbname = request.form['jb']
-        j = queryN(Trabajo,jbname)
+        j = queryN(Trabajo,jbname,flask_login.current_user.id)
         mats = j.Materiales
         totalT = 0
 
@@ -576,6 +649,7 @@ def add_pr(pr):
                 session
                 .query(object_type=Presupuesto)  # Query for Products
                 .where_equals("oname", pr)
+                .where_equals("User", flask_login.current_user.id)
             )
             pres[0].addJob(tb)
             pres[0].addBudget(totalT+(j.priceM*ct))
@@ -606,7 +680,8 @@ def del_pres(name,pres):
         p = list(  # Materialize query
             session
             .query(object_type=Presupuesto)  # Query for Products
-            .where_equals("oname", pres)  # Filter
+            .where_equals("oname", pres)
+            .where_equals("User", flask_login.current_user.id)# Filter
             # .skip(0).take(10)                       # Page
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
@@ -630,7 +705,8 @@ def del_job(name):
         p = list(  # Materialize query
             session
             .query(object_type=Trabajo)  # Query for Products
-            .where_equals("name", name)  # Filter
+            .where_equals("name", name)
+            .where_equals("User", flask_login.current_user.id)# Filter
             # .skip(0).take(10)                       # Page
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
@@ -649,7 +725,8 @@ def del_mat(name):
         p = list(  # Materialize query
             session
             .query(object_type=Material)  # Query for Products
-            .where_equals("name", name)  # Filter
+            .where_equals("name", name)
+            .where_equals("User", flask_login.current_user.id)# Filter
             # .skip(0).take(10)                       # Page
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
@@ -659,6 +736,65 @@ def del_mat(name):
     store.close()
 
     return redirect(url_for('rmats'))
+
+@app.route('/delObr/<name>/<ced>', methods=['POST','GET'])
+@login_required
+def del_obr(name,ced):
+    with store.open_session() as session:
+        o = list(  # Materialize query
+            session
+            .query(object_type=Obrero)  # Query for Products
+            .where_equals("name", name)
+            .where_equals("ced", ced)# Filter
+            # .skip(0).take(10)                       # Page
+            #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
+        )
+        session.delete_by_entity(o[0])
+        session.save_changes()
+    store.close()
+
+    return redirect('/pers')
+
+@app.route('/baja', methods=['POST','GET'])
+@login_required
+def darBaja():
+    if request.method == 'POST':
+        x = request.form['obrero']
+        obName = x.split(' / ',1)[0]
+        obCed = x.split(' / ',1)[1]
+        mot = request.form['baja']
+        with store.open_session() as session:
+
+            o = list(  # Materialize query
+                session
+                .query(object_type=Obrero)
+                .where_equals("name",obName)# Query for Products
+                .where_equals("ced", obCed)# Filter
+                # .skip(0).take(10)                       # Page
+                #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
+            )
+            o[0].isActive = 'No ('+mot+')'
+            session.save_changes()
+        store.close()
+
+    return redirect('/pers')
+
+@app.route('/alta/<name>/<ced>', methods=['POST','GET'])
+@login_required
+def darAlta(name,ced):
+    with store.open_session() as session:
+        o = list(  # Materialize query
+            session
+            .query(object_type=Obrero)
+            .where_equals("name", name)  # Query for Products
+            .where_equals("ced", ced)  # Filter
+            # .skip(0).take(10)                       # Page
+            # .select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
+        )
+        o[0].isActive = 'Si'
+        session.save_changes()
+    store.close()
+    return redirect('/pers')
 
 @app.route('/edit_job/<id>', methods=['POST','GET'])
 @login_required
@@ -671,13 +807,47 @@ def addM_toJob(id):
 @app.route('/save', methods=['GET','POST'])
 @login_required
 def save():
-    pres = Presupuesto('test',current_user,budget)
+    pres = Presupuesto('test',current_user,budget,flask_login.current_user.id)
     addObject(pres)
     return redirect('/home')
 
 @app.route('/login')
 def loginScreen():
-    return flask.render_template('login.html', form=data)
+
+    return flask.render_template('login.html')
+
+@app.route('/signup')
+def signup():
+    err = []
+    return flask.render_template('signup.html', form=data, error=err)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def crearCuenta():
+    if request.method == 'POST':
+        err = []
+        username = request.form['username']
+        rname = request.form['realname']
+        mail = request.form['mail']
+        clave = request.form['pass']
+        rclave = request.form['rpass']
+
+        usr = queryID(User,username)
+
+        if clave != rclave:
+            err.append('Las contraseñas deben ser iguales.')
+        if usr:
+            err.append('Ya existe ese usuario.')
+
+        if err:
+            return flask.render_template('signup.html', error=err)
+        else:
+            usr = User(username,rname,mail,clave)
+            addObject(usr)
+            return flask.render_template('login.html')
+
+
+
+
 
 @app.route("/logout")
 @login_required
@@ -694,7 +864,7 @@ def login():
 
         if not users:
             print('No hay usuarios')
-            return flask.render_template('error.html', form=data)
+            return redirect('/login')
         else:
             login_user(users[0])
             current_user = users[0]

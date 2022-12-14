@@ -1,25 +1,52 @@
-{% extends "layout.html" %}
-{% block body %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 </head>
-<body>
-    <form action="/logear" method="POST" autocomplete="off">
-        <fieldset>
-            <legend>Login</legend>
+<body background="../static/img/bg-01.jpg" style="background-attachment: fixed; background-size: cover;">
+    <div class="card border-primary mb-3" style="max-width: 20rem;  margin: 0 auto; float: none; margin-bottom: 10px; margin-top: 100px;">
+        <div class="card-body">
+            <h4 class="card-title">Crear Cuenta</h4>
 
+            {% for e in error%}
+            <p class="text-warning">{{e}}</p>
+            {% endfor %}
+
+            <form action="/signup" method="POST" autocomplete="off">
+        <fieldset>
                 <div class="form-group">
-                  <label for="exampleInputEmail1" class="form-label mt-4">ID Usuario</label>
-                  <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="ID">
+                  <label  class="form-label mt-4">ID Usuario</label>
+                  <input type="text" class="form-control" name="username" placeholder="ID">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1" class="form-label mt-4">Contraseña</label>
-                  <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <label  class="form-label mt-4">Nombre</label>
+                  <input type="text" class="form-control" name="realname" placeholder="Nombre">
                 </div>
-            <button type="submit" class="btn btn-primary">Logear</button>
+                <div class="form-group">
+                  <label  class="form-label mt-4">Email</label>
+                  <input type="text" class="form-control" name="mail" placeholder="a@a.com">
+                </div>
+                <div class="form-group">
+                  <label class="form-label mt-4">Contraseña</label>
+                  <input type="password" class="form-control"  name="pass" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label class="form-label mt-4">Repetir Contraseña</label>
+                  <input type="password" class="form-control"  name="rpass" placeholder="">
+                </div>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary" style="position:absolute; margin-left:-50px; left:50%; width:100px; bottom:10px;">Crear Cuenta</button>
         </fieldset>
     </form>
+
+
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
 </body>
 </html>
-{% endblock %}

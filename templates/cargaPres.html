@@ -67,7 +67,7 @@
             <label for="exampleSelect1" class="form-label mt-4">Trabajos</label>
             <select class="form-select" id="exampleSelect1" name="jb">
               {% for job in jobs %}
-                <option>{{job.0}}</option>
+                <option>{{job.name}}</option>
                 {% endfor %}
             </select>
           </div>

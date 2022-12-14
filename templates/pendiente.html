@@ -42,7 +42,6 @@
               <!-- Modal body -->
               <div class="modal-body">
                 <table class="table table-striped table-hover table-bordered">
-                    <h4 class="trbj">.</h4>
                     <thead>
                         <tr>
                             <td style="background: dimgray">Nombre</td>
@@ -51,6 +50,7 @@
                     </thead>
                     <tbody>
                         {% for ob in obrs %}
+                        {% if ob.isActive == "Si"%}
                         <tr>
                             <td>{{ob.name}}</td>
                             <td>{{ob.occ}}</td>
@@ -58,6 +58,7 @@
                                 <a type="button" class="btn btn-warning" href="/assigOb/{{tps.tpname}}/{{ob.name}}/{{pr.pname}}">Seleccionar</a>
                             </td>
                         </tr>
+                        {% endif %}
                         {% endfor %}
                     </tbody>
                     </table>

@@ -9,6 +9,7 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="addMat">
   Cargar Materiales
 </button>
+
 <form action="/add_job" method="POST">
 
           <div class="form-group">
@@ -37,7 +38,7 @@
         <table>
             {% for mat in mats %}
                 <td>
-                    <label><input type="checkbox" value="{{mat.0}}" name="check" id="check">{{mat.0}}</label>
+                    <label><input type="checkbox" value="{{mat.name}}" name="check" id="check">{{mat.name}}</label>
                     <input type="text" class="form-control" id="mcant" name="mcant">
                  </td>
             {% endfor %}
@@ -49,7 +50,7 @@
     <br>
     <br>
         <button type="submit" class="btn btn-success">Guardar</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+
 
 </form>
 

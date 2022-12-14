@@ -17,7 +17,7 @@ class User():
         return '<User {}>'.format(self.email)
 
 class Trabajo:
-    def __init__(self,name, priceM, totalM, totalT, desc, Materiales):
+    def __init__(self,name, priceM, totalM, totalT, desc, Materiales, medicion, User):
         self.name = name
         self.priceM = priceM
         self.totalM = totalM
@@ -25,7 +25,8 @@ class Trabajo:
         self.Materiales = Materiales
         self.totalT = totalT
         self.superficie = 0
-        self.medicion = ''
+        self.medicion = medicion
+        self.User = User
 
     def getName(self):
         return self.name
@@ -42,8 +43,9 @@ class Trabajo:
     def getMateriales(self):
         return self.Materiales
 
+
 class TrabajoP:
-    def __init__(self, tpname, Materiales, precioTotal, Obreros, fechaInicio, fechaFin, Proyecto):
+    def __init__(self, tpname, Materiales, precioTotal, Obreros, fechaInicio, fechaFin, Proyecto, User):
         self.tpname = tpname
         self.Materiales = Materiales
         self.precioTotal = precioTotal
@@ -51,6 +53,7 @@ class TrabajoP:
         self.fechaInicio = fechaInicio
         self.fechaFin = fechaFin
         self.Proyecto = Proyecto
+        self.User = User
 
 
     def addObrero(self,name, occ, proy):
@@ -72,11 +75,12 @@ class TrabajoP:
             self.Obreros.append(ob)
 
 class Material:
-    def __init__(self, name, type, price, Proveedor, cant):
+    def __init__(self, name, type, price, Proveedor, cant, User):
         self.name = name
         self.type = type
         self.price = price
         self.Proveedor = Proveedor
+        self.User = User
         if cant == 0:
             self.total = 0
             self.cant = 0
@@ -107,12 +111,13 @@ class Material:
 
 
 class Proveedor():
-    def __init__(self,name, email, cel, city, addr):
+    def __init__(self,name, email, cel, city, addr, User):
         self.name = name
         self.email = email
         self.cel = cel
         self.city = city
         self.addr = addr
+        self.User = User
 
     def getName(self):
         return self.name
@@ -124,7 +129,7 @@ class Proveedor():
         return self.city
 
 class Cliente():
-    def __init__(self,name, phone, addr, ruc, email, ciudad, type):
+    def __init__(self,name, phone, addr, ruc, email, ciudad, type, User):
         self.name = name
         self.phone = phone
         self.addr = addr
@@ -132,6 +137,7 @@ class Cliente():
         self.email = email
         self.ciudad = ciudad
         self.type = type
+        self.User = User
 
     def getName(self):
         return self.name
@@ -140,7 +146,7 @@ class Cliente():
         return self.contacto
 
 class Obrero():
-    def __init__(self,name, tel, occ, ced, isCont, bloodT, addr, cont1, cont2, isActive, Trabajos):
+    def __init__(self,name, tel, occ, ced, isCont, bloodT, addr, cont1, cont2, isActive, Trabajos, User):
         self.name = name
         self.tel = tel
         self.occ = occ
@@ -152,6 +158,7 @@ class Obrero():
         self.cont2 = cont2
         self.isActive = isActive
         self.Trabajos = Trabajos
+        self.User = User
 
     def addTrabajo(self,job, Proy, date):
         if not self.Trabajos:
@@ -176,7 +183,7 @@ class Obrero():
 
 class Proyecto():
     def __init__(self, pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
-                 Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status, pagos, gastos):
+                 Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status, pagos, gastos, User):
 
         self.pname = pname
         self.Cliente = Cliente
@@ -195,6 +202,7 @@ class Proyecto():
         self.status = status
         self.pagos = pagos
         self.gastos = gastos
+        self.User = User
 
     def movTR(self,elem):
         self.TrabajosR.remove(elem)
@@ -216,13 +224,14 @@ class Proyecto():
             self.pagos.append(f)
 
 class Presupuesto():
-    def __init__(self,oname, Cliente, addr, Trabajos, status, budget):
+    def __init__(self,oname, Cliente, addr, Trabajos, status, budget, User):
         self.oname = oname
         self.Cliente = Cliente
         self.addr = addr
         self.Trabajos = Trabajos
         self.status = status
         self.budget = budget
+        self.User = User
 
     def addJob(self,job):
         if not self.Trabajos:
@@ -240,3 +249,10 @@ class Presupuesto():
 
     def getBudget(self):
         return self.budget
+
+class Audit():
+    def __init__(self, antes, despues, fecha, User):
+        self.antes = antes
+        self.despues = despues
+        self.fecha = fecha
+        self.User = User
