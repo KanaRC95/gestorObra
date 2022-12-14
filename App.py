@@ -38,10 +38,6 @@ BINDEX = -1
 def inicio():
     return render_template('index.html', data=data)
 
-@app.route('/feats')
-def feats():
-    return render_template('login.html', data=data)
-
 @login_manager.user_loader
 def load_user(user_id):
     user = queryUser(user_id)
@@ -62,6 +58,11 @@ def home ():
 @login_required
 def info ():
     return render_template('data.html', data=data)
+
+@app.route('/users')
+def feats():
+    usr = queryUrs()
+    return render_template('users.html', data=usr)
 
 @app.route('/mats')
 @login_required
@@ -95,6 +96,31 @@ def cjobs():
     prov = query(Proveedor,flask_login.current_user.id)
     return render_template('cargaJobs.html', mats=dataM, provs=prov)
 
+@app.route('/editUsrScreen/<id>')
+@login_required
+def edit_user(id):
+    usr = queryUser(id)
+    return render_template('usrEdit.html', user=usr[0])
+
+@app.route('/edit_user/<id>', methods=['POST'])
+@login_required
+def edit_usr(id):
+    if request.method == 'POST':
+        name = request.form['name']
+        mail = request.form['mail']
+        pss = request.form['pass']
+        with store.open_session() as session:
+            usr = list(
+                session
+                .query(object_type=User)  # Query for Products
+                .where_equals("id", id)
+            )
+            usr[0].name=name
+            usr[0].email=mail
+            usr[0].password=pss
+            session.save_changes()
+        store.close()
+        return redirect(url_for('feats'))
 
 @app.route('/clients')
 @login_required
@@ -140,9 +166,18 @@ def proyReport(name):
         if not pend:
             pend = []
         fReport = dateNow()
+        fact = 0
+        totalFact = 0
+        for f in p[0].pagos:
+            fact+=1
+            totalFact+=f['Valor']
+        pagos = {
+            "Cantidad":fact,
+            "Suma":totalFact
+        }
         session.save_changes()
     store.close()
-    return render_template('proyReport.html', proy=p[0], inpro=pend, fr=fReport)
+    return render_template('proyReport.html', proy=p[0], inpro=pend, fr=fReport, pay=pagos)
 
 @app.route('/changeStatus/<name>')
 @login_required
@@ -447,7 +482,7 @@ def editS():
 @app.route('/add_pay/<name>', methods=['POST'])
 @login_required
 def add_pay(name):
-    p = queryP(Proyecto, name)
+    p = queryP(Proyecto, name, flask_login.current_user.id)
     f = {}
     if request.method == 'POST':
         cuota = request.form['cuota']
@@ -456,7 +491,7 @@ def add_pay(name):
         f['Cliente'] = p.Cliente['name']
         f['RUC'] = p.Cliente['ruc']
         f['Detalles'] = 'Materiales y Mano de Obra'
-        f['IVA'] = iva
+        f['IVA'] = int(iva)
         f['Cuota'] = int(cuota)
         f['Valor'] = int(pago)
         with store.open_session() as session:
@@ -470,7 +505,8 @@ def add_pay(name):
             p[0].addFactura(f)
             session.save_changes()
         store.close()
-        return redirect(url_for('deetsProy', name = p[0].pname))
+        cliente = p[0].Cliente
+        return render_template('factura.html', factura=f, date=dateNow(), client=cliente, proy=p[0])
 
 @app.route('/add_ped/<name>', methods=['POST'])
 @login_required
@@ -750,6 +786,23 @@ def del_obr(name,ced):
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
         session.delete_by_entity(o[0])
+        session.save_changes()
+    store.close()
+
+    return redirect('/pers')
+
+@app.route('/delUsr/<id>', methods=['POST','GET'])
+@login_required
+def del_usr(id):
+    with store.open_session() as session:
+        u = list(  # Materialize query
+            session
+            .query(object_type=User)  # Query for Products
+            .where_equals("id", id)
+            # .skip(0).take(10)                       # Page
+            #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
+        )
+        session.delete_by_entity(u[0])
         session.save_changes()
     store.close()
 

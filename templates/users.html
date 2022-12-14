@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<body>
+<br>
+<br>
+<table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <td style="background: dimgray">ID</td>
+                    <td style="background: dimgray" >Nombre</td>
+                    <td style="background: dimgray" >Email</td>
+                    <td style="background: dimgray" >Password</td>
+                    <td style="background: dimgray">Admin?</td>
+                    <td style="background: dimgray">Opciones</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dt in data %}
+                {%if dt.is_admin != true%}
+                <tr>
+                    <td>{{dt.id}}</td>
+                    <td>{{dt.name}}</td>
+                    <td>{{dt.email}}</td>
+                    <td>{{dt.password}}</td>
+                    <td>{{dt.is_admin}}</td>
+                    <td>
+
+                            <a type="button" class="btn btn-danger" href="delUsr/{{dt.name}}">Borrar</a>
+                            <a type="button" class="btn btn-warning" href="editUsrScreen/{{dt.id}}">Editar</a>
+
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+</table>
+
+<!-- Modal -->
+        <div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Carga de Personal</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/add_pers" method="POST">
+
+          <div class="form-group">
+            <label class="form-label mt-4">Nombre</label>
+            <input type="text" class="form-control" name="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label mt-4">Telefono</label>
+            <input type="text" class="form-control" name="tel">
+          </div>
+          <div class="form-group">
+            <label class="form-label mt-4">Cedula</label>
+            <input type="text" class="form-control" name="ced">
+          </div>
+          <div class="form-group">
+            <label class="form-label mt-4">Ocupacion</label>
+            <input type="text" class="form-control" name="occ">
+          </div>
+          <div class="form-group">
+              <label for="exampleSelect1" class="form-label mt-4">Tipo de Contrato:</label>
+            <select class="form-select" id="sangre" name="cont">
+              <option>Contratado</option>
+              <option>Subcontratista</option>
+            </select>
+          </div>
+            <div class="form-group">
+            <label class="form-label mt-4">Direccion</label>
+            <input type="text" class="form-control" name="addr">
+          </div>
+            <div class="form-group">
+            <label class="form-label mt-4">Contacto 1</label>
+            <input type="text" class="form-control" name="cont1">
+          </div>
+            <div class="form-group">
+            <label class="form-label mt-4">Contacto 2</label>
+            <input type="text" class="form-control" name="cont2">
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect1" class="form-label mt-4">Grupo Sanguineo</label>
+            <select class="form-select" id="exampleSelect1" name="blood">
+              <option>A</option>
+              <option>B</option>
+              <option>AB</option>
+              <option>OB</option>
+            </select>
+          </div>
+            <br>
+
+          <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      </div>
+
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" id="baja">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Dar de Baja</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/baja" method="POST">
+            <div class="form-group">
+                <label class="form-label mt-4">Obreros</label>
+                <select class="form-select" name="obrero">
+                   {% for ob in obr%}
+                  <option>{{ob.name}} / {{ob.ced}}</option>
+                   {% endfor %}
+                </select>
+            </div>
+
+          <div class="form-group">
+
+              <label  class="form-label mt-4">Motivo</label>
+              <select class="form-select"  name="baja">
+                  <option>Enfermedad</option>
+                  <option>Vacaciones</option>
+                  <option>Duelo</option>
+              </select>
+            </div>
+
+          <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      </div>
+
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </body>
+</html>
+
+</body>
+</html>
+{% endblock %}

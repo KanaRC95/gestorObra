@@ -27,6 +27,8 @@
         <h2>Detalles Financieros</h2>
         Valor Presupuestado: {{proy.presupuestado}}<br>
         Gasto Total: {{proy.gastos}}<br>
+        Cuotas Pagadas: {{pay.Cantidad}}<br>
+        Total Pagos: {{pay.Suma}}<br>
         <br>
         <br>
     {% if proy.TrabajosR is defined and proy.TrabajosR|length > 0 %}
@@ -123,12 +125,14 @@
                 </tr>
             </thead>
             <tbody>
+            {% for key, value in proy.MatsDisponibles.items() %}
             <tr>
-                  {% for key, value in proy.MatsDisponibles.items() %}
+
                     <td>{{ key }}</td>
                     <td>{{ value }}</td>
-                  {% endfor %}
+
             </tr>
+            {% endfor %}
             </tbody>
          </table>
         {% else %}

@@ -111,9 +111,9 @@
 								</td>
 
 								<td>
-									Invoice #: 123<br />
-									Created: January 1, 2015<br />
-									Due: February 1, 2015
+									Factura #: 123<br />
+									Creada: {{date}}<br />
+									Cuota: {{factura.Cuota}}
 								</td>
 							</tr>
 						</table>
@@ -141,47 +141,40 @@
 				</tr>
 
 				<tr class="heading">
-					<td>Payment Method</td>
+					<td>Cliente</td>
 
-					<td>Check #</td>
+					<td>RUC</td>
 				</tr>
 
 				<tr class="details">
-					<td>Check</td>
+					<td>{{client.name}}</td>
 
-					<td>1000</td>
+					<td>{{client.ruc}}</td>
 				</tr>
 
 				<tr class="heading">
-					<td>Item</td>
+					<td>Detalle</td>
 
-					<td>Price</td>
+					<td>Monto</td>
 				</tr>
 
 				<tr class="item">
-					<td>Website design</td>
+					<td>Materiales y Mano de Obra</td>
 
-					<td>$300.00</td>
+					<td>Gs. {{factura.Valor}}</td>
 				</tr>
 
-				<tr class="item">
-					<td>Hosting (3 months)</td>
-
-					<td>$75.00</td>
-				</tr>
-
-				<tr class="item last">
-					<td>Domain name (1 year)</td>
-
-					<td>$10.00</td>
-				</tr>
 
 				<tr class="total">
 					<td></td>
 
-					<td>Total: $385.00</td>
+					<td>Total: Gs. {{factura.Valor}}</td>
 				</tr>
 			</table>
 		</div>
+	<div><button onClick="window.print()" class="btn btn-outline-success">Imprimir
+</button></div>
+<br>
+<a type="button" class="btn btn-outline-warning" href="/deetsProy/{{proy.pname}}">Regresar</a>
 	</body>
 </html>

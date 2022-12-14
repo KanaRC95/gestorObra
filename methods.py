@@ -26,6 +26,19 @@ def query(type, user):
     store.close()
     return data
 
+def queryUrs():
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=User)
+            #.where_equals("User",user)  # Query for Products
+            # .where_greater_than("UnitsInStock", 5)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    return data
+
 def queryID(type, id):
     with store.open_session() as session:
         data = list(  # Materialize query
@@ -382,7 +395,7 @@ def queryUser(id):
             .query(object_type=User)  # Query for Products
             .where_equals("id",id) # Filter
             # .skip(0).take(10)                       # Page
-            .select("id","name")  # Project
+            #.select("id","name")  # Project
         )
     store.close()
     return userList
