@@ -57,8 +57,7 @@ def queryN(type, name, user):
         data = list(  # Materialize query
             session
             .query(object_type=type)  # Query for Products
-            .where_equals("name",name)
-            .where_equals("User",user)  # Filter
+            .where(name=name,User=user)  # Filter
             # .skip(0).take(10)                       # Page
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
@@ -128,14 +127,15 @@ def queryMats():
     store.close()
     return matList
 
-def queryMatsN(name):
+def queryMatsN(name, user):
     with store.open_session() as session:
         matList = list(  # Materialize query
             session
             .query(object_type=Material)  # Query for Products
-            .where_equals("name",name)  # Filter
+            .where_equals("name",name)
+            .where_equals("User",user)# Filter
             # .skip(0).take(10)                       # Page
-            .select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
     return matList

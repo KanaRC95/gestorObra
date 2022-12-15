@@ -73,12 +73,12 @@
             <input type="text" class="form-control" name="price">
             </div>
           <div class="form-group">
-                        <label  class="form-label mt-4">Material</label>
-                        <select class="form-select"  name="source">
-                            {% for pv in provs %}
-                                <option>{{pv.name}} / {{pv.city}}</option>
-                            {% endfor %}
-                        </select>
+              <label  class="form-label mt-4">Proveedor</label>
+              <select class="form-select"  name="source">
+                  {% for pv in provs %}
+                  <option>{{pv.name}} / {{pv.city}}</option>
+                  {% endfor %}
+              </select>
             </div>
 
 

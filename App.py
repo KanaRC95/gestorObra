@@ -581,7 +581,7 @@ def add_pers():
         act = 'Si'
         jobs = []
 
-        obr = Obrero(name, tel, occ, ced, cont, blood, addr, cont1, cont2, act, jobs)
+        obr = Obrero(name, tel, occ, ced, cont, blood, addr, cont1, cont2, act, jobs, flask_login.current_user.id)
         addObject(obr)
         return redirect(url_for('rpers'))
 
@@ -633,7 +633,7 @@ def add_job():
         cant = [s for s in c if s.strip()]
         jmats = []
         for m, c in zip(materiales,cant):
-            q = queryMatsN(m)
+            q = queryMatsN(m, flask_login.current_user.id)
             aux = q[0]
             #(self, name, type, price, Proveedor, cant)
             mat = Material(aux.getName(),aux.getType(),int(aux.getPrice()),'',int(c),flask_login.current_user.id)
@@ -662,7 +662,17 @@ def add_pr(pr):
     if request.method == 'POST':
         ct = int(request.form['cant'])
         jbname = request.form['jb']
-        j = queryN(Trabajo,jbname,flask_login.current_user.id)
+        with store.open_session() as session:
+            job = list(
+                session
+                .query(object_type=Trabajo)
+                .where(name=jbname, User=flask_login.current_user.id)
+            )
+        store.close()
+        for x in job:
+            if x.name == jbname:
+                j = x
+
         mats = j.Materiales
         totalT = 0
 
@@ -675,7 +685,7 @@ def add_pr(pr):
             "name": j.name,
             "priceM": j.priceM * ct,
             "totalM": j.totalM * ct,
-            "totalT": totalT+(j.priceM*ct),
+            "totalT": (j.totalM * ct)+(j.priceM*ct),
             "desc": j.desc,
             "Materiales": mats,
             "Superficie": ct
@@ -688,11 +698,12 @@ def add_pr(pr):
                 .where_equals("User", flask_login.current_user.id)
             )
             pres[0].addJob(tb)
-            pres[0].addBudget(totalT+(j.priceM*ct))
+            pres[0].addBudget(tb['totalT'])
             session.save_changes()
         store.close()
 
-    return redirect('/cargaPres/'+pres[0].oname)
+    return redirect('/cargaPres/'+pr)
+    #return redirect('/cargaPres/' + pres[0].oname)
     #return flask.render_template('cargaPres.html', jobs=budget, mats=data, total=TOTAL)
 
 @app.route('/add_mat_tojob/<name>', methods=['POST','GET'])
@@ -781,11 +792,13 @@ def del_obr(name,ced):
             session
             .query(object_type=Obrero)  # Query for Products
             .where_equals("name", name)
-            .where_equals("ced", ced)# Filter
+            .where_equals("ced", ced)
+            .where_equals("User", flask_login.current_user.id)
             # .skip(0).take(10)                       # Page
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
-        session.delete_by_entity(o[0])
+        #session.delete_by_entity(o[0])
+        print(o)
         session.save_changes()
     store.close()
 
