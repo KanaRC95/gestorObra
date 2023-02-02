@@ -72,6 +72,22 @@ def queryN(type, name, user):
             val = x
     return val
 
+def queryPres(type, name, user):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)  # Query for Products
+            .where(oname=name)  # Filter
+            # .skip(0).take(10)                       # Page
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+        )
+    store.close()
+    val = ''
+    for x in data:
+        if x.User == user:
+            val = x
+    return val
+
 def queryTPr(type,proy):
     with store.open_session() as session:
         data = list(  # Materialize query
@@ -142,7 +158,7 @@ def queryMats():
             .query(object_type=Material)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
-            .select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
     return matList
@@ -211,17 +227,6 @@ def queryClient(ruc):
     store.close()
     return clientList[0]
 
-def queryPres():
-    with store.open_session() as session:
-        data = list(  # Materialize query
-            session
-            .query(object_type=Presupuesto)  # Query for Products
-            #.where_equals("name",name)  # Filter
-            # .skip(0).take(10)                       # Page
-            .select('oname', 'Cliente', 'Trabajos', 'status','budget')  # Project
-        )
-    store.close()
-    return data
 
 def queryProy():
     with store.open_session() as session:

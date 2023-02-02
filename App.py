@@ -234,36 +234,62 @@ def nbgt(name):
     js = query(Trabajo,flask_login.current_user.id)
     return render_template('cargaPres.html', pres=presE, jobs=js, listado=jobsL)
 
-@app.route('/generarProy/<name>')
+@app.route('/generarProy', methods=["GET", "POST"])
 @login_required
-def genProy(name):
-    presE = queryN(Presupuesto,name,flask_login.current_user.id)
-    #pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
-    #Pedidos, TrabajosR, TrabajosD, budget
-    pname = 'Proyecto '+presE[0].oname
-    client = presE[0].Cliente
-    addr = presE[0].addr
-    tbjs = presE[0].Trabajos
-    bgt = presE[0].budget
-    datenow = datetime.datetime.now().strftime("%x")
-    matList = []
-    matN = matNames()
-    for tb in tbjs:
-        for tbs in tb['Materiales']:
-         matList.append(tbs)
-    res = {}
-    for mt in matList:
-        mt.pop('Proveedor')
-        mt.pop('type')
-        mt.pop('price')
-        mt.pop('total')
-        if mt['name'] in res.keys():
-            res[mt['name']]+=mt['cant']
+def genProy():
+    if request.method == 'POST':
+        cuota = request.form['cuota']
+        iva = request.form['iva']
+        name = request.form['pname']
+        if iva == 'Sin IVA':
+            valorIVA = 0
+        elif iva == '10':
+            valorIVA = 10
         else:
-            res[mt['name']] = mt['cant']
+            valorIVA = 5
 
-    proy = Proyecto(pname,client,addr,res,None,None,None,datenow,None,None,tbjs,None,bgt,0,'Comenzado',None,flask_login.current_user.id)
-    addObject(proy)
+        presE = queryPres(Presupuesto,name,flask_login.current_user.id)
+        #pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
+        #Pedidos, TrabajosR, TrabajosD, budget
+        pname = 'Proyecto '+presE.oname
+        client = presE.Cliente
+        addr = presE.addr
+        tbjs = presE.Trabajos
+        bgt = presE.budget
+        datenow = datetime.datetime.now().strftime("%x")
+        matList = []
+        #matN = matNames()
+        for tb in tbjs:
+            for tbs in tb['Materiales']:
+             matList.append(tbs)
+        res = {}
+        for mt in matList:
+            mt.pop('Proveedor')
+            mt.pop('type')
+            mt.pop('price')
+            mt.pop('total')
+            if mt['name'] in res.keys():
+                res[mt['name']]+=mt['cant']
+            else:
+                res[mt['name']] = mt['cant']
+        valorCuotas = bgt/int(cuota)
+        montoIVA = valorCuotas/valorIVA
+        pagos = []
+        for i in range(int(cuota)):
+            pago = {
+                "Cliente": client['name'],
+                "RUC": client['ruc'],
+                "Detalles": "Materiales y Mano de Obra",
+                "IVA": iva,
+                "Cuota": (i+1),
+                "MontoTotal": valorCuotas,
+                "MontoIVA": montoIVA,
+                "Estado": "Sin pagar"
+            }
+            pagos.append(pago)
+
+        proy = Proyecto(pname,client,addr,res,None,None,None,datenow,None,None,tbjs,None,bgt,0,'Comenzado',pagos,0,flask_login.current_user.id)
+        addObject(proy)
 
     return redirect(url_for('proy'))
 
@@ -478,35 +504,56 @@ def editS():
         addObject(audit)
         return redirect(url_for('rmats'))
 
+@app.route('/verPagos/<name>')
+@login_required
+def pagos(name):
+    p = queryP(Proyecto, name, flask_login.current_user.id)
+    pagos = p.pagos
+    pend = []
+    for x in pagos:
+        if x['Estado'] == 'Sin pagar':
+            pend.append(x)
+    return render_template('pagos.html', pagos=pagos, pr=p, pd=pend)
 
 @app.route('/add_pay/<name>', methods=['POST'])
 @login_required
 def add_pay(name):
     p = queryP(Proyecto, name, flask_login.current_user.id)
+    val = ''
+    pago = 0
     f = {}
     if request.method == 'POST':
         cuota = request.form['cuota']
-        iva = request.form['iva']
-        pago = request.form['paid']
-        f['Cliente'] = p.Cliente['name']
-        f['RUC'] = p.Cliente['ruc']
-        f['Detalles'] = 'Materiales y Mano de Obra'
-        f['IVA'] = int(iva)
-        f['Cuota'] = int(cuota)
-        f['Valor'] = int(pago)
+
         with store.open_session() as session:
-            p = list(
+            data = list(
                 session
                 .query(object_type=Proyecto)  # Query for Products
                 .where_equals("pname", name)
-                .where_equals("User", flask_login.current_user.id)
+
             )
-            p[0].budget += int(pago)
-            p[0].addFactura(f)
+
+            for x in data:
+                if x.User == flask_login.current_user.id:
+                    val = x
+
+            for i in range(int(cuota)):
+                val.pagos[i]['Estado'] = 'Pagado'
+                pago += val.pagos[i]['MontoTotal']
+                iva = val.pagos[i]['IVA']
+
+            val.budget += pago
+
+            cliente = val.Cliente
+            f['Cliente'] = p.Cliente['name']
+            f['RUC'] = p.Cliente['ruc']
+            f['Detalles'] = 'Materiales y Mano de Obra'
+            f['IVA'] = iva
+            f['Cuotas'] = int(cuota)
+            f['Valor'] = pago
             session.save_changes()
         store.close()
-        cliente = p[0].Cliente
-        return render_template('factura.html', factura=f, date=dateNow(), client=cliente, proy=p[0])
+        return render_template('factura.html', factura=f, date=dateNow(), client=cliente, proy=val)
 
 @app.route('/add_ped/<name>', methods=['POST'])
 @login_required

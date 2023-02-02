@@ -12,7 +12,7 @@
     <h3>Presupuesto Actual: {{data.budget}}</h3><br>
     <table>
     <td>
-        <a type="button" class="btn btn-success" data-toggle="modal" data-target="#addBgt">Realizar Pago</a>
+        <a type="button" class="btn btn-success" href="/verPagos/{{data.pname}}">Ver Pagos</a>
         <a type="button" class="btn btn-success" data-toggle="modal" href="#addMats">Realizar Pedido de Materiales</a>
     </td>
     </table>
@@ -150,54 +150,7 @@
           </div>
         </div>
 
-<div class="modal" id="addBgt">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Elaborar Pago</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <form action="/add_pay/{{data.pname}}" method="POST">
-
-          <div class="form-group">
-            <label class="form-label mt-4">Cuota</label>
-            <select class="form-select" name="cuota">
-              <option>1</option>
-              <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label mt-4">IVA</label>
-            <select class="form-select" name="iva">
-              <option>5</option>
-              <option>10</option>
-              <option>Sin IVA</option>
-            </select>
-          </div>
-           <div class="form-group">
-            <label class="form-label mt-4">Monto</label>
-            <input type="text" class="form-control" name="paid">
-          </div>
-
-          <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Guardar</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-      </div>
-
-
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <div class="modal" id="addMats">

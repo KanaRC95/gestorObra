@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block body %}
+<body>
+    <a type="button"  class="btn btn-primary" href="/deetsProy/{{pr.pname}}">Volver</a>
+    <a type="button" class="btn btn-success" data-toggle="modal" href="#addBgt">Realizar Pago</a>
+    <br>
+    <br>
+    <table>
+    <tbody>
+
+    <tr>
+
+    {% for pg in pagos%}
+        <td>
+        {% if pg.Estado == "Sin pagar"%}
+            <div class="card border-warning mb-3" style="max-width: 20rem;">
+                  <div class="card-header">Cuota No. {{pg.Cuota}}</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                        Monto Total: {{pg.MontoTotal}} Gs.<br>
+                        IVA: {{pg.IVA}} Gs.<br>
+                        Monto IVA: {{pg.MontoIVA}} Gs.<br>
+                        Estado: {{pg.Estado}}<br>
+                    </p>
+                  </div>
+            </div>
+        {%else%}
+            <div class="card border-success mb-3" style="max-width: 20rem;">
+                  <div class="card-header">Cuota No. {{pg.Cuota}}</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                        Monto Total: {{pg.MontoTotal}} Gs.<br>
+                        IVA: {{pg.IVA}} Gs.<br>
+                        Monto IVA: {{pg.MontoIVA}} Gs.<br>
+                        Estado: {{pg.Estado}}<br>
+                    </p>
+                  </div>
+            </div>
+
+        {% endif %}
+            </td>
+    {% endfor %}
+    </tr>
+    </tbody>
+    </table>
+
+<div class="modal" id="addBgt">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Establecer Pagos</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/add_pay/{{pr.pname}}" method="POST">
+            <div class="form-group">
+            <label class="form-label mt-4">Cuotas</label>
+            <select class="form-select" name="cuota">
+              {% for pend in pd %}
+                  <option>{{ loop.index }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+{% endblock %}

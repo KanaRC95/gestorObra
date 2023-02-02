@@ -10,6 +10,7 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newPres">
   Nuevo Presupuesto
 </button>
+<a type="button" class="btn btn-success" data-toggle="modal" data-target="#addBgt">Generar Proyecto</a>
 <br>
 <br>
 <h1>Historial</h1>
@@ -38,7 +39,6 @@
                         {% if pr.status == "Cerrado"%}
                         <a type="button" class="btn btn-info" href="/changeStatus/{{pr.oname}}">Abrir</a>
                         {% endif %}
-                        <a type="button" class="btn btn-success" href="/generarProy/{{pr.oname}}">Generar Proyecto</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -87,5 +87,54 @@
         </div>
 </body>
 
+<div class="modal" id="addBgt">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Establecer Pagos</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/generarProy" method="POST">
+            <div class="form-group">
+            <label class="form-label mt-4">Cuotas</label>
+            <select class="form-select" name="pname">
+              {% for pr in pres %}
+                  <option>{{pr.oname}}</option>
+              {% endfor %}
+            </select>
+          </div>
+            <div class="form-group">
+            <label class="form-label mt-4">Cuotas</label>
+            <select class="form-select" name="cuota">
+              <option>1</option>
+              <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label mt-4">IVA</label>
+            <select class="form-select" name="iva">
+              <option>5</option>
+              <option>10</option>
+              <option>Sin IVA</option>
+            </select>
+          <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+      </div>
+
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
