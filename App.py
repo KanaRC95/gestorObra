@@ -411,7 +411,7 @@ def add_mats():
         precio = request.form['price']
         x = request.form['source']
         prov = x.split(" / ",1)[0]
-        x = queryN(Proveedor,prov)
+        x = queryN(Proveedor,prov,flask_login.current_user.id)
         #(self, name, type, price, Proveedor, cant)
         material = Material(name,tipo,precio, x,0,flask_login.current_user.id)
         addObject(material)
@@ -633,8 +633,8 @@ def add_job():
         cant = [s for s in c if s.strip()]
         jmats = []
         for m, c in zip(materiales,cant):
-            q = queryMatsN(m, flask_login.current_user.id)
-            aux = q[0]
+            aux = queryPr(Material, m, flask_login.current_user.id)
+            #aux = q[0]
             #(self, name, type, price, Proveedor, cant)
             mat = Material(aux.getName(),aux.getType(),int(aux.getPrice()),'',int(c),flask_login.current_user.id)
             jmats.append(mat)
@@ -654,6 +654,7 @@ def add_job():
 def deets(name):
     pres = queryPr(Presupuesto,name,flask_login.current_user.id)
     jobsL = pres.Trabajos
+
     return render_template('detalles.html', info=pres, listado=jobsL, fecha=dateNow())
 
 @app.route('/add_pr/<pr>', methods=['POST','GET'])
@@ -662,17 +663,8 @@ def add_pr(pr):
     if request.method == 'POST':
         ct = int(request.form['cant'])
         jbname = request.form['jb']
-        with store.open_session() as session:
-            job = list(
-                session
-                .query(object_type=Trabajo)
-                .where(name=jbname, User=flask_login.current_user.id)
-            )
-        store.close()
-        for x in job:
-            if x.name == jbname:
-                j = x
-
+        j = queryN(Trabajo,jbname,flask_login.current_user.id)
+        print(jbname,"  ",j.name)
         mats = j.Materiales
         totalT = 0
 
@@ -688,17 +680,22 @@ def add_pr(pr):
             "totalT": (j.totalM * ct)+(j.priceM*ct),
             "desc": j.desc,
             "Materiales": mats,
-            "Superficie": ct
+            "Superficie": ct,
+            "Medicion": j.medicion
         }
         with store.open_session() as session:
-            pres = list(
+            data = list(
                 session
                 .query(object_type=Presupuesto)  # Query for Products
                 .where_equals("oname", pr)
                 .where_equals("User", flask_login.current_user.id)
             )
-            pres[0].addJob(tb)
-            pres[0].addBudget(tb['totalT'])
+            val = ''
+            for x in data:
+                if x.User == flask_login.current_user.id:
+                    val = x
+            val.addJob(tb)
+            val.addBudget(tb['totalT'])
             session.save_changes()
         store.close()
 
@@ -724,7 +721,7 @@ def addM_toJ(name):
 @login_required
 def del_pres(name,pres):
     with store.open_session() as session:
-        p = list(  # Materialize query
+        data = list(  # Materialize query
             session
             .query(object_type=Presupuesto)  # Query for Products
             .where_equals("oname", pres)
@@ -732,6 +729,11 @@ def del_pres(name,pres):
             # .skip(0).take(10)                       # Page
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
+        p = []
+        for x in data:
+            if x.User == flask_login.current_user.id:
+                p.append(x)
+
         for t in p[0].Trabajos:
             if name in t.values():
                 p[0].budget-=t['totalT']

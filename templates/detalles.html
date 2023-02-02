@@ -20,6 +20,7 @@
                 <tr>
                     <td style="background: dimgray">Nombre</td>
                     <td style="background: dimgray">Precio Mano de Obra</td>
+                    <td style="background: dimgray">Materiales</td>
                     <td style="background: dimgray" >Precio Materiales</td>
                     <td style="background: dimgray" >Descripcion</td>
                     <td style="background: dimgray" >Superficie</td>
@@ -30,40 +31,19 @@
                 <tr>
                     <td>{{lst.name}}</td>
                     <td>{{lst.priceM}}</td>
+                    <td>
+                        {% for mt in lst.Materiales %}
+                        {{mt.name}}: {{mt.cant}} {{mt.type}}
+                        {% endfor %}
+                    </td>
                     <td>{{lst.totalM}}</td>
                     <td>{{lst.desc}}</td>
-                    <td>{{lst.Superficie}} {{lst.medicion}}</td>
+                    <td>{{lst.Superficie}} {{lst.Medicion}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
     </table>
-    <h4>Detalles de los Materiales</h4>
-    <table class="table table-striped table-hover table-bordered">
-            <thead>
-                <tr>
-                    <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray">Cantidad</td>
-                    <td style="background: dimgray">Unidad</td>
-                    <td style="background: dimgray" >Precio Unitario</td>
-                    <td style="background: dimgray" >Precio Total</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for lst in listado %}
-                {% for mt in lst.Materiales %}
-                <tr>
 
-                        <td>{{mt.name}}</td>
-                        <td>{{mt.cant}}</td>
-                        <td>{{mt.type}}</td>
-                        <td>{{mt.price}}</td>
-                        <td>{{mt.total}}</td>
-
-                </tr>
-                {% endfor %}
-                {% endfor %}
-            </tbody>
-    </table>
 
     El costo de Mano de Obra, y Trabajos a realizarse descripto en este presupuesto es de {{info.budget}} Gs.
     Sin IVA incluido

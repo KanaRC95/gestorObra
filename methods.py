@@ -24,7 +24,11 @@ def query(type, user):
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
-    return data
+    val = []
+    for x in data:
+        if x.User == user:
+            val.append(x)
+    return val
 
 def queryUrs():
     with store.open_session() as session:
@@ -57,12 +61,16 @@ def queryN(type, name, user):
         data = list(  # Materialize query
             session
             .query(object_type=type)  # Query for Products
-            .where(name=name,User=user)  # Filter
+            .where(name=name)  # Filter
             # .skip(0).take(10)                       # Page
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
-    return data[0]
+    val = ''
+    for x in data:
+        if x.User == user:
+            val = x
+    return val
 
 def queryTPr(type,proy):
     with store.open_session() as session:
@@ -87,7 +95,11 @@ def queryP(type, name, user):
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
-    return data[0]
+    val = ''
+    for x in data:
+        if x.User == user:
+            val = x
+    return val
 
 def queryTP(type, name, user):
     with store.open_session() as session:
@@ -100,7 +112,11 @@ def queryTP(type, name, user):
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
-    return data[0]
+    val = ''
+    for x in data:
+        if x.User == user:
+            val = x
+    return val
 
 def queryPr(type, name, user):
     with store.open_session() as session:
@@ -113,7 +129,11 @@ def queryPr(type, name, user):
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
-    return data[0]
+    val = ''
+    for x in data:
+        if x.User == user:
+            val = x
+    return val
 
 def queryMats():
     with store.open_session() as session:
@@ -129,7 +149,7 @@ def queryMats():
 
 def queryMatsN(name, user):
     with store.open_session() as session:
-        matList = list(  # Materialize query
+        data = list(  # Materialize query
             session
             .query(object_type=Material)  # Query for Products
             .where_equals("name",name)
@@ -138,7 +158,11 @@ def queryMatsN(name, user):
             #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
         )
     store.close()
-    return matList
+    val = []
+    for x in data:
+        if x.User == user:
+            val.append(x)
+    return val
 
 def queryJobs():
     with store.open_session() as session:
