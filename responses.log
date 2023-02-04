@@ -36148,3 +36148,1885 @@ INFO:werkzeug:127.0.0.1 - - [02/Feb/2023 17:05:28] "[36mGET /static/css/main.cs
 INFO:werkzeug:127.0.0.1 - - [02/Feb/2023 17:05:28] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [02/Feb/2023 17:05:28] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
 INFO:werkzeug:127.0.0.1 - - [02/Feb/2023 17:05:28] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4843184069703843131 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:46] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:46] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:47] "GET /static/img/pres.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:47] "GET /static/img/proy.jpg HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:47] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:47] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:47] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4843184069703843131 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8304401224055232610 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:53] "GET /proy HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:53] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:53] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:53] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:02:53] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4843184069703843131 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5141038307437986981 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2062019698316696386 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3221613095694431821 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4775744128902937814 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721436368252013739 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:08] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:08] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:08] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:08] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:08] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4843184069703843131 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7452851337952948827 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=853240101003926045 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7452851337952948827 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:47] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4843184069703843131 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5141038307437986981 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2062019698316696386 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3221613095694431821 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4775744128902937814 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721436368252013739 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:59] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:59] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:59] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:59] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:03:59] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4843184069703843131 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7452851337952948827 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3451652822633422854 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7452851337952948827 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:04:17] "[32mGET /pendC/Paredes/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4843184069703843131 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5141038307437986981 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2062019698316696386 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3221613095694431821 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4775744128902937814 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721436368252013739 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:04:29] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:04:29] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:04:29] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:04:29] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:04:29] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3827941490697798786 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7468983243425929341 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6957872921792534542 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2597380526816104664 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5872200415684619198 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1813328180236782838 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:11:50] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:11:50] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:11:50] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:11:50] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:11:50] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3827941490697798786 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8682834198952039695 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=554148590168084951 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:12:08] "GET /pendC/Paredes/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3827941490697798786 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=554148590168084951 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=538751282215253230 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=554148590168084951 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:12:33] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3827941490697798786 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7468983243425929341 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6957872921792534542 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2597380526816104664 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5872200415684619198 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1813328180236782838 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:12:45] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:12:45] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:12:45] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:12:45] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:12:45] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3827941490697798786 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=554148590168084951 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7911812496537650447 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=554148590168084951 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:13:04] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3827941490697798786 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7468983243425929341 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6957872921792534542 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2597380526816104664 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5872200415684619198 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1813328180236782838 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:13:16] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:13:16] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:13:16] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:13:16] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:13:16] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3827941490697798786 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8682834198952039695 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=554148590168084951 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:13:40] "GET /pendC/Paredes/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4892361204131779835 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=810277251908059857 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3984964138551256063 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2586137464093056575 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1562560124203483247 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-999547895944898534 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:17:27] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:17:27] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:17:27] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:17:27] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:17:27] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5972051312134444465 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4435575993908588717 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4435575993908588717 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /databases/gestorObra/hilo/next?tag=TrabajoPs&lastBatchSize=0&lastRangeAt=0001-01-01%2000:00:00&identityPartsSeparator=/&lastMax=0 HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=39&last=8 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:18:39] "[32mGET /startJ/Paredes/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5972051312134444465 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=39&last=8 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-901894404261733321 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=39&last=8 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1292258622499083167 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=39&last=8 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3504501151598480646 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=39&last=8 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7570146135762254629 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=39&last=8 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5031222893329662194 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=39&last=8 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:19:03] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:19:03] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:19:03] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:19:03] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:19:03] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1738617300707738581 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5455873966784829143 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4635740709219062667 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8201910947973391576 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5076951378088960623 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1799894189658945418 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:20:57] "[35m[1mGET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:20:57] "GET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:20:57] "GET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:20:57] "GET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:20:57] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1738617300707738581 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5455873966784829143 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4635740709219062667 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8201910947973391576 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5076951378088960623 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1799894189658945418 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:21:46] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:21:46] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:21:46] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:21:46] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:21:46] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6835817109259338051 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5719342165047000601 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2867611716792967664 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:22:30] "[35m[1mGET /pendC/Paredes/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:22:30] "GET /pendC/Paredes/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:22:30] "GET /pendC/Paredes/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:22:30] "GET /pendC/Paredes/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:22:30] "[36mGET /pendC/Paredes/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8397557953082598109 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5931512853602063322 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3556179068953710972 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1942943831340872205 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-608992198247405715 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1361806606580182750 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6470543959142009884 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7766799850394740857 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:26:32] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:26:32] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:26:32] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:26:32] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:26:32] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3556179068953710972 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6592291998270757012 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3567565730602199486 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:08] "[32mGET /pendC/Paredes/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3556179068953710972 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1942943831340872205 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-608992198247405715 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1361806606580182750 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6470543959142009884 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7766799850394740857 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:20] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:20] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:20] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:20] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:20] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3556179068953710972 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3567565730602199486 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7914354646986577546 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:50] "[35m[1mGET /proyReport/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:50] "GET /proyReport/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:50] "GET /proyReport/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:50] "GET /proyReport/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:27:50] "[36mGET /proyReport/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5083309693284196013 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5594450995133953492 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:29:10] "GET /proyReport/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:29:10] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:31:49] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:31:49] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:31:49] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:31:49] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:31:49] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:38:17] "[35m[1mGET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:38:17] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:38:17] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:38:17] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:38:17] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:10] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:10] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:10] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:10] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:10] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:25] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:47] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:47] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:47] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:39:47] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:43:26] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:43:26] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:43:26] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:43:26] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:43:26] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:43:49] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:44:47] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:44:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:44:47] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:44:47] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:44:47] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:45] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:45] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:45] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:45] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:45] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2250547645009282236 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7075729045123829597 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2344535345202085800 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4519556548894200816 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7069722629279074670 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8847053695522346230 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:59] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:59] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:59] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:59] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:45:59] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:3000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3535061715505808026 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3969660587342211405 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7739705718223889418 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6495738138709377713 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3745356803277404766 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8162964978533245748 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:54:23] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:54:23] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:54:24] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:54:24] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 10:54:24] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4319624968549343613 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3064151642359052302 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3093852531982756152 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5180327780430097 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8908100665618932278 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4863471328466589729 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:01:35] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:01:35] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:01:35] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:01:35] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:01:35] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4319624968549343613 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1182204232898449608 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8160154368558991502 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1182204232898449608 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:02:03] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4319624968549343613 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3064151642359052302 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3093852531982756152 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5180327780430097 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8908100665618932278 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4863471328466589729 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:02:15] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:02:15] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:02:15] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:02:15] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:02:15] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4319624968549343613 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5582570867918337084 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1182204232898449608 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:03:04] "[35m[1mPOST /addExtra/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:03:04] "GET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:03:04] "GET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:03:04] "GET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:03:04] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6440757178447881173 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8054839060981072970 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2760076368166099625 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:22] "[35m[1mPOST /addExtra/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:22] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:22] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:22] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:22] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2065659986030002182 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5833335976214874380 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1135948509849449572 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:52] "[35m[1mPOST /addExtra/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:52] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:52] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:52] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:04:52] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6425306041992788287 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4355960357079170824 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8407805220808597053 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:05:24] "[35m[1mPOST /addExtra/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:05:24] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:05:24] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:05:24] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:05:24] "[36mGET /addExtra/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1285439746624448531 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1969827001676997948 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8900029934378011832 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:11:03] "[32mPOST /addExtra/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1285439746624448531 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6599606751773701620 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7505920440598192204 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8822632393296942201 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4181328039804213559 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8237405794365584037 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:11:15] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:11:15] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:11:15] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:11:15] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:11:15] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1285439746624448531 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1969827001676997948 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8900029934378011832 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:11:47] "POST /addExtra/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8810387786457189801 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1639091754285116298 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6837603248387648231 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1968388247247339906 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5190105500982691882 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=189592748027910212 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:15:22] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:15:22] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:15:22] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:15:22] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:15:22] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8810387786457189801 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1639091754285116298 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6837603248387648231 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1968388247247339906 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5190105500982691882 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=189592748027910212 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:16:03] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:16:03] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:16:03] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:16:03] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:16:03] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7048659400135735945 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4703631073016460455 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8831331007916856229 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8370391272211836927 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7765705982918902562 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6782208418878169838 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:21:47] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:21:47] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:21:47] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:21:47] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:21:47] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:04] "[33mGET /comp/Paredes/Proyecto%20Trump%20Tower HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1396304263834422487 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2363877164442271123 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1706399818608321662 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:23] "GET /comp/Paredes/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1396304263834422487 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5667848475341025377 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1706399818608321662 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6854366035402292556 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:36] "GET /pend/Paredes/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:36] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:36] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:36] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:36] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1396304263834422487 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1706399818608321662 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Trabajoes WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3971740473875468613 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE name = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5302096474142399377 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5667848475341025377 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:22:54] "[32mGET /assigOb/Paredes/Jony/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1396304263834422487 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2644441688912397567 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2641539627915204127 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6854366035402292556 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4909978311461331891 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6630971865375689218 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:23:06] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:23:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:23:06] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:23:06] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:23:06] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6590454942583333942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4276416304509649330 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2173666280276338984 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:25:31] "[32mGET /comp/Paredes/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6590454942583333942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7645141164269493516 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5870042107762108618 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3141388241511977709 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3435845864173473335 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4661005935619507362 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:25:43] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:25:43] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:25:43] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:25:43] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:25:43] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6590454942583333942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7645141164269493516 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5870042107762108618 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3141388241511977709 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3435845864173473335 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4661005935619507362 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:29:53] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:29:53] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:29:53] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:29:53] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:29:53] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6590454942583333942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7645141164269493516 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5870042107762108618 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3141388241511977709 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3435845864173473335 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4661005935619507362 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:30:20] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:30:20] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:30:20] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:30:20] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:30:20] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6590454942583333942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2173666280276338984 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1018972113738487034 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:31:13] "GET /proyReport/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:31:14] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6590454942583333942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2173666280276338984 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1018972113738487034 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:33:50] "GET /proyReport/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:33:50] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\classes.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4654383752703462373 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7925465602332262713 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5082213541887240078 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7247398303797380057 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1869768410699210238 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8505111693296146869 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:46:17] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:46:17] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:46:17] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:46:17] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:46:17] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3144083130204259423 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1074858649122888615 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1074858649122888615 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /databases/gestorObra/hilo/next?tag=TrabajoPs&lastBatchSize=0&lastRangeAt=0001-01-01%2000:00:00&identityPartsSeparator=/&lastMax=0 HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=40&last=9 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:54:35] "[32mGET /startJ/Encadenado/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3144083130204259423 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=40&last=9 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3593209080229047829 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=40&last=9 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=607600390902130798 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=40&last=9 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1677963963613053095 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=40&last=9 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1550454127448598785 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=40&last=9 HTTP/1.1" 204 0
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6035287407782909482 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "PUT /databases/gestorObra/hilo/return?tag=TrabajoPs&end=40&last=9 HTTP/1.1" 204 0
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:55:00] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:55:00] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:55:00] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:55:00] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:55:00] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5546543749268713051 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=307038384034835715 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7942205362008510118 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6025520876935538705 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=9133901972268763262 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-453076734917410238 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:57:55] "[35m[1mGET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:57:55] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:57:55] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:57:55] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:57:55] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:13] "[36mGET /deetsProy/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5546543749268713051 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=307038384034835715 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7942205362008510118 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6025520876935538705 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=9133901972268763262 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-453076734917410238 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:27] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:27] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:27] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:27] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:27] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5546543749268713051 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7571598024745036682 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7228245438218938151 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7571598024745036682 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:45] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5546543749268713051 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=307038384034835715 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7942205362008510118 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6025520876935538705 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=9133901972268763262 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-453076734917410238 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:57] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:57] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:57] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:57] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 11:58:57] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5546543749268713051 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7571598024745036682 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7228245438218938151 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7571598024745036682 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:00:41] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5546543749268713051 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=307038384034835715 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7942205362008510118 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6025520876935538705 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=9133901972268763262 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-453076734917410238 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:00:54] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:00:54] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:00:54] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:00:54] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:00:54] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7458620288981375942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-186621838856904799 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=9064982885991773926 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3069323229232316379 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3752720405005982916 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4314433832317251644 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:02:37] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:02:37] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:02:37] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:02:37] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:02:37] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7458620288981375942 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2978319233400544723 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7794518303277417909 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2978319233400544723 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3829865378299245799 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:03:07] "[35m[1mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:03:07] "GET /add_ped/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:03:07] "GET /add_ped/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:03:07] "GET /add_ped/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:03:07] "[36mGET /add_ped/Proyecto%20Trump%20Tower?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3965643721341325076 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5290009383729714798 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5842602761555499495 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-5290009383729714798 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3965643721341325076 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:04:00] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3965643721341325076 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-534020527349514305 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8434793364337944647 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-438004924452013003 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4024952020465262737 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-3719197533724845245 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:04:12] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:04:12] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:04:12] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:04:12] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:04:12] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6389379090660250636 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5630150530637672328 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8608254601112224193 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6389379090660250636 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:05:39] "[32mGET /pendC/Encadenado/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6389379090660250636 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2101016870839802930 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=4420549993201661829 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6905345547645997508 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=9034414497840493462 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-8384658173413966852 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:05:51] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:05:51] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:05:51] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:05:51] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:05:51] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7504505928439401955 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1440115451481894666 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2125133369340001918 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8574853810602430369 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2211229055361984458 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:07:51] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:07:51] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:07:51] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:07:51] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:07:51] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1908225166055633728 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5457888644639500424 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:08:36] "[32mGET /pendC/Encadenado/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7504505928439401955 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1440115451481894666 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2125133369340001918 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8574853810602430369 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2211229055361984458 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:08:48] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:08:48] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:08:48] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:08:48] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:08:48] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7504505928439401955 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1440115451481894666 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2125133369340001918 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8574853810602430369 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2211229055361984458 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:10:23] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:10:23] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:10:23] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:10:23] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:10:23] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1908225166055633728 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5457888644639500424 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:12:19] "GET /pendC/Encadenado/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5457888644639500424 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3339112611328697776 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5457888644639500424 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:12:40] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1266387618008315671 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=7504505928439401955 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=1440115451481894666 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2125133369340001918 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=8574853810602430369 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=2211229055361984458 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:12:52] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:12:52] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:12:52] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:12:52] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:12:52] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721216022831389361 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4881687772048731241 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE name = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4049498073694361039 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4881687772048731241 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721216022831389361 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:14:20] "[32mPOST /add_ped/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721216022831389361 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7084169885325185161 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1913454915724487584 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-429120344854582199 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-319222304587161540 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6146166662645547876 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:14:32] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:14:32] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:14:32] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:14:32] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:14:32] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721216022831389361 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE tpname = $p0 OR Proyecto = $p1 OR User = $p2' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=6591636149544424650 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 OR User = $p1' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-4881687772048731241 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721216022831389361 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/bulk_docs HTTP/1.1" 201 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:15:44] "[32mGET /pendC/Encadenado/Proyecto%20Trump%20Tower HTTP/1.1[0m" 302 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-2721216022831389361 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proyectoes WHERE pname = $p0 SELECT pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin, Pedidos, TrabajosR, TrabajosD, presupuestado, budget, status' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-7084169885325185161 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM TrabajoPs WHERE Proyecto = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-1913454915724487584 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Obreroes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-429120344854582199 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-319222304587161540 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-6146166662645547876 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:15:56] "GET /deetsProy/Proyecto%20Trump%20Tower HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:15:56] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:15:56] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:15:56] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:15:56] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\MAD\\PycharmProjects\\gestorObra\\App.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 129-449-836
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "GET /topology?name=gestorObra HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-667485434408606824 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Trabajoes WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5757385427793287250 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:42] "GET /jobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:42] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:42] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:42] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:42] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+DEBUG:root:Executing query 'FROM Users WHERE id = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=-667485434408606824 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Materials WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=5337472414099699805 HTTP/1.1" 200 None
+DEBUG:root:Executing query 'FROM Proveedors WHERE User = $p0' on index 'dynamic'
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost:8080
+DEBUG:urllib3.connectionpool:http://localhost:8080 "POST /databases/gestorObra/queries?query-hash=3301841456215006048 HTTP/1.1" 200 None
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:52] "GET /cjobs HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:52] "[36mGET /static/js/bootstrap.min.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:52] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:52] "[36mGET /static/js/bootstrap.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [04/Feb/2023 12:48:52] "[36mGET /static/js/myJS.js HTTP/1.1[0m" 304 -

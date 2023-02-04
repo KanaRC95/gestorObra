@@ -1,10 +1,11 @@
 class User():
-    def __init__(self, id, name, email, password, auth= True, active= True, is_admin=False):
+    def __init__(self, id, name, email,password, depo, auth= True, active= True, is_admin=False):
         self.id = id
         self.name = name
         self.email = email
         self.password = password
         self.auth = auth
+        self.depo = depo
         self.active = active
         self.is_admin = is_admin
     def is_authenticated(self):
@@ -45,9 +46,10 @@ class Trabajo:
 
 
 class TrabajoP:
-    def __init__(self, tpname, Materiales, precioTotal, Obreros, fechaInicio, fechaFin, Proyecto, User):
+    def __init__(self, tpname, matsNec, matsDisp, precioTotal, Obreros, fechaInicio, fechaFin, Proyecto, User):
         self.tpname = tpname
-        self.Materiales = Materiales
+        self.matsNec = matsNec
+        self.matsDisp = matsDisp
         self.precioTotal = precioTotal
         self.Obreros = Obreros
         self.fechaInicio = fechaInicio

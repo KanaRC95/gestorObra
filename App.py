@@ -170,7 +170,7 @@ def proyReport(name):
         totalFact = 0
         for f in p[0].pagos:
             fact+=1
-            totalFact+=f['Valor']
+            totalFact+=f['MontoTotal']
         pagos = {
             "Cantidad":fact,
             "Suma":totalFact
@@ -315,13 +315,18 @@ def stJ(name,proy):
             store.close()
 
 
-    trP = TrabajoP(tr['name'],tr['Materiales'],tr['totalT'],None,datenow,None,py.pname,flask_login.current_user.id)
+    trP = TrabajoP(tr['name'],tr['Materiales'],None,tr['totalT'],None,datenow,None,py.pname,flask_login.current_user.id)
     addObject(trP)
     return redirect(url_for('deetsProy', name = py.pname))
 
 @app.route('/test')
 @login_required
 def testing():
+    return flask.render_template('test.html')
+
+@app.route('/finish/<name>')
+@login_required
+def finish(name):
     return flask.render_template('test.html')
 
 @app.route('/deetsProy/<name>')
@@ -334,7 +339,8 @@ def deetsProy(name):
     obr = query(Obrero,flask_login.current_user.id)
     prv = query(Proveedor,flask_login.current_user.id)
     mt = query(Material,flask_login.current_user.id)
-    return render_template('gestionProy.html', data=proy, trps=trP, obrs=obr, prov=prv, mats=mt)
+    deposito = flask_login.current_user.depo
+    return render_template('gestionProy.html', data=proy, trps=trP, obrs=obr, prov=prv, mats=mt, depo=deposito)
 
 @app.route('/pend/<name>/<proy>')
 @login_required
@@ -346,10 +352,9 @@ def penScr(name,proy):
 
 @app.route('/pendC/<name>/<proy>')
 @login_required
-def compTR(name, proy):
+def asig(name, proy):
     #chequear materiales disponibles
     m = {}
-    p = queryP(Proyecto,proy,flask_login.current_user.id)
     with store.open_session() as session:
         trp = list(  # Materialize query
             session
@@ -364,10 +369,16 @@ def compTR(name, proy):
             .where_equals("pname", proy)
             .where_equals("User", flask_login.current_user.id)
         )
-        obr = list(session.query(object_type=Obrero))
-        for x in trp[0].Materiales:
+
+        usr = list(
+            session
+            .query(object_type=User)  # Query for Products
+            .where_equals("id", flask_login.current_user.id)
+        )
+
+        for x in trp[0].matsNec:
             m[x['name']]=x['cant']
-        pm = p[0].MatsDisponibles
+        pm = usr[0].depo
         err = []
         if pm:
             for key in pm.keys():
@@ -376,26 +387,98 @@ def compTR(name, proy):
                     if pm[key] < m[key]:
                         e = 'No hay suficiente '+key+'.'
                         err.append(e)
+
+        if not err:
+            for key in usr[0].depo.keys():
+                if key in m.keys():
+                    usr[0].depo[key]-=m[key]
+
+            if not trp[0].matsDisp:
+                trp[0].matsDisp = []
+                for x in trp[0].matsNec:
+                    trp[0].matsDisp.append(x)
+
+            session.save_changes()
+        else:
+            return render_template('error.html', error=err)
+    store.close()
+    return redirect(url_for('deetsProy', name = p[0].pname))
+
+@app.route('/comp/<name>/<proy>')
+@login_required
+def compTR(name, proy):
+    err = []
+    with store.open_session() as session:
+        trp = list(  # Materialize query
+            session
+            .query(object_type=TrabajoP)  # Query for Products
+            .where_equals("tpname", name)
+            .where_equals("Proyecto", proy)
+            .where_equals("User", flask_login.current_user.id)  # Filter
+        )
+        p = list(
+            session
+            .query(object_type=Proyecto)  # Query for Products
+            .where_equals("pname", proy)
+            .where_equals("User", flask_login.current_user.id)
+        )
+        print(trp)
+        print(p)
         if not trp[0].Obreros:
             e = 'No hay Obreros asignados.'
             err.append(e)
-
         if not err:
-            for key in p[0].MatsDisponibles.keys():
-                if key in m.keys():
-                    p[0].MatsDisponibles[key]-=m[key]
-
             trp[0].fechaFin = dateNow()
-            p[0].compTR(trp[0]) #Hacer dict para que no guarde tan complejo
+            p[0].compTR(trp[0])  # Hacer dict para que no guarde tan complejo
             session.delete_by_entity(trp[0])
             session.save_changes()
         else:
             return render_template('error.html', error=err)
     store.close()
+    return redirect(url_for('deetsProy', name=p[0].pname))
 
-    obr = query(Obrero,flask_login.current_user.id)
-    return redirect(url_for('deetsProy', name = p[0].pname))
+@app.route('/addExtra/<name>', methods=["GET", "POST"])
+@login_required
+def addExtra(name):
+    if request.method == 'POST':
+        tpname = request.form['tp']
+        mt = request.form['mat']
+        matName = mt.split(' / ',1)[0]
+        cant = request.form['cant']
+        err = []
+        with store.open_session() as session:
+            trp = list(  # Materialize query
+                session
+                .query(object_type=TrabajoP)  # Query for Products
+                .where_equals("tpname", tpname)
+                .where_equals("Proyecto", name)
+                .where_equals("User", flask_login.current_user.id)  # Filter
+            )
+            p = list(
+                session
+                .query(object_type=Proyecto)  # Query for Products
+                .where_equals("pname", name)
+                .where_equals("User", flask_login.current_user.id)
+            )
+            pm = p[0].MatsDisponibles
+            if pm:
+                for key in pm.keys():
+                    # pm: disponibles, m: necesarios
+                    if key == matName:
+                        if pm[key] < int(cant):
+                            e = 'No hay suficiente ' + key + '.'
+                            err.append(e)
+            if not err:
+                p[0].MatsDisponibles[matName] -= int(cant)
+                for x in trp[0].matsDisp:
+                    if x['name'] == matName:
+                        x['cant'] += int(cant)
+            else:
+                return render_template('error.html', error=err)
+            session.save_changes()
+        store.close()
 
+        return redirect(url_for('deetsProy', name=p[0].pname))
 @app.route('/assigOb/<job>/<name>/<py>')
 @login_required
 def addObr(job,name,py):
@@ -422,6 +505,7 @@ def addObr(job,name,py):
         session.save_changes()
     store.close()
     return redirect(url_for('deetsProy', name = p.pname))
+
 
 
 @login_manager.unauthorized_handler
@@ -578,18 +662,23 @@ def add_ped(name):
                 .where_equals("pname", name)
                 .where_equals("User", flask_login.current_user.id)
             )
+            usr = list(
+                session
+                .query(object_type=User)  # Query for Products
+                .where_equals("id", flask_login.current_user.id)
+            )
 
-            if p[0].MatsDisponibles:
-                keys =  p[0].MatsDisponibles.keys()
+            if usr[0].depo:
+                keys =  usr[0].depo.keys()
                 if mat.name in keys:
-                    p[0].MatsDisponibles[mat.name]+=val
+                    usr[0].depo[mat.name]+=val
                 else:
-                    p[0].MatsDisponibles[mat.name] = val
+                    usr[0].depo[mat.name] = val
             else:
                 m = {
                     mat.name: val
                 }
-                p[0].MatsDisponibles = m
+                usr[0].depo = m
             p[0].gastos += int(mat.total)
             p[0].budget -= int(mat.total)
             session.save_changes()
@@ -956,7 +1045,7 @@ def crearCuenta():
         if err:
             return flask.render_template('signup.html', error=err)
         else:
-            usr = User(username,rname,mail,clave)
+            usr = User(username,rname,mail,clave,None)
             addObject(usr)
             return flask.render_template('login.html')
 

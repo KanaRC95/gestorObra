@@ -6,6 +6,7 @@
     <title>Gestion Proyecto</title>
 </head>
 <body>
+    <section>
     <h1>{{data.pname}}</h1>
 
     <h3>Presupuestado: {{data.presupuestado}}</h3>
@@ -20,9 +21,10 @@
     <table>
     <td>
         <a type="button" class="btn btn-warning" href="/proyReport/{{data.pname}}">Generar Reporte</a>
-        <a type="button" class="btn btn-danger" onclick="return confirm('Esta seguro?');" href="/test">Finalizar Obra</a>
+        <a type="button" class="btn btn-danger" onclick="return confirm('Esta seguro?');" href="/finish/{{data.pname}}">Finalizar Obra</a>
     </td>
     </table>
+    </section>
     <br>
     <table>
     <td>
@@ -64,20 +66,33 @@
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray" >Materiales</td>
+                    <td style="background: dimgray" >Materiales Nec.</td>
+                    <td style="background: dimgray" >Materiales Asig.</td>
                     <td style="background: dimgray" >Obreros</td>
                     <td style="background: dimgray" >FechaInicio</td>
                     <td style="background: dimgray" >Opciones</td>
                 </tr>
             </thead>
             <tbody>
+            {% if trps.matsDisp != None %}
+                <a type="button" class="btn btn-warning" data-toggle="modal" href="#addExtraMats">
+                    Asignar Extra Materiales
+                </a>
+            {% endif %}
                 {% for tr in trps %}
                 <tr>
                     <td>{{tr.tpname}}</td>
                     <td>
-                        {% for mt in tr.Materiales %}
+                        {% for mt in tr.matsNec %}
                             {{mt.name}}:{{mt.cant}}<br>
                         {% endfor %}
+                    </td>
+                    <td>
+                        {% if tr.matsDisp != None%}
+                            {% for mt in tr.matsDisp %}
+                                {{mt.name}}:{{mt.cant}}<br>
+                            {% endfor %}
+                        {% endif %}
                     </td>
                     <td>
                         {% if tr.Obreros != None%}
@@ -91,9 +106,12 @@
                         <a type="button" id="tp-name" class="btn btn-primary" href="/pend/{{tr.tpname}}/{{data.pname}}">
                             Asignar Obrero
                         </a>
+                        {% if tr.matsDisp == None %}
                         <a type="button" class="btn btn-success" href="/pendC/{{tr.tpname}}/{{data.pname}}">
-                            Completar
+                            Asignar Materiales
                         </a>
+                        {% endif %}
+                        <a type="button" class="btn btn-success" onclick="return confirm('Esta seguro?');" href="/comp/{{tr.tpname}}/{{data.pname}}">Finalizar</a>
                     </td>
 
                 </tr>
@@ -104,8 +122,9 @@
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray" >Materiales</td>
-                    <td style="background: dimgray" >Descripcion</td>
+                    <td style="background: dimgray" >Mat. Ponderados</td>
+                    <td style="background: dimgray" >Mat. Utilizados</td>
+                    <td style="background: dimgray" >Obreros</td>
                     <td style="background: dimgray" >Finalizo</td>
                 </tr>
             </thead>
@@ -115,11 +134,20 @@
                 <tr>
                     <td>{{tr.tpname}}</td>
                     <td>
-                        {% for mt in tr.Materiales %}
+                        {% for mt in tr.matsNec %}
                             {{mt.name}}:{{mt.cant}}<br>
                         {% endfor %}
                     </td>
-                    <td>{{tr.desc}}</td>
+                    <td>
+                        {% for mt in tr.matsDisp %}
+                            {{mt.name}}:{{mt.cant}}<br>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for ob in tr.Obreros %}
+                            {{ob.Nombre}} / {{ob.Ocupacion}}
+                        {% endfor%}
+                    </td>
                     <td>
                         {{tr.fechaFin}}
                     </td>
@@ -142,8 +170,8 @@
         <div class="card border-success mb-3" style="max-width: 20rem;">
           <div class="card-header">Materiales Disponibles</div>
           <div class="card-body">
-              {% if data.MatsDisponibles != None%}
-                {% for name, cant in data.MatsDisponibles.items()%}
+              {% if depo != None%}
+                {% for name, cant in depo.items()%}
                     <p class="card-text">{{name}}:{{cant}}</p>
                 {% endfor %}
               {% endif %}
@@ -194,6 +222,56 @@
   </div>
 </div>
 
+<div class="modal" id="addExtraMats">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Asignar Extra Materiales</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/addExtra/{{data.pname}}" method="POST">
+            <div class="form-group">
+                <label  class="form-label mt-4">Trabajo</label>
+                    <select class="form-select"  name="tp">
+                        {% for tr in trps %}
+                            {% if tr.matsDisp != None %}
+                                <option>{{tr.tpname}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label  class="form-label mt-4">Material</label>
+                    <select class="form-select"  name="mat">
+                        {% for mt in mats %}
+                        <option>{{mt.name}} / {{mt.type}}</option>
+                        {% endfor %}
+                    </select>
+            </div>
+
+           <div class="form-group">
+            <label class="form-label mt-4">Cantidad</label>
+            <input type="text" class="form-control" name="cant">
+          </div>
+
+
+          <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          </div>
+
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="modal" id="addCptz">
   <div class="modal-dialog">
