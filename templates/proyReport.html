@@ -68,6 +68,7 @@
                     <td style="background: dimgray" >Mats. Ponderados</td>
                     <td style="background: dimgray" >Mats. Utilizados</td>
                     <td style="background: dimgray" >Precio Total</td>
+                    <td style="background: dimgray" >Obreros Responsables</td>
                 </tr>
             </thead>
             <tbody>
@@ -80,11 +81,18 @@
                         {% endfor %}
                     </td>
                     <td>
+                        {% if tr.matsDisp%}
                         {% for mt in tr.matsDisp %}
                             {{mt.name}}:{{mt.cant}}<br>
                         {% endfor %}
+                        {% endif %}
                     </td>
                     <td>{{tr.precioTotal}}</td>
+                    <td>
+                        {% for ob in tr.Obreros %}
+                            {{ob.Nombre}}/{{ob.Ocupacion}}<br>
+                        {% endfor %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -97,7 +105,7 @@
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray" >Materiales</td>
+                    <td style="background: dimgray" >Materiales Asig.</td>
                     <td style="background: dimgray" >FechaInicio</td>
                 </tr>
             </thead>
@@ -106,7 +114,7 @@
                 <tr>
                     <td>{{tr.tpname}}</td>
                     <td>
-                        {% for mt in tr.Materiales %}
+                        {% for mt in tr.matsDisp %}
                             {{mt.name}}:{{mt.cant}}<br>
                         {% endfor %}
                     </td>
@@ -119,10 +127,9 @@
     {% endif %}
 
 <br>
-<br>
 
-        {% if proy.MatsDisponibles is not none %}
-        Sobran los siguientes materiales:<br>
+        {% if current_user.depo is not none %}
+        Estado del deposito:<br>
         <table class="table table-striped table-hover table-bordered table-info">
             <thead>
                 <tr>
@@ -131,7 +138,7 @@
                 </tr>
             </thead>
             <tbody>
-            {% for key, value in proy.MatsDisponibles.items() %}
+            {% for key, value in current_user.depo.items() %}
             <tr>
 
                     <td>{{ key }}</td>
@@ -142,13 +149,17 @@
             </tbody>
          </table>
         {% else %}
-            NO BLAH
+            No hay nada en el deposito.
         {% endif %}
 <br>
 <br>
 <div><button onClick="window.print()" class="btn btn-outline-success">Imprimir
 </button></div>
 <br>
-<a type="button" class="btn btn-outline-warning" href="/pres">Regresar</a>
+{% if proy.fechaFin == None%}
+    <a type="button" class="btn btn-outline-warning" href="/deetsProy/{{proy.pname}}">Regresar</a>
+{% else %}
+    <a type="button" class="btn btn-outline-warning" href="/proy">Regresar</a>
+{% endif %}
 </body>
 </html>

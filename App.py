@@ -163,11 +163,13 @@ def proyReport(name):
             .where_equals("Proyecto", name)
             .where_equals("User", flask_login.current_user.id)
         )
+
         if not pend:
             pend = []
         fReport = dateNow()
         fact = 0
         totalFact = 0
+
         for f in p[0].pagos:
             fact+=1
             totalFact+=f['MontoTotal']
@@ -179,23 +181,56 @@ def proyReport(name):
     store.close()
     return render_template('proyReport.html', proy=p[0], inpro=pend, fr=fReport, pay=pagos)
 
+@app.route('/finish/<name>')
+@login_required
+def finish(name):
+    with store.open_session() as session:
+        p = list(
+            session
+            .query(object_type=Proyecto)  # Query for Products
+            .where_equals("pname", name)
+            .where_equals("User", flask_login.current_user.id)
+        )
+        trp = list(
+            session
+            .query(object_type=TrabajoP)  # Query for Products
+            .where_equals("pname", name)
+            .where_equals("User", flask_login.current_user.id)
+        )
+        if not trp and not p[0].TrabajosR:
+            p[0].status = 'Finalizado'
+        else:
+            p[0].status = 'Interrumpido'
+        p[0].fechaFin = dateNow()
+
+        session.save_changes()
+    store.close()
+    return redirect(url_for('proyReport',name=p[0].pname))
+
 @app.route('/changeStatus/<name>')
 @login_required
 def cStatus(name):
     with store.open_session() as session:
-        p = list(
+        data = list(
             session
             .query(object_type=Presupuesto)  # Query for Products
             .where_equals("oname", name)
-            .where_equals("User", flask_login.current_user.id)
         )
-        st = p[0].status
+        for x in data:
+            if x.User == flask_login.current_user.id:
+                p=x
+        st = p.status
         if st=='Abierto':
-            p[0].status='Cerrado'
+            p.status='Cerrado'
         else:
-            p[0].status='Abierto'
+            p.status='Abierto'
         session.save_changes()
     store.close()
+    return redirect(url_for('bgt'))
+
+@app.route('/reopen/<name>')
+@login_required
+def reopen(name):
     return redirect(url_for('bgt'))
 
 @app.route('/assignCptz/<name>', methods=['POST'])
@@ -228,9 +263,8 @@ def cptz(name):
 @app.route('/cargaPres/<name>')
 @login_required
 def nbgt(name):
-    currentP = name
-    presE = query(Presupuesto,flask_login.current_user.id)
-    jobsL = presE[0].getJobs()
+    presE = [queryPres(Presupuesto,name,flask_login.current_user.id)]
+    jobsL = presE[0].Trabajos
     js = query(Trabajo,flask_login.current_user.id)
     return render_template('cargaPres.html', pres=presE, jobs=js, listado=jobsL)
 
@@ -324,10 +358,6 @@ def stJ(name,proy):
 def testing():
     return flask.render_template('test.html')
 
-@app.route('/finish/<name>')
-@login_required
-def finish(name):
-    return flask.render_template('test.html')
 
 @app.route('/deetsProy/<name>')
 @login_required
@@ -483,9 +513,6 @@ def addExtra(name):
 @login_required
 def addObr(job,name,py):
     p = queryP(Proyecto,py,flask_login.current_user.id)
-    global currentPy
-    currentPy = p
-    jobN = queryN(Trabajo,job,flask_login.current_user.id).name
     with store.open_session() as session:
         qObr = list(
             session
@@ -501,7 +528,7 @@ def addObr(job,name,py):
             .where_equals("User", flask_login.current_user.id)
         )
         qTbs[0].addObrero(qObr[0].name,qObr[0].occ, p.pname)
-        qObr[0].addTrabajo(jobN,p.pname,dateNow())
+        qObr[0].addTrabajo(job,p.pname,dateNow())
         session.save_changes()
     store.close()
     return redirect(url_for('deetsProy', name = p.pname))
@@ -769,7 +796,7 @@ def add_job():
         cant = [s for s in c if s.strip()]
         jmats = []
         for m, c in zip(materiales,cant):
-            aux = queryPr(Material, m, flask_login.current_user.id)
+            aux = queryN(Material, m, flask_login.current_user.id)
             #aux = q[0]
             #(self, name, type, price, Proveedor, cant)
             mat = Material(aux.getName(),aux.getType(),int(aux.getPrice()),'',int(c),flask_login.current_user.id)
@@ -865,38 +892,41 @@ def del_pres(name,pres):
             # .skip(0).take(10)                       # Page
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
-        p = []
+
+        p = ''
         for x in data:
             if x.User == flask_login.current_user.id:
-                p.append(x)
-
-        for t in p[0].Trabajos:
-            if name in t.values():
-                p[0].budget-=t['totalT']
+                p = x
+        for t in p.Trabajos:
+            if t['name'] == name:
+                p.budget-=t['totalT']
                 t.clear()
-        tl = p[0].Trabajos
+        tl = p.Trabajos
         newtl = list(filter(None,tl))
-        p[0].Trabajos = newtl
+        p.Trabajos = newtl
         session.save_changes()
 
     store.close()
 
-    return redirect(url_for('nbgt', name = p[0].oname))
+    return redirect(url_for('nbgt', name = pres))
 
 @app.route('/del_job/<name>', methods=['POST','GET'])
 @login_required
 def del_job(name):
+    job = ''
     with store.open_session() as session:
         p = list(  # Materialize query
             session
             .query(object_type=Trabajo)  # Query for Products
             .where_equals("name", name)
-            .where_equals("User", flask_login.current_user.id)# Filter
             # .skip(0).take(10)                       # Page
             #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
         )
-        print(p)
-        session.delete_by_entity(p[0])
+        for x in p:
+            if x.User == flask_login.current_user.id:
+                job = x
+        if job != '':
+            session.delete_by_entity(p[0])
         session.save_changes()
 
     store.close()

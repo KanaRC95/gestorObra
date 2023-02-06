@@ -106,7 +106,7 @@
                         <a type="button" id="tp-name" class="btn btn-primary" href="/pend/{{tr.tpname}}/{{data.pname}}">
                             Asignar Obrero
                         </a>
-                        {% if tr.matsDisp == None %}
+                        {% if tr.matsDisp == None and tr.matNec %}
                         <a type="button" class="btn btn-success" href="/pendC/{{tr.tpname}}/{{data.pname}}">
                             Asignar Materiales
                         </a>
@@ -139,13 +139,15 @@
                         {% endfor %}
                     </td>
                     <td>
+                        {% if tr.matsDisp %}
                         {% for mt in tr.matsDisp %}
                             {{mt.name}}:{{mt.cant}}<br>
                         {% endfor %}
+                        {% endif %}
                     </td>
                     <td>
                         {% for ob in tr.Obreros %}
-                            {{ob.Nombre}} / {{ob.Ocupacion}}
+                            {{ob.Nombre}} / {{ob.Ocupacion}}<br>
                         {% endfor%}
                     </td>
                     <td>

@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 </head>
 <body>
+<table>
+
+<tr>
+    <th>
+<img src="{{url_for('static', filename='img/logo.jpg')}}" width="70%" height="70%">
+        </th>
+    <th>
         Obra: {{info.oname}}<br>
         Fecha: {{fecha}}<br>
         Propietario: {{info.Cliente.name}}<br>
         Tipo: {{info.Cliente.type}}<br>
         Ubicacion: {{info.addr}}<br>
+    </th>
+</tr>
+</table>
     <br>
     <br>
     <h4>Detalles de los Trabajos</h4>
@@ -33,7 +43,7 @@
                     <td>{{lst.priceM}}</td>
                     <td>
                         {% for mt in lst.Materiales %}
-                        {{mt.name}}: {{mt.cant}} {{mt.type}}
+                        {{mt.name}}: {{mt.cant}} {{mt.type}}<br>
                         {% endfor %}
                     </td>
                     <td>{{lst.totalM}}</td>
