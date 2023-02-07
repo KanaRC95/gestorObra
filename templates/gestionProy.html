@@ -8,35 +8,46 @@
 <body>
     <section>
     <h1>{{data.pname}}</h1>
-
-    <h3>Presupuestado: {{data.presupuestado}}</h3>
-    <h3>Presupuesto Actual: {{data.budget}}</h3><br>
+    <h3>Situacion Financiera</h3>
+    <h4>Presupuestado: {{data.presupuestado}}</h4>
+    <h4>Presupuesto Actual: {{data.budget}}</h4><br>
     <table>
     <td>
-        <a type="button" class="btn btn-success" href="/verPagos/{{data.pname}}">Ver Pagos</a>
-        <a type="button" class="btn btn-success" data-toggle="modal" href="#addMats">Realizar Pedido de Materiales</a>
-    </td>
-    </table>
-    <br>
-    <table>
-    <td>
+        <h4>Opciones de Proyecto</h4>
         <a type="button" class="btn btn-warning" href="/proyReport/{{data.pname}}">Generar Reporte</a>
         <a type="button" class="btn btn-danger" onclick="return confirm('Esta seguro?');" href="/finish/{{data.pname}}">Finalizar Obra</a>
     </td>
     </table>
+        <br>
+        <br>
+    <table>
+    <td>
+        <h4>Materiales y Pagos</h4>
+        <a type="button" class="btn btn-success" href="/verPagos/{{data.pname}}">Ver Pagos</a>
+        <a type="button" class="btn btn-success" data-toggle="modal" href="#addMats">Realizar Pedido de Materiales</a>
+        <a type="button" class="btn btn-primary" href="/pedH/{{data.pname}}">Ver Historial de Pedidos</a>
+        <a type="button" class="btn btn-warning" href="/bajH/{{data.pname}}">Ver Historial de Bajas</a>
+    </td>
+    </table>
+    <br>
+
     </section>
     <br>
     <table>
     <td>
+        <h4>Trabajos</h4>
         <h5>Capataz: {{data.Capataz.name}} ({{data.Capataz.ced}})</h5>
         <a type="button" class="btn btn-success" data-toggle="modal" data-target="#addCptz">Asignar Capataz</a>
     </td>
     </table>
     <br>
-    <button type="button" class="btn btn-primary" id="hideClient" onclick="toggleJobs();">Trabajos Pendientes</button>
-    <button type="button" class="btn btn-primary" id="trP" onclick="toggleJobsP();">Trabajos En Progreso</button>
-    <button type="button" class="btn btn-primary" id="hideJD" onclick="toggleJobsD();">Trabajos Completados</button>
-    <table id="tablaJobsR" class="table table-striped table-hover table-bordered table-info" style="display:none">
+    <button type="button" class="btn btn-danger" id="hideClient" onclick="toggleJobs();">Trabajos Pendientes</button>
+    <button type="button" class="btn btn-warning" id="trP" onclick="toggleJobsP();">Trabajos En Progreso</button>
+    <button type="button" class="btn btn-success" id="hideJD" onclick="toggleJobsD();">Trabajos Completados</button>
+    <br>
+    <br>
+
+    <table id="tablaJobsR" class="table table-striped table-hover table-bordered table-danger" style="display:none">
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
@@ -62,8 +73,13 @@
                 {% endfor %}
             </tbody>
 </table>
-<table id="tablaJobsP" class="table table-striped table-hover table-bordered table-info" style="display:none">
+<table id="tablaJobsP" class="table table-striped table-hover table-bordered table-warning" style="display:none">
             <thead>
+            <a type="button" class="btn btn-warning" data-toggle="modal" href="#addExtraMats">
+                Asignar Extra Materiales
+            </a>
+            <br>
+            <br>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
                     <td style="background: dimgray" >Materiales Nec.</td>
@@ -74,11 +90,6 @@
                 </tr>
             </thead>
             <tbody>
-            {% if trps.matsDisp != None %}
-                <a type="button" class="btn btn-warning" data-toggle="modal" href="#addExtraMats">
-                    Asignar Extra Materiales
-                </a>
-            {% endif %}
                 {% for tr in trps %}
                 <tr>
                     <td>{{tr.tpname}}</td>
@@ -106,7 +117,7 @@
                         <a type="button" id="tp-name" class="btn btn-primary" href="/pend/{{tr.tpname}}/{{data.pname}}">
                             Asignar Obrero
                         </a>
-                        {% if tr.matsDisp == None and tr.matNec %}
+                        {% if tr.matsDisp == None and tr.matsNec %}
                         <a type="button" class="btn btn-success" href="/pendC/{{tr.tpname}}/{{data.pname}}">
                             Asignar Materiales
                         </a>
@@ -118,7 +129,7 @@
                 {% endfor %}
             </tbody>
 </table>
-<table id="tablaJobsD" class="table table-striped table-hover table-bordered table-info" style="display:none">
+<table id="tablaJobsD" class="table table-striped table-hover table-bordered table-success" style="display:none">
             <thead>
                 <tr>
                     <td style="background: dimgray">Nombre</td>
@@ -161,6 +172,12 @@
 </table>
 <br>
 <br>
+    <h4>Materiales</h4>
+    <table>
+    <tbody>
+
+    <tr>
+        <td>
         <div class="card border-warning mb-3" style="max-width: 20rem;">
           <div class="card-header">Materiales Necesarios</div>
           <div class="card-body">
@@ -169,17 +186,23 @@
               {% endfor %}
           </div>
         </div>
+            </td>
+        <td>
         <div class="card border-success mb-3" style="max-width: 20rem;">
-          <div class="card-header">Materiales Disponibles</div>
+          <div class="card-header">Disponible en Deposito</div>
           <div class="card-body">
               {% if depo != None%}
                 {% for name, cant in depo.items()%}
                     <p class="card-text">{{name}}:{{cant}}</p>
                 {% endfor %}
               {% endif %}
+              <a type="button" class="btn btn-success" data-toggle="modal" href="#bajMats">Dar de Baja Materiales</a>
           </div>
         </div>
-
+        </td>
+    </tr>
+    </tbody>
+    </table>
 
 
 
@@ -209,6 +232,52 @@
            <div class="form-group">
             <label class="form-label mt-4">Cantidad</label>
             <input type="text" class="form-control" name="cant">
+          </div>
+
+
+          <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          </div>
+
+
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="bajMats">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Remover Materiales</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action="/bajMat/{{data.pname}}" method="POST">
+
+            <div class="form-group">
+                        <label  class="form-label mt-4">Material</label>
+                        <select class="form-select"  name="mat">
+                            {% for mt in mats %}
+                                <option>{{mt.name}} / {{mt.type}}</option>
+                            {% endfor %}
+                        </select>
+            </div>
+
+           <div class="form-group">
+            <label class="form-label mt-4">Cantidad</label>
+            <input type="text" class="form-control" name="cant">
+          </div>
+
+            <div class="form-group">
+            <label class="form-label mt-4">Motivo</label>
+            <input type="text" class="form-control" name="razon">
           </div>
 
 

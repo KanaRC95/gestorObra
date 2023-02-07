@@ -278,9 +278,9 @@ def genProy():
         if iva == 'Sin IVA':
             valorIVA = 0
         elif iva == '10':
-            valorIVA = 10
+            valorIVA = 0.10
         else:
-            valorIVA = 5
+            valorIVA = 0.05
 
         presE = queryPres(Presupuesto,name,flask_login.current_user.id)
         #pname, Cliente, addr, MatsFaltantes, MatsDisponibles, Obreros, Capataz, fechaInicio, fechaFin,
@@ -307,7 +307,7 @@ def genProy():
             else:
                 res[mt['name']] = mt['cant']
         valorCuotas = bgt/int(cuota)
-        montoIVA = valorCuotas/valorIVA
+        montoIVA = valorCuotas*valorIVA
         pagos = []
         for i in range(int(cuota)):
             pago = {
@@ -362,15 +362,19 @@ def testing():
 @app.route('/deetsProy/<name>')
 @login_required
 def deetsProy(name):
+    tp = []
     proy = queryProyL(name)
     global currentPy
     currentPy = proy
     trP = queryTPr(TrabajoP,name)
+    for x in trP:
+        if x.User == flask_login.current_user.id:
+            tp.append(x)
     obr = query(Obrero,flask_login.current_user.id)
     prv = query(Proveedor,flask_login.current_user.id)
     mt = query(Material,flask_login.current_user.id)
     deposito = flask_login.current_user.depo
-    return render_template('gestionProy.html', data=proy, trps=trP, obrs=obr, prov=prv, mats=mt, depo=deposito)
+    return render_template('gestionProy.html', data=proy, trps=tp, obrs=obr, prov=prv, mats=mt, depo=deposito)
 
 @app.route('/pend/<name>/<proy>')
 @login_required
@@ -380,11 +384,31 @@ def penScr(name,proy):
     obr = query(Obrero,flask_login.current_user.id)
     return render_template('pendiente.html', pr=p, tps=trp, obrs=obr)
 
+@app.route('/delPend/<name>/<tpname>/<proy>')
+@login_required
+def delPend(name,tpname,proy):
+    with store.open_session() as session:
+        trp = list(  # Materialize query
+            session
+            .query(object_type=TrabajoP)  # Query for Products
+            .where_equals("User", flask_login.current_user.id)  # Filter
+        )
+        for x in trp:
+            if x.tpname == tpname:
+                for y in x.Obreros:
+                    if y['Nombre'] == name:
+                        x.Obreros.remove(y)
+        session.save_changes()
+    store.close()
+
+    return redirect(url_for('penScr', name = tpname, proy=proy))
+
 @app.route('/pendC/<name>/<proy>')
 @login_required
 def asig(name, proy):
     #chequear materiales disponibles
     m = {}
+    err = []
     with store.open_session() as session:
         trp = list(  # Materialize query
             session
@@ -409,14 +433,16 @@ def asig(name, proy):
         for x in trp[0].matsNec:
             m[x['name']]=x['cant']
         pm = usr[0].depo
-        err = []
         if pm:
-            for key in pm.keys():
+            for key in m.keys():
                 #pm: disponibles, m: necesarios
-                if key in m.keys():
+                if key in pm.keys():
                     if pm[key] < m[key]:
                         e = 'No hay suficiente '+key+'.'
                         err.append(e)
+                else:
+                    e = 'No hay ' + key + '.'
+                    err.append(e)
 
         if not err:
             for key in usr[0].depo.keys():
@@ -457,6 +483,10 @@ def compTR(name, proy):
         if not trp[0].Obreros:
             e = 'No hay Obreros asignados.'
             err.append(e)
+        if trp[0].matsNec and not trp[0].matsDisp:
+            e = 'No hay materiales asignados asignados.'
+            err.append(e)
+
         if not err:
             trp[0].fechaFin = dateNow()
             p[0].compTR(trp[0])  # Hacer dict para que no guarde tan complejo
@@ -531,7 +561,7 @@ def addObr(job,name,py):
         qObr[0].addTrabajo(job,p.pname,dateNow())
         session.save_changes()
     store.close()
-    return redirect(url_for('deetsProy', name = p.pname))
+    return redirect(url_for('penScr', name= job,proy = p.pname))
 
 
 
@@ -660,6 +690,7 @@ def add_pay(name):
             f['RUC'] = p.Cliente['ruc']
             f['Detalles'] = 'Materiales y Mano de Obra'
             f['IVA'] = iva
+            f['MontoIVA'] = pago*(int(iva)/100)
             f['Cuotas'] = int(cuota)
             f['Valor'] = pago
             session.save_changes()
@@ -676,6 +707,7 @@ def add_ped(name):
     val = int(request.form['cant'])
     mat.cant = val
     mat.setTotal()
+
     if mat.total>p.budget:
         dif = (mat.total-p.budget)
         e = "No hay suficientes fondos. Se necesitan "+str(dif)+"Gs. adicionales"
@@ -706,6 +738,7 @@ def add_ped(name):
                     mat.name: val
                 }
                 usr[0].depo = m
+            session.store(Pedido(mat,dateNow(),p[0].pname,flask_login.current_user.id))
             p[0].gastos += int(mat.total)
             p[0].budget -= int(mat.total)
             session.save_changes()
@@ -727,6 +760,22 @@ def add_prov():
         addObject(p)
 
         return redirect(url_for('provs'))
+
+@app.route('/pedH/<name>')
+@login_required
+def pedidosH(name):
+    with store.open_session() as session:
+        p = list(
+            session
+            .query(object_type=Pedido)  # Query for Products
+            .where_equals("Proyecto", name)
+            .where_equals("User", flask_login.current_user.id)
+        )
+
+    store.close()
+
+    return render_template('historialPedidos.html', pedidos=p, proy=name)
+
 
 @app.route('/add_pers', methods=['POST'])
 @login_required
@@ -951,6 +1000,48 @@ def del_mat(name):
     store.close()
 
     return redirect(url_for('rmats'))
+
+@app.route('/bajMat/<name>', methods=['POST','GET'])
+@login_required
+def bajMat(name):
+    e = []
+    if request.method == 'POST':
+        material = request.form['mat']
+        mtname = material.split(' / ', 1)[0]
+        cantidad = int(request.form['cant'])
+        razon = request.form['razon']
+        mat = queryN(Material, mtname, flask_login.current_user.id)
+        with store.open_session() as session:
+            usr = list(
+                session
+                .query(object_type=User)  # Query for Products
+                .where_equals("id", flask_login.current_user.id)
+            )
+            if usr[0].depo:
+                keys = usr[0].depo.keys()
+                if mat.name in keys:
+                    if usr[0].depo[mat.name] > cantidad:
+                        session.store(Baja(mtname,cantidad,razon,dateNow(),flask_login.current_user.id))
+                        usr[0].depo[mat.name] -= cantidad
+                    else:
+                        e.append("No se pueden dar de baja mas materiales de los que existen.")
+                        return render_template("error.html", error=e)
+            session.save_changes()
+        store.close()
+    return redirect(url_for('deetsProy', name = name))
+
+@app.route('/bajH/<name>')
+@login_required
+def bajas(name):
+    with store.open_session() as session:
+        p = list(
+            session
+            .query(object_type=Baja)  # Query for Products
+            .where_equals("User", flask_login.current_user.id)
+        )
+
+    store.close()
+    return render_template('historialBajas.html', bajas=p, proy=name)
 
 @app.route('/delObr/<name>/<ced>', methods=['POST','GET'])
 @login_required

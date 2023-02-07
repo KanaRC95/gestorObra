@@ -113,7 +113,7 @@
 								<td>
 									Factura #: 123<br />
 									Creada: {{date}}<br />
-									Cuota: {{factura.Cuota}}
+									Cuota: {{factura.Cuotas}}
 								</td>
 							</tr>
 						</table>
@@ -164,17 +164,31 @@
 					<td>Gs. {{factura.Valor}}</td>
 				</tr>
 
+				<tr class="heading">
+					<td></td>
 
+					<td></td>
+				</tr>
+
+				<tr class="item">
+					<td>IVA</td>
+					<td>{{factura.IVA}}</td>
+				</tr>
+				<tr class="item">
+					<td>Monto IVA</td>
+					<td>{{factura.MontoIVA}}</td>
+				</tr>
 				<tr class="total">
 					<td></td>
 
-					<td>Total: Gs. {{factura.Valor}}</td>
+					<td>Total: Gs. {{factura.Valor}}</td><br>
+
 				</tr>
 			</table>
 		</div>
 	<div><button onClick="window.print()" class="btn btn-outline-success">Imprimir
 </button></div>
 <br>
-<a type="button" class="btn btn-outline-warning" href="/deetsProy/{{proy.pname}}">Regresar</a>
+<a type="button" class="btn btn-outline-warning" href="/verPagos/{{proy.pname}}">Regresar</a>
 	</body>
 </html>

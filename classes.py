@@ -258,3 +258,18 @@ class Audit():
         self.despues = despues
         self.fecha = fecha
         self.User = User
+
+class Pedido():
+    def __init__(self,Material, fecha, Proyecto, User):
+        self.Material = Material
+        self.fecha = fecha
+        self.Proyecto = Proyecto
+        self.User = User
+
+class Baja():
+    def __init__(self, Material, cant, razon, fecha, User):
+        self.Material = Material
+        self.cant = cant
+        self.razon = razon
+        self.fecha = fecha
+        self.User = User

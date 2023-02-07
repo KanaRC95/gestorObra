@@ -7,29 +7,58 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
 </head>
 <body>
+        <h2>{{proy.pname}}</h2>
+        <br>
         <h4>Reporte: {{fr}}</h4>
         <br>
         <br>
-        <h2>Detalles de la Obra</h2>
-        Nombre del Proyecto: {{proy.pname}}<br>
-        Fecha Inicio: {{proy.fechaInicio}}<br>
-        Fecha Fin: {{proy.fechaFin}}<br>
-        Direccion: {{proy.addr}}<br>
-        Capataz: {{proy.Capataz.name}} - Cedula: {{proy.Capataz.ced}} <br>
-    <br>
-        <h2>Detalles del cliente</h2>
-        Nombre: {{proy.Cliente.name}}<br>
-        Tipo: {{proy.Cliente.type}}<br>
-        RUC: {{proy.Cliente.ruc}}<br>
-        Email: {{proy.Cliente.email}}<br>
-        Ciudad: {{proy.Cliente.ciudad}}<br>
-    <br>
-        <h2>Detalles Financieros</h2>
-        Valor Presupuestado: {{proy.presupuestado}}<br>
-        Gasto Total: {{proy.gastos}}<br>
-        Cuotas Pagadas: {{pay.Cantidad}}<br>
-        Total Pagos: {{pay.Suma}}<br>
-        <br>
+        <table>
+
+        <tbody>
+        <tr>
+        <td>
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+              <div class="card-header">Detalles de la Obra</div>
+              <div class="card-body">
+                <p class="card-text">
+                    Fecha Inicio: {{proy.fechaInicio}}<br>
+                    Fecha Fin: {{proy.fechaFin}}<br>
+                    Direccion: {{proy.addr}}<br>
+                    Capataz: {{proy.Capataz.name}} - Cedula: {{proy.Capataz.ced}}<br><br></p>
+            </div>
+
+        </td>
+            <td>
+                <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                  <div class="card-header">Detalles del Cliente</div>
+                  <div class="card-body">
+                    <p class="card-text">
+                        Nombre: {{proy.Cliente.name}}<br>
+                        Tipo: {{proy.Cliente.type}}<br>
+                        RUC: {{proy.Cliente.ruc}}<br>
+                        Email: {{proy.Cliente.email}}<br>
+                        Ciudad: {{proy.Cliente.ciudad}}<br>
+                    </p>
+                  </div>
+                </div>
+                </td>
+         <td>
+             <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+              <div class="card-header">Detalles Financieros</div>
+              <div class="card-body">
+                <p class="card-text">
+                    Valor Presupuestado: {{proy.presupuestado}}<br>
+                    Gasto Total: {{proy.gastos}}<br>
+                    Cuotas Pagadas: {{pay.Cantidad}}<br>
+                    Total Pagos: {{pay.Suma}}<br><br>
+                </p>
+              </div>
+            </div>
+
+            </td>
+        </tr>
+        </tbody>
+        </table>
         <br>
     {% if proy.TrabajosR is defined and proy.TrabajosR|length > 0 %}
         Los siguientes trabajos no se completaron: <br>

@@ -4,6 +4,9 @@
     <a type="button"  class="btn btn-primary" href="/deetsProy/{{pr.pname}}">Volver</a>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addObr">Asignar Obreros</button>
+    <br>
+    <br>
+    <h2>{{tps.tpname}}</h2>
     <table class="table table-striped table-hover table-bordered table-info">
             <thead>
                 <tr>
@@ -19,7 +22,7 @@
                     <td>{{obr.Nombre}}</td>
                     <td>{{obr.Ocupacion}}</td>
                     <td>
-                        <a type="button"  class="btn btn-primary" href="">Borrar</a>
+                        <a type="button"  class="btn btn-primary" href="/delPend/{{obr.Nombre}}/{{tps.tpname}}/{{pr.pname}}">Borrar</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -46,6 +49,7 @@
                         <tr>
                             <td style="background: dimgray">Nombre</td>
                             <td style="background: dimgray">Ocupacion</td>
+                            <td style="background: dimgray">Opciones</td>
                         </tr>
                     </thead>
                     <tbody>
