@@ -630,22 +630,24 @@ def editS():
         # (self, name, type, price, Proveedor, cant)
         material = queryN(Material,name,flask_login.current_user.id)
         with store.open_session() as session:
-            m = list(
+            datam = list(
                 session
                 .query(object_type=Material)  # Query for Products
-                .where_equals("name", name)
                 .where_equals("User", flask_login.current_user.id)
             )
+            for mat in datam:
+                if mat.name == name:
+                    m=mat
             trb = list(
                 session
                 .query(object_type=Trabajo)
                 .where_equals("User", flask_login.current_user.id)# Query for Products
                 #.where_equals("name", name)
             )
-            m[0].name=name
-            m[0].type=tipo
-            m[0].price=precio
-            m[0].Proveedor=x
+            m.name=name
+            m.type=tipo
+            m.price=precio
+            m.Proveedor=x
             for t in trb:
                 for mt in t.Materiales:
                     if mt['name']==name:
