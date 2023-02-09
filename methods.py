@@ -72,6 +72,22 @@ def queryN(type, name, user):
             val = x
     return val
 
+def queryNM(name, user):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=Material)  # Query for Products
+            .where(name=name)  # Filter
+            # .skip(0).take(10)                       # Page
+            .select("name", "unit", "contacto", "type","price", "Proveedor","cant","User")  # Project
+        )
+    store.close()
+    val = ''
+    for x in data:
+        if x.User == user:
+            val = x
+    return val
+
 def queryPres(type, name, user):
     with store.open_session() as session:
         data = list(  # Materialize query

@@ -14,6 +14,7 @@
                 <tr>
                     <td style="background: dimgray">Nombre</td>
                     <td style="background: dimgray">Precio MdO</td>
+                    <td style="background: dimgray" >Mat./Cant.</td>
                     <td style="background: dimgray" >Precio Materiales</td>
                     <td style="background: dimgray" >Precio Total</td>
                     <td style="background: dimgray" >Descripcion</td>
@@ -25,6 +26,13 @@
                 <tr>
                     <td>{{job.name}}</td>
                     <td>{{job.priceM}}</td>
+                    <td>
+                        {% if job.Materiales %}
+                            {% for m in job.Materiales %}
+                                {{m.name}}: {{m.cant}} {{m.type}}<br>
+                            {% endfor %}
+                        {% endif %}
+                    </td>
                     <td>{{job.totalM}}</td>
                     <td>{{job.totalT}}</td>
                     <td>{{job.desc}}</td>

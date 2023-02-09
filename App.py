@@ -171,8 +171,9 @@ def proyReport(name):
         totalFact = 0
 
         for f in p[0].pagos:
-            fact+=1
-            totalFact+=f['MontoTotal']
+            if f['Estado']=='Pagado':
+                fact+=1
+                totalFact+=f['MontoTotal']
         pagos = {
             "Cantidad":fact,
             "Suma":totalFact
@@ -246,16 +247,19 @@ def cptz(name):
                 session
                 .query(object_type=Proyecto)  # Query for Products
                 .where_equals("pname", name)
-                .where_equals("User", flask_login.current_user.id)
             )
             o = list(
                 session
                 .query(object_type=Obrero)  # Query for Products
-                .where_equals("name", name)
                 .where_equals("ced",ced)
-                .where_equals("User", flask_login.current_user.id)
             )
-            p[0].Capataz=o[0]
+            for proy in p:
+                if proy.User == flask_login.current_user.id:
+                    proyecto = proy
+            for ob in o:
+                if ob.User == flask_login.current_user.id:
+                    obrero = ob
+            proyecto.Capataz = obrero
             session.save_changes()
         store.close()
         return redirect(url_for('deetsProy', name=name))
@@ -410,29 +414,34 @@ def asig(name, proy):
     m = {}
     err = []
     with store.open_session() as session:
-        trp = list(  # Materialize query
+        datatrp = list(  # Materialize query
             session
             .query(object_type=TrabajoP)  # Query for Products
-            .where_equals("tpname",name)
-            .where_equals("Proyecto",proy)
-            .where_equals("User", flask_login.current_user.id)# Filter
+            .where_equals("User", flask_login.current_user.id)  # Filter
         )
-        p = list(
+        for trabP in datatrp:
+            if trabP.tpname == name and trabP.Proyecto == proy:
+                trp = trabP
+        datap = list(
             session
             .query(object_type=Proyecto)  # Query for Products
-            .where_equals("pname", proy)
             .where_equals("User", flask_login.current_user.id)
         )
-
         usr = list(
             session
             .query(object_type=User)  # Query for Products
             .where_equals("id", flask_login.current_user.id)
         )
+        for pry in datap:
+            if pry.pname == proy:
+                p = pry
 
-        for x in trp[0].matsNec:
+        for x in trp.matsNec:
             m[x['name']]=x['cant']
         pm = usr[0].depo
+        if not pm:
+            e = 'El deposito esta vacio.'
+            err.append(e)
         if pm:
             for key in m.keys():
                 #pm: disponibles, m: necesarios
@@ -449,16 +458,18 @@ def asig(name, proy):
                 if key in m.keys():
                     usr[0].depo[key]-=m[key]
 
-            if not trp[0].matsDisp:
-                trp[0].matsDisp = []
-                for x in trp[0].matsNec:
-                    trp[0].matsDisp.append(x)
+            if not trp.matsDisp:
+                trpmatsDisp = []
+                for x in trp.matsNec:
+                    trpmatsDisp.append(x)
+                trp.matsDisp = trpmatsDisp
+
 
             session.save_changes()
         else:
             return render_template('error.html', error=err)
     store.close()
-    return redirect(url_for('deetsProy', name = p[0].pname))
+    return redirect(url_for('deetsProy', name = p.pname))
 
 @app.route('/comp/<name>/<proy>')
 @login_required
@@ -507,38 +518,48 @@ def addExtra(name):
         cant = request.form['cant']
         err = []
         with store.open_session() as session:
-            trp = list(  # Materialize query
+            datatrp = list(  # Materialize query
                 session
                 .query(object_type=TrabajoP)  # Query for Products
-                .where_equals("tpname", tpname)
-                .where_equals("Proyecto", name)
                 .where_equals("User", flask_login.current_user.id)  # Filter
             )
-            p = list(
+            for trabP in datatrp:
+                if trabP.tpname == tpname and trabP.Proyecto == name:
+                    trp = trabP
+            datap = list(
                 session
                 .query(object_type=Proyecto)  # Query for Products
-                .where_equals("pname", name)
                 .where_equals("User", flask_login.current_user.id)
             )
-            pm = p[0].MatsDisponibles
+            usr = list(
+                session
+                .query(object_type=User)  # Query for Products
+                .where_equals("id", flask_login.current_user.id)
+            )
+            for proy in datap:
+                if proy.pname == name:
+                    p=proy
+            print(trp)
+            print(p)
+            pm = usr[0].depo
             if pm:
                 for key in pm.keys():
                     # pm: disponibles, m: necesarios
                     if key == matName:
-                        if pm[key] < int(cant):
+                        if pm[key] < float(cant):
                             e = 'No hay suficiente ' + key + '.'
                             err.append(e)
             if not err:
-                p[0].MatsDisponibles[matName] -= int(cant)
-                for x in trp[0].matsDisp:
+                usr[0].depo[matName] -= float(cant)
+                for x in trp.matsDisp:
                     if x['name'] == matName:
-                        x['cant'] += int(cant)
+                        x['cant'] += float(cant)
             else:
                 return render_template('error.html', error=err)
             session.save_changes()
         store.close()
 
-        return redirect(url_for('deetsProy', name=p[0].pname))
+        return redirect(url_for('deetsProy', name=p.pname))
 @app.route('/assigOb/<job>/<name>/<py>')
 @login_required
 def addObr(job,name,py):
@@ -547,18 +568,22 @@ def addObr(job,name,py):
         qObr = list(
             session
             .query(object_type=Obrero)  # Query for Products
-            .where_equals("name", name)
             .where_equals("User", flask_login.current_user.id)
         )
 
         qTbs = list(
             session
             .query(object_type=TrabajoP)  # Query for Products
-            .where_equals("tpname", job)
             .where_equals("User", flask_login.current_user.id)
         )
-        qTbs[0].addObrero(qObr[0].name,qObr[0].occ, p.pname)
-        qObr[0].addTrabajo(job,p.pname,dateNow())
+        for ob in qObr:
+            if ob.name == name:
+                obrero = ob
+        for tbp in qTbs:
+            if tbp.Proyecto == py and tbp.tpname == job:
+                trabP = tbp
+        trabP.addObrero(obrero.name,obrero.occ, p.pname)
+        obrero.addTrabajo(job,p.pname,dateNow())
         session.save_changes()
     store.close()
     return redirect(url_for('penScr', name= job,proy = p.pname))
@@ -703,8 +728,8 @@ def add_ped(name):
     p = queryP(Proyecto, name,flask_login.current_user.id)
     x = request.form['mat']
     mtname = x.split(' / ',1)[0]
-    mat = queryN(Material,mtname,flask_login.current_user.id)
-    val = int(request.form['cant'])
+    mat = queryNM(mtname,flask_login.current_user.id)
+    val = float(request.form['cant'])
     mat.cant = val
     mat.setTotal()
 
@@ -844,15 +869,18 @@ def add_job():
         c = request.form.getlist("mcant")
         cant = [s for s in c if s.strip()]
         jmats = []
+
         for m, c in zip(materiales,cant):
-            aux = queryN(Material, m, flask_login.current_user.id)
+            aux = queryNM(m, flask_login.current_user.id)
             #aux = q[0]
             #(self, name, type, price, Proveedor, cant)
-            mat = Material(aux.getName(),aux.getType(),int(aux.getPrice()),'',int(c),flask_login.current_user.id)
+            mat = Material(aux.name,aux.type,int(aux.price),aux.Proveedor,float(c),flask_login.current_user.id)
+            mat.setTotal()
+            print(mat.total)
             jmats.append(mat)
         total = 0
         for mat in jmats:
-            total += int(mat.getTotal())
+            total += int(mat.total)
 
 
         trabajo = Trabajo(name,int(precio), total, (int(precio)+total) ,desc,jmats,0,flask_login.current_user.id)
@@ -1080,12 +1108,32 @@ def del_usr(id):
 
     return redirect('/pers')
 
+@app.route('/delProv/<id>', methods=['POST','GET'])
+@login_required
+def del_prov(id):
+    with store.open_session() as session:
+        u = list(  # Materialize query
+            session
+            .query(object_type=Proveedor)  # Query for Products
+            .where_equals("User", flask_login.current_user.id)
+            # .skip(0).take(10)                       # Page
+            #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
+        )
+        print(u)
+        for prov in u:
+            if prov.name == id:
+                print(u)
+                session.delete_by_entity(u[0])
+                session.save_changes()
+    store.close()
+
+    return redirect('/prov')
+
 @app.route('/baja', methods=['POST','GET'])
 @login_required
 def darBaja():
     if request.method == 'POST':
         x = request.form['obrero']
-        obName = x.split(' / ',1)[0]
         obCed = x.split(' / ',1)[1]
         mot = request.form['baja']
         with store.open_session() as session:
@@ -1093,7 +1141,6 @@ def darBaja():
             o = list(  # Materialize query
                 session
                 .query(object_type=Obrero)
-                .where_equals("name",obName)# Query for Products
                 .where_equals("ced", obCed)# Filter
                 # .skip(0).take(10)                       # Page
                 #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
@@ -1104,14 +1151,13 @@ def darBaja():
 
     return redirect('/pers')
 
-@app.route('/alta/<name>/<ced>', methods=['POST','GET'])
+@app.route('/alta/<ced>', methods=['POST','GET'])
 @login_required
-def darAlta(name,ced):
+def darAlta(ced):
     with store.open_session() as session:
         o = list(  # Materialize query
             session
-            .query(object_type=Obrero)
-            .where_equals("name", name)  # Query for Products
+            .query(object_type=Obrero) # Query for Products
             .where_equals("ced", ced)  # Filter
             # .skip(0).take(10)                       # Page
             # .select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
@@ -1185,15 +1231,17 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         clave = request.form['pass']
-        users = queryUsers(username,clave)
+        users = queryUser(username)
 
         if not users:
             print('No hay usuarios')
             return redirect('/login')
         else:
-            login_user(users[0])
-            current_user = users[0]
-            return flask.render_template('homescreen.html', form=data)
+            for u in users:
+                if u.id == username and u.password == clave:
+                    print(u.name)
+                    login_user(u)
+                    return flask.render_template('homescreen.html', form=data)
 
 
 

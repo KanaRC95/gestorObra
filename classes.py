@@ -83,12 +83,10 @@ class Material:
         self.price = price
         self.Proveedor = Proveedor
         self.User = User
-        if cant == 0:
-            self.total = 0
-            self.cant = 0
-        else:
-            self.cant = cant
-            self.total = int(self.price) * int(self.cant)
+        self.cant = cant
+        self.total = 0
+
+
 
 
     def getName(self):
@@ -104,7 +102,7 @@ class Material:
         return self.price
 
     def setTotal(self):
-        self.total = int(self.price) * int(self.cant)
+        self.total = int(self.price) * float(self.cant)
         return self.total
 
     def getTotal(self):
