@@ -15,31 +15,56 @@
 <br>
 <br>
 
-<table class="table table-striped table-hover table-bordered">
-            <thead>
-                <tr>
-                    <td style="background: dimgray">Nombre</td>
-                    <td style="background: dimgray">Precio Unitario</td>
-                    <td style="background: dimgray" >Cantidad</td>
-                    <td style="background: dimgray" >Total</td>
-                    <td style="background: dimgray" >Opciones</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for mat in mats %}
-                <tr>
-                    <td>{{mat.name}}</td>
-                    <td>{{mat.price}}</td>
-                    <td>{{mat.cant}}</td>
-                    <td>{{mat.total}}</td>
-                    <td>
-                        <a type="button" class="btn btn-warning" >Editar</a>
-                        <a type="button" class="btn btn-danger" >Borrar</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-</table>
+<form action="/editJob/{{job.name}}" method="POST">
+
+          <div class="form-group">
+            <label class="form-label mt-4">Nombre</label>
+            <input type="text" class="form-control" name="tname" value={{job.name}}>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label mt-4">Precio de Mano de Obra</label>
+            <input type="text" class="form-control" name="tprice" value="{{job.priceM}}">
+            </div>
+          <div class="form-group">
+            <label class="form-label mt-4">Descripcion</label>
+            <input type="text" class="form-control"  name="tdesc" value="{{job.desc}}">
+          </div>
+        <div class="form-group">
+            <label  class="form-label mt-4">Medicion</label>
+            <select class="form-select" name="med">
+                <option>Metros / (m)</option>
+                <option>Metros Cuadrados / (m2)</option>
+                <option>Metros Cubicos / (m3)</option>
+            </select>
+          </div>
+
+        <div class="form-group">
+            <label class="form-label mt-4">Materiales</label>
+            <br>
+
+        <table>
+            {% if job.Materiales|length == 0 %}
+            No hay materiales en la BD.
+            {% else %}
+            {% for mat in job.Materiales %}
+                <td>
+                    <label><input type="checkbox" value="{{mat.name}}" name="check" id="check">{{mat.name}}</label>
+                    <input type="text" class="form-control" id="mcant" name="mcant" value="{{mat.cant}}">
+                 </td>
+            {% endfor %}
+            {% endif %}
+        </table>
+        </div>
+
+
+
+    <br>
+    <br>
+        <button type="submit" class="btn btn-success">Guardar</button>
+
+
+</form>
 
 
 </body>

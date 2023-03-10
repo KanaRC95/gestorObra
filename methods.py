@@ -30,6 +30,18 @@ def query(type, user):
             val.append(x)
     return val
 
+def queryAudits(type, user):
+    with store.open_session() as session:
+        data = list(  # Materialize query
+            session
+            .query(object_type=type)
+        )
+    store.close()
+    val = []
+    for x in data:
+        if x.User['id'] == user:
+            val.append(x)
+    return val
 def queryUrs():
     with store.open_session() as session:
         data = list(  # Materialize query
@@ -38,7 +50,7 @@ def queryUrs():
             #.where_equals("User",user)  # Query for Products
             # .where_greater_than("UnitsInStock", 5)  # Filter
             # .skip(0).take(10)                       # Page
-            #.select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+            .select("id", "name", "password")  # Project
         )
     store.close()
     return data

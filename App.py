@@ -74,7 +74,8 @@ def rmats():
 @app.route('/audits')
 @login_required
 def audits():
-    data = query(Audit, flask_login.current_user.id)
+    data = queryAudits(Audit, flask_login.current_user.id)
+    print(data)
     return render_template('audits.html', data=data)
 
 @app.route('/pers')
@@ -612,7 +613,7 @@ def add_mats():
 @app.route('/editScreen/<name>')
 @login_required
 def edit_mat(name):
-    m = queryN(Material,name,flask_login.current_user.id)
+    m = queryNM(name,flask_login.current_user.id)
     p = query(Proveedor,flask_login.current_user.id)
     return render_template('editMScreen.html', mat=m, provs=p)
 
@@ -628,7 +629,7 @@ def editS():
         x = queryN(Proveedor, prov,flask_login.current_user.id)
         newTM = 0
         # (self, name, type, price, Proveedor, cant)
-        material = queryN(Material,name,flask_login.current_user.id)
+        material = queryNM(name,flask_login.current_user.id)
         with store.open_session() as session:
             datam = list(
                 session
@@ -667,7 +668,7 @@ def editS():
 
         store.close()
         t = datetime.datetime.now()
-        newM = queryN(Material,name,flask_login.current_user.id)
+        newM = queryNM(name,flask_login.current_user.id)
         audit = Audit(material,newM,t, flask_login.current_user)
         addObject(audit)
         return redirect(url_for('rmats'))
@@ -1005,12 +1006,34 @@ def del_job(name):
             if x.User == flask_login.current_user.id:
                 job = x
         if job != '':
-            session.delete_by_entity(p[0])
+            session.delete_by_entity(job)
         session.save_changes()
 
     store.close()
 
     return redirect(url_for('rjobs'))
+
+@app.route('/delC/<ruc>', methods=['POST','GET'])
+@login_required
+def delC(ruc):
+    client = ''
+    with store.open_session() as session:
+        p = list(  # Materialize query
+            session
+            .query(object_type=Cliente)  # Query for Products
+            .where_equals("ruc", ruc)
+            # .skip(0).take(10)                       # Page
+            #.select('oname', 'Cliente', "addr", 'Trabajos', 'status', 'budget')  # Project
+        )
+        for x in p:
+            if x.User == flask_login.current_user.id:
+                client = x
+        if client != '':
+            session.delete_by_entity(client)
+        session.save_changes()
+
+    store.close()
+    return redirect(url_for('cl'))
 
 @app.route('/del_mat/<name>', methods=['POST','GET'])
 @login_required
@@ -1040,7 +1063,7 @@ def bajMat(name):
         mtname = material.split(' / ', 1)[0]
         cantidad = int(request.form['cant'])
         razon = request.form['razon']
-        mat = queryN(Material, mtname, flask_login.current_user.id)
+        mat = queryNM(mtname, flask_login.current_user.id)
         with store.open_session() as session:
             usr = list(
                 session
@@ -1171,12 +1194,62 @@ def darAlta(ced):
 
 @app.route('/edit_job/<id>', methods=['POST','GET'])
 @login_required
-def addM_toJob(id):
-    job = queryJobsL(id)
-    dataM = job[0].Materiales
-    title = job[0].name
-    return flask.render_template('job_edit.html', title=title, mats=dataM, job=job[0])
+def JobEdit(id):
+    j = query(Trabajo,flask_login.current_user.id)
+    for x in j:
+        if x.name == id:
+            job = x
+    return flask.render_template('job_edit.html', job=job)
+@app.route('/editJob/<id>', methods=['POST','GET'])
+@login_required
+def editJob(id):
 
+    if request.method == 'POST':
+        with store.open_session() as session:
+            job = ''
+            j = list(  # Materialize query
+                session
+                .query(object_type=Trabajo)
+                .where_equals("name", id)  # Query for Products
+                # .where_greater_than("UnitsInStock", 5)  # Filter
+                # .skip(0).take(10)                       # Page
+                # .select("name", "unit", "contacto", "type","price", "Proveedor","cant")  # Project
+            )
+            for x in j:
+                if x.User == flask_login.current_user.id:
+                    job = x
+            print(job)
+            session.delete_by_entity(job)
+            session.save_changes()
+        store.close()
+
+        name = request.form['tname']
+        precio = request.form['tprice']
+        desc = request.form['tdesc']
+        md = request.form['med']
+        materiales = request.form.getlist("check")
+        c = request.form.getlist("mcant")
+        cant = [s for s in c if s.strip()]
+        jmats = []
+
+        for m, c in zip(materiales,cant):
+            aux = queryNM(m, flask_login.current_user.id)
+            #aux = q[0]
+            #(self, name, type, price, Proveedor, cant)
+            mat = Material(aux.name,aux.type,int(aux.price),aux.Proveedor,float(c),flask_login.current_user.id)
+            mat.setTotal()
+            print(mat.total)
+            jmats.append(mat)
+        total = 0
+        for mat in jmats:
+            total += int(mat.total)
+
+
+        trabajo = Trabajo(name,int(precio), total, (int(precio)+total) ,desc,jmats,0,flask_login.current_user.id)
+        trabajo.medicion = md
+        addObject(trabajo)
+        return redirect(url_for('rjobs'))
+    return 0
 @app.route('/save', methods=['GET','POST'])
 @login_required
 def save():
@@ -1233,15 +1306,21 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         clave = request.form['pass']
-        users = queryUser(username)
 
+        with store.open_session() as session:
+            users = list(  # Materialize query
+                session
+                .query(object_type=User)
+                .where_equals('id',username)
+                )
+            store.close()
         if not users:
             print('No hay usuarios')
-            return redirect('/login')
+            return redirect('/')
         else:
             for u in users:
+                print(u)
                 if u.id == username and u.password == clave:
-                    print(u.name)
                     login_user(u)
                     return flask.render_template('homescreen.html', form=data)
 
